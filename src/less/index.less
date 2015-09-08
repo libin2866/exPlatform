@@ -1,24 +1,173 @@
 @import "base/reset";
 @import "base/mixin";
 
-body{
-  //background: @black;
-
+@theme-color: #00D8B9;
+body {
+  background: url('img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: auto;
 }
-.title-bar{
+
+.header-deco {
+  background: url("img/header.png") no-repeat;
+  margin: 1px auto;
+  width: 1200px;
+  height: 137px;
+  .pb(40px);
+}
+
+.title-bar {
   .tc();
-  .mt(40px);
   font-size: 48px;
-  //color:@dark-green;
+  padding-top: 30px;
   //-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(8,198,168,1)), to(rgba(4,157,131,1)));
-
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(2,255,214,1)), to(rgba(4,151,128,1)));
-  -webkit-background-clip:text;/*只有webkit内核支持text的剪切模式*/
-  color:transparent;
-
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 231, 196, 1)), to(rgba(0, 162, 137, 1)));
+  -webkit-background-clip: text; /*只有webkit内核支持text的剪切模式*/
+  color: transparent;
 }
 
-.main-container{
-  width: 960px;
-  .bd();
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  //.mt(50px);
+  //.bd();
+  .left-navi {
+    .dib();
+    width: 150px;
+    height: 100%;
+    li {
+      margin: 20px 0;
+      .right-line {
+        .dib();
+        color: @theme-color;
+        writing-mode: lr-tb;
+        font-size: 22px;
+        .mr(10px);
+      }
+    }
+  }
+  //left-navi
+
+  .icons-container {
+    .dib();
+    width: 600px;
+    height: 500px;
+    background: url('img/main-container.svg') no-repeat;
+    vertical-align: top;
+    .ml(15px);
+
+
+    ul{
+      color:@theme-color;
+      font-size: 24px;
+      line-height: 135px;
+      text-align: center;
+      li{
+        .dib();
+        width: 160px;
+      }
+    }
+    .first-line{
+      .mt(50px);
+    }
+    .second-line{
+      .mt(10px);
+
+    }
+    .third-line{
+
+    }
+  }
+
+  .icons-container-pop {
+    .dib();
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
+    border-radius: 15%;
+    border: 4px solid @theme-color;
+
+    .box {
+      overflow: hidden;
+      position: relative;
+    }
+    .t_l, .t_m, .t_r, .b_l, .b_m, .b_r, .m_l, .m_r {
+      position: absolute;
+      z-index: 2;
+    }
+
+  }
+
+  .right-area {
+      .dib();
+      width: 420px;
+      height: 465px;
+      background: url('img/info-frame.svg') no-repeat;
+      vertical-align: top;
+      .ml(5px);
+      .mt(30px);
+      ul {
+        margin: 0 auto;
+        width: 300px;
+        .mt(70px);
+      }
+      li {
+          margin: 40px 0;
+          color: @theme-color;
+          font-size: 22px;
+          .title {
+            .dib();
+            width: 70px;
+             margin-right: 10px;
+          }
+          .input-line {
+            color:@theme-color;
+            width: 180px;
+            height: 40px;
+            border: none;
+            padding-left: 15px;
+            vertical-align: middle;
+            background: url('img/input-icon.svg') no-repeat;
+          }
+
+          p {
+            text-align: center;
+             margin: 20px 0;
+          }
+      }
+
+  }
+
+  .appli-icon {
+    .dib();
+    width: 100px;
+    height: 100px;
+    background: url('img/apli-icon.svg');
+  }
+  .sys-icon {
+    .dib();
+    width: 100px;
+    height: 100px;
+    background: url('img/sys-icon.svg');
+  }
+  .tech-icon {
+    .dib();
+    width: 100px;
+    height: 100px;
+    background: url('img/tech-icon.svg');
+  }
+  .purple-btn {
+    .dib();
+    width: 120px;
+    height: 48px;
+    background: url('img/login-btn-icon.svg');
+    border: none;
+    color: #fff;
+    font-size: 20px;
+  }
 }

@@ -85,16 +85,181 @@ input[type=search] {
 .hidden {
   display: none!important;
 }
+body {
+  background: url('img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: auto;
+}
+.header-deco {
+  background: url("img/header.png") no-repeat;
+  margin: 1px auto;
+  width: 1200px;
+  height: 137px;
+  padding-bottom: 40px;
+}
 .title-bar {
   text-align: center;
-  margin-top: 40px;
   font-size: 48px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#02ffd6), to(#049780));
+  padding-top: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00e7c4), to(#00a289));
   -webkit-background-clip: text;
   /*只有webkit内核支持text的剪切模式*/
   color: transparent;
 }
 .main-container {
-  width: 960px;
-  border: 1px solid #d0d0d5;
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.main-container .left-navi {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 150px;
+  height: 100%;
+}
+.main-container .left-navi li {
+  margin: 20px 0;
+}
+.main-container .left-navi li .right-line {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  color: #00d8b9;
+  writing-mode: lr-tb;
+  font-size: 22px;
+  margin-right: 10px;
+}
+.main-container .icons-container {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 600px;
+  height: 500px;
+  background: url('img/main-container.svg') no-repeat;
+  vertical-align: top;
+  margin-left: 15px;
+}
+.main-container .icons-container ul {
+  color: #00d8b9;
+  font-size: 24px;
+  line-height: 135px;
+  text-align: center;
+}
+.main-container .icons-container ul li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 160px;
+}
+.main-container .icons-container .first-line {
+  margin-top: 50px;
+}
+.main-container .icons-container .second-line {
+  margin-top: 10px;
+}
+.main-container .icons-container-pop {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  border-radius: 15%;
+  border: 4px solid #00d8b9;
+}
+.main-container .icons-container-pop .box {
+  overflow: hidden;
+  position: relative;
+}
+.main-container .icons-container-pop .t_l,
+.main-container .icons-container-pop .t_m,
+.main-container .icons-container-pop .t_r,
+.main-container .icons-container-pop .b_l,
+.main-container .icons-container-pop .b_m,
+.main-container .icons-container-pop .b_r,
+.main-container .icons-container-pop .m_l,
+.main-container .icons-container-pop .m_r {
+  position: absolute;
+  z-index: 2;
+}
+.main-container .right-area {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 420px;
+  height: 465px;
+  background: url('img/info-frame.svg') no-repeat;
+  vertical-align: top;
+  margin-left: 5px;
+  margin-top: 30px;
+}
+.main-container .right-area ul {
+  margin: 0 auto;
+  width: 300px;
+  margin-top: 70px;
+}
+.main-container .right-area li {
+  margin: 40px 0;
+  color: #00d8b9;
+  font-size: 22px;
+}
+.main-container .right-area li .title {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 70px;
+  margin-right: 10px;
+}
+.main-container .right-area li .input-line {
+  color: #00d8b9;
+  width: 180px;
+  height: 40px;
+  border: none;
+  padding-left: 15px;
+  vertical-align: middle;
+  background: url('img/input-icon.svg') no-repeat;
+}
+.main-container .right-area li p {
+  text-align: center;
+  margin: 20px 0;
+}
+.main-container .appli-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100px;
+  height: 100px;
+  background: url('img/apli-icon.svg');
+}
+.main-container .sys-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100px;
+  height: 100px;
+  background: url('img/sys-icon.svg');
+}
+.main-container .tech-icon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100px;
+  height: 100px;
+  background: url('img/tech-icon.svg');
+}
+.main-container .purple-btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 120px;
+  height: 48px;
+  background: url('img/login-btn-icon.svg');
+  border: none;
+  color: #fff;
+  font-size: 20px;
 }
