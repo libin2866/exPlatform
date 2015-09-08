@@ -1,0 +1,5 @@
+/idea
+.DS_Store
+/Mac_OS_X
+/node_modules
+npm-debug.log

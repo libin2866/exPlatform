@@ -1,0 +1,159 @@
+@import 'variable';
+/*
+ *
+ * @mixin.less
+ * @author libin
+ * @create 15-09-06
+ */
+// for font & text & tag
+.link() { color: @link; }
+.red(){color: @red;}
+.gray() {color: @gray;}
+.green(){color:@green;}
+.blue(){color:@blue;}
+.white() { color: @white; }
+.dark() { color: @dark; }
+
+// class css  single CSS
+// display
+.db(){display:block;}
+.di(){display:inline;}
+.dn(){display:none;}
+.dib(){ display:inline-block; *display:inline; .z;}
+// float
+.l(){float:left;}
+.r(){float:right;}
+//text-align
+.tl(){ text-align: left; }
+.tr(){ text-align: right; }
+.tc(){ text-align: center; }
+// font style
+.n() { font-weight: normal; font-style: normal; }
+.b() { font-weight: bold; }
+.i()  { font-style: italic; }
+// white-space
+.nowrap() { white-space: nowrap; }
+// word-wrap
+.bk() { word-wrap: break-word; }
+// vertical-align
+.vm() { vertical-align: middle; }
+.vb() { vertical-align: bottom; }
+.vt() { vertical-align: top; }
+.vn() { vertical-align: -4px; }
+// position
+.rel() { position: relative; }
+.abs() { position: absolute; }
+// cursor
+.poi() { cursor: pointer; }
+.def() { cursor: default; }
+// overflow
+.ovh() { overflow: hidden; }
+.ova() { overflow: auto; }
+// visibility
+.vh() { visibility: hidden; }
+.vv() { visibility: visible; }
+// zoom
+.z() { *zoom:1; }
+
+// function with var
+// height
+.h(@h:100%) when (ispercentage(@h)) { height: @h; }
+.h(@h:100%) when not (ispercentage(@h)) { height: unit(@h, px);}
+// width
+.w(@w:100%) when (ispercentage(@w)) { width: @w; }
+.w(@w:100%) when not (ispercentage(@w)) { width: unit(@w, px);}
+// line-height
+.lh(@lh:20px) { line-height: @lh; }
+// margin
+.mt(@m:20px) { margin-top: unit(@m, px); }
+.mb(@m:20px) { margin-bottom: unit(@m, px); }
+.ml(@m:20px) { margin-left: unit(@m, px); }
+.mr(@m:20px) { margin-right: unit(@m, px); }
+// padding
+.p(@p:20px) { padding: unit(@p, px); }
+.pt(@p:20px) { padding-top: unit(@p, px); }
+.pb(@p:20px) { padding-bottom: unit(@p, px); }
+.pl(@p:20px) { padding-left: unit(@p, px); }
+.pr(@p:20px) { padding-right: unit(@p, px); }
+// border
+.bd (@bd:@border-color) { border: 1px solid @bd; }
+// color
+.c(@c:@black) { color: @c; }
+// bg
+.bg(@bg:@white) { background-color: @bg; }
+// font-size
+.f(@f:12px) { font-size: unit(@f, px); }
+// letter-spacing
+.lt(@lt) { letter-spacing: unit(@lt, px); }
+// z-index
+.zx(@zx) { z-index: @zx; }
+
+// ---------- multiply CSS ----------
+// 块状元素水平居中
+.auto() { margin-left: auto; margin-right: auto; }
+// 清除浮动
+.fix() {
+  .z;
+  &:after{display:table; content:''; clear:both;}
+}
+// 基于display:table-cell的自适应布局
+.cell() { display:table-cell; *display:inline-block; width:2000px; *width:auto;}
+// 双栏自适应cell部分连续英文字符换行
+.cell-bk() { display:table; width:100%; table-layout:fixed; word-wrap:break-word;}
+// 单行文字溢出虚点显 示
+.ell() { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+// css3过渡动画效果
+.trans(@time:250ms){
+  -webkit-transition:all unit(@time, ms);
+  transition:all unit(@time, ms);
+}
+// 隐藏
+.clip() { position: absolute; clip: rect(0 0 0 0); }
+// 透明度
+.opacity(@opacity: 0) {
+  opacity: @opacity/100;
+  filter: alpha(opacity=@opacity);
+  .z;
+}
+// border-radius
+.radius(@radius) {
+  @_radius: unit(@radius, px);
+  width: @_radius; height: @_radius;
+  border-radius: @_radius;
+}
+// 大小不定元素垂直居中
+.middle() { display: inline-block; width: 0; height: 100%; vertical-align: middle; }
+.center(@ml) { position: absolute; left: 50%; margin-left: unit(@ml, px); }
+// 覆盖
+.full(@size: 100%) { width: @size; height: @size; }
+// 比例浮动
+.float(@column) { float: left; width: percentage(1 / @column); }
+// 计算
+.calc(@rate) when (@rate = 1) {
+  padding-right: ~"-webkit-calc(230px + 100% - 100vw)";
+  padding-right: ~"calc(230px + 100% - 100vw)";
+}
+.calc(@rate) when (@rate = -1) {
+  :root & {
+    margin-right: 0; margin-left: 0;
+    padding-left: 0; padding-right: 0;
+  }
+  &::after, &::before {
+    content: '';
+    height: inherit; border: inherit; background: inherit;
+    position: absolute; right: 0; top: 0;
+  }
+  &::after {
+    width: ~"-webkit-calc(230px + 100% - 100vw)";
+    width: ~"calc(230px + 100% - 100vw)";
+    right: 0;
+  }
+  &::before {
+    width: 30px;
+    left: 0;
+  }
+}
+
+.hidden {
+  display: none!important;
+}
