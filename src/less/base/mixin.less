@@ -157,3 +157,34 @@
 .hidden {
   display: none!important;
 }
+
+
+@theme-color: #00D8B9;
+
+body {
+  background: url('img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: auto;
+  font-size: 16px;
+}
+
+.header-deco {
+  background: url("img/header.png") no-repeat;
+  margin: 1px auto;
+  width: 1200px;
+  height: 137px;
+  .pb(40px);
+}
+.purple-btn {
+  .dib();
+  width: 120px;
+  height: 48px;
+  background: url('img/login-btn-icon.svg') no-repeat;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+    background: url('img/login-btn-highlight.svg') no-repeat;
+  }
+}

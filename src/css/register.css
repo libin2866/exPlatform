@@ -1,0 +1,173 @@
+body {
+  font: 14px/1.42858 'microsoft yahei', arial, sans-serif;
+  background-color: #edf0f5;
+  color: #545a6c;
+}
+:focus {
+  outline: none;
+}
+h4,
+h3,
+h2,
+h1,
+h5,
+h6 {
+  font-size: 100%;
+  margin: 0;
+  font-weight: 400;
+}
+body,
+form,
+ul,
+ol,
+dl,
+dd,
+p {
+  margin: 0;
+}
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+img {
+  border: none;
+  vertical-align: bottom;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  font-family: arial, 'microsoft yahei', sans-serif;
+}
+select {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+table {
+  border-spacing: 0;
+  table-layout: fixed;
+}
+/*禁用ie下文本框后面的X*/
+input::-ms-clear {
+  display: none;
+}
+input[type=search] {
+  -webkit-appearance: none;
+}
+/**
+ *
+ * @variable.less
+ * @author libin
+ * @create 15-09-06
+ */
+/*
+ *
+ * @mixin.less
+ * @author libin
+ * @create 15-09-06
+ */
+.hidden {
+  display: none!important;
+}
+body {
+  background: url('img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: auto;
+  font-size: 16px;
+}
+.header-deco {
+  background: url("img/header.png") no-repeat;
+  margin: 1px auto;
+  width: 1200px;
+  height: 137px;
+  padding-bottom: 40px;
+}
+.purple-btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 120px;
+  height: 48px;
+  background: url('img/login-btn-icon.svg') no-repeat;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+.purple-btn:hover {
+  cursor: pointer;
+  background: url('img/login-btn-highlight.svg') no-repeat;
+}
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  color: #00d8b9;
+  font-size: 18px;
+}
+.main-container .header {
+  width: 890px;
+  height: 115px;
+  margin: 0 auto;
+  background-size: cover;
+  background: url('img/reg/reg-header.svg') no-repeat;
+}
+.main-container .container {
+  width: 900px;
+  height: 425px;
+  margin: 0 auto;
+  background-size: cover;
+  background: url('img/reg/reg-bg.svg') no-repeat;
+}
+.main-container .container .input-ul {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  float: left;
+  margin-left: 85px;
+  margin-top: 40px;
+}
+.main-container .container .input-ul li {
+  line-height: 150%;
+  margin: 20px 0;
+}
+.main-container .container .input-ul li button {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.main-container .container .input-ul .title {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100px;
+}
+.main-container .container .input-ul input {
+  color: #00d8b9;
+  vertical-align: middle;
+}
+.main-container .container .error-info {
+  color: #ff0011;
+  text-align: center;
+}
+.main-container .input-background {
+  width: 200px;
+  height: 40px;
+  border: none;
+  background: url('img/reg/reg-input.svg') no-repeat;
+  padding: 5px;
+  padding-right: 13px;
+}

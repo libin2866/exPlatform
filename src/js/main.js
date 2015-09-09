@@ -7,12 +7,10 @@ $(function () {
     var rightContainer = container.find('.right-area');
     rightContainer.find('#registerBtn').on('click', function () {
         console.log('to register');
+        location.href = './page/register.html';
+
     });
     rightContainer.find('#loginBtn').on('click', function () {
-        console.log('to login');
-        console.log(this);
-        console.log($(this));
-        $(this);
         var username = rightContainer.find('#username'),
             password = rightContainer.find('#password');
         if (!username.val()) {
@@ -23,17 +21,24 @@ $(function () {
             rightContainer.find('.error-info').text("请输入密码！");
             return;
         }
-
+        rightContainer.find('#password').val("");
         rightContainer.find('.login-area').hide();
-        rightContainer.find('.info-area').fadeIn().css("display", "inline-block");
+        rightContainer.find('.info-area').fadeIn("normal", bindSideBarEvents).css("display", "inline-block");
 
-        bindSideBarEvents();
 
 
     });
 
     function bindSideBarEvents() {
+
         var sidebar = rightContainer.find('.right-side-bar');
+        sidebar.prev().on('click', function () {
+           console.log('to logout');
+
+            rightContainer.find('.info-area').hide();
+            rightContainer.find('.login-area').fadeIn();
+
+        });
         sidebar.find('.person-info').on('click', function () {
             if ($(this).hasClass('current')) {
                 return;

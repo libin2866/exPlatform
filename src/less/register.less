@@ -1,0 +1,60 @@
+@import "base/reset";
+@import "base/mixin";
+
+.main-container{
+  width: 1200px;
+  margin: 0 auto;
+  color:@theme-color;
+  font-size: 18px;
+
+  .header{
+    width: 890px;
+    height: 115px;
+    margin: 0 auto;
+    background-size: cover;
+    background: url('img/reg/reg-header.svg') no-repeat;
+  }
+  .container{
+    width: 900px;
+    height: 425px;
+    margin: 0 auto;
+    background-size: cover;
+    background: url('img/reg/reg-bg.svg') no-repeat;
+    .input-ul{
+      .dib();
+      float: left;
+      .ml(85px);
+      .mt(40px);
+      //width: 50%;
+      li{
+        line-height: 150%;
+        margin: 20px 0;
+        button{
+          .mt(20px);
+         .ml(20px;);
+        }
+      }
+      .title{
+        .dib();
+        width: 100px;
+      }
+      input{
+        color:@theme-color;
+        vertical-align: middle;
+      }
+    }
+    .error-info{
+      color:#ff0011;
+      text-align: center;
+    }
+  }
+
+  .input-background{
+    width: 200px;
+    height: 40px;
+    border: none;
+    background: url('img/reg/reg-input.svg') no-repeat;
+    padding: 5px;
+    padding-right: 13px;
+  }
+}
