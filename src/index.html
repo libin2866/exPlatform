@@ -17,11 +17,11 @@
                 <i class="appli-icon"></i>
             </li>
             <li>
-                <p  class="right-line">系<br/>统<br/>模<br/>块</p>
+                <p class="right-line">系<br/>统<br/>模<br/>块</p>
                 <i class="sys-icon"></i>
             </li>
             <li>
-                <p  class="right-line"> 支<br/>撑<br/>技<br/>术</p>
+                <p class="right-line"> 支<br/>撑<br/>技<br/>术</p>
                 <i class="tech-icon"></i>
             </li>
         </ul>
@@ -37,7 +37,7 @@
             <li>行业应用</li>
             <li>行业应用</li>
         </ul>
-        <ul  class="third-line">
+        <ul class="third-line">
             <li>行业应用</li>
             <li>行业应用</li>
             <li>行业应用</li>
@@ -62,20 +62,73 @@
         <ul class="login-area">
             <li>
                 <span class="title">用户名</span>
-                <span ><input class="input-line" type="text" placeholder="请输入用户名" id="username"></span>
+                <span><input class="input-line" type="text" placeholder="请输入用户名" id="username"></span>
             </li>
             <li>
                 <span class="title">密码</span>
-                <span ><input class="input-line" type="password" placeholder="请输入密码" id="username"></span>
+                <span><input class="input-line" type="password" placeholder="请输入密码" id="password"></span>
             </li>
             <li>
-                <p><button class="purple-btn">注&nbsp;册</button></p>
-               <p><button class="purple-btn">登&nbsp;陆</button></p>
+                <p>
+                    <button class="purple-btn" id="registerBtn">注&nbsp;&nbsp;册</button>
+                </p>
+                <p>
+                    <button class="purple-btn" id="loginBtn">登&nbsp;&nbsp;陆</button>
+                </p>
+            </li>
+            <li>
+                <p class="error-info"></p>
             </li>
         </ul>
+        <div class="info-area" style="display: none">
+            <button class="purple-btn logout">退出</button>
+            <div class="right-side-bar">
+                <div class="right-side-btn person-info current">个<br/>人<br/>信<br/>息</div><br/>
+                <div class="right-side-btn system-info">系<br/>统<br/>属<br/>性</div><br/>
+                <div class="right-side-btn task-info">任<br/>务<br/>状<br/>态</div>
+            </div>
+            <div class="person-content">
+                <ul class="info-ul">
+                    <li><span class="title">用户名：</span><span>User</span></li>
+                    <li><span class="title">邮&nbsp;箱：</span><span>123@fudan.com</span></li>
+                    <li><span class="title">工作单位：</span><span>复旦大学</span></li>
+                    <li><span class="title">联系方式：</span><span>02112345689</span></li>
+                </ul>
+                <div class="btn-area">
+                    <button class="purple-btn edit-info">编&nbsp;辑</button>
+                    <button class="purple-btn upload-algorithm">上传算法</button>
+                </div>
+            </div>
+            <div class="system-content" style="display: none">
+                <ul>
+                    <li><span class="title">CPU：</span><span>10</span></li>
+                    <li><span class="title">硬盘：</span><span>200T</span></li>
+                    <li><span class="title">内存：</span><span>4G</span></li>
+                    <li><span class="title">内存使用：</span><span>45%</span></li>
+                    <li><span class="title">在线用户：</span><span>2000</span></li>
+                </ul>
+            </div>
+            <div class="task-content" style="display: none">
+               <div class="running">
+                   <ul>
+                       <li>任务1：HOG检测90% 展示</li>
+                       <li>任务2：HOG检测90% 展示</li>
+                   </ul>
+               </div>
+                <div class="finished" >
+                    <ul>
+                        <li>任务1：HOG检测90% 展示</li>
+                        <li>任务2：HOG检测90% 展示</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
-
+<!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

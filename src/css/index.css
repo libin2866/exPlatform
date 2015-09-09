@@ -89,6 +89,7 @@ body {
   background: url('img/bg.png') no-repeat center center fixed;
   background-size: cover;
   overflow: auto;
+  font-size: 16px;
 }
 .header-deco {
   background: url("img/header.png") no-repeat;
@@ -117,6 +118,7 @@ body {
   *zoom: 1;
   width: 150px;
   height: 100%;
+  padding-top: 20px;
 }
 .main-container .left-navi li {
   margin: 20px 0;
@@ -126,7 +128,6 @@ body {
   *display: inline;
   *zoom: 1;
   color: #00d8b9;
-  writing-mode: lr-tb;
   font-size: 22px;
   margin-right: 10px;
 }
@@ -198,24 +199,26 @@ body {
   margin-left: 5px;
   margin-top: 30px;
 }
-.main-container .right-area ul {
+.main-container .right-area li {
+  color: #00d8b9;
+  font-size: 22px;
+}
+.main-container .right-area .login-area {
   margin: 0 auto;
   width: 300px;
   margin-top: 70px;
 }
-.main-container .right-area li {
+.main-container .right-area .login-area li {
   margin: 40px 0;
-  color: #00d8b9;
-  font-size: 22px;
 }
-.main-container .right-area li .title {
+.main-container .right-area .login-area li .title {
   display: inline-block;
   *display: inline;
   *zoom: 1;
   width: 70px;
   margin-right: 10px;
 }
-.main-container .right-area li .input-line {
+.main-container .right-area .login-area li .input-line {
   color: #00d8b9;
   width: 180px;
   height: 40px;
@@ -224,9 +227,48 @@ body {
   vertical-align: middle;
   background: url('img/input-icon.svg') no-repeat;
 }
-.main-container .right-area li p {
+.main-container .right-area .login-area li .error-info {
+  color: #ff0011;
+  text-align: center;
+}
+.main-container .right-area .login-area li p {
   text-align: center;
   margin: 20px 0;
+}
+.main-container .right-area .info-area .right-side-bar {
+  position: absolute;
+  right: -20px;
+  top: 90px;
+}
+.main-container .right-area .info-area .person-content {
+  width: 400px;
+  font-size: inherit;
+  margin: 0 auto;
+}
+.main-container .right-area .info-area .person-content ul {
+  width: 350px;
+  font-size: inherit;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-top: 70px;
+}
+.main-container .right-area .info-area .person-content ul li {
+  margin: 20px 0;
+}
+.main-container .right-area .info-area .person-content ul li .title {
+  width: 120px;
+}
+.main-container .right-area .info-area .btn-area {
+  margin-top: 80px;
+  text-align: center;
+}
+.main-container .right-area .info-area .btn-area button {
+  margin: 10px;
+}
+.main-container .right-area .logout {
+  position: absolute;
+  right: 40px;
+  top: -25px;
 }
 .main-container .appli-icon {
   display: inline-block;
@@ -234,7 +276,7 @@ body {
   *zoom: 1;
   width: 100px;
   height: 100px;
-  background: url('img/apli-icon.svg');
+  background: url('img/apli-icon.svg') no-repeat;
 }
 .main-container .sys-icon {
   display: inline-block;
@@ -242,7 +284,7 @@ body {
   *zoom: 1;
   width: 100px;
   height: 100px;
-  background: url('img/sys-icon.svg');
+  background: url('img/sys-icon.svg') no-repeat;
 }
 .main-container .tech-icon {
   display: inline-block;
@@ -250,7 +292,7 @@ body {
   *zoom: 1;
   width: 100px;
   height: 100px;
-  background: url('img/tech-icon.svg');
+  background: url('img/tech-icon.svg') no-repeat;
 }
 .main-container .purple-btn {
   display: inline-block;
@@ -258,8 +300,35 @@ body {
   *zoom: 1;
   width: 120px;
   height: 48px;
-  background: url('img/login-btn-icon.svg');
+  background: url('img/login-btn-icon.svg') no-repeat;
   border: none;
   color: #fff;
   font-size: 20px;
+}
+.main-container .purple-btn:hover {
+  cursor: pointer;
+  background: url('img/login-btn-highlight.svg') no-repeat;
+}
+.main-container .right-side-btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 45px;
+  height: 100px;
+  background: url('img/right-side-btn.svg') no-repeat;
+  border: none;
+  color: #00d8b9;
+  font-size: 20px;
+  line-height: 100%;
+  text-align: center;
+  padding-top: 8px;
+}
+.main-container .right-side-btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background: url('img/right-side-btn-hover.svg') no-repeat;
+}
+.main-container .right-side-btn.current {
+  color: #fff;
+  background: url('img/right-side-btn-hover.svg') no-repeat;
 }
