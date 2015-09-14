@@ -4,6 +4,7 @@
 
 $(function () {
     var container = $('.main-container');
+    var centerContainer = container.find('.icons-container');
     var rightContainer = container.find('.right-area');
     rightContainer.find('#registerBtn').on('click', function () {
         console.log('to register');
@@ -24,10 +25,30 @@ $(function () {
         rightContainer.find('#password').val("");
         rightContainer.find('.login-area').hide();
         rightContainer.find('.info-area').fadeIn("normal", bindSideBarEvents).css("display", "inline-block");
-
-
-
     });
+    centerContainer.on('click', function (el) {
+       //console.log(el);
+       // console.log(el.target);
+       // console.log($(el.target)[0].tagName);
+       // console.log(el.target.tagName);
+        var tar = el.target||el.srcElement;
+        if($(tar)[0].tagName =="SPAN"){
+           var id =$(el.target).attr("data-id");
+            console.log(id);
+            showDialogue();
+        }
+    });
+
+    function showDialogue(){
+        $(".white_overlay").fadeIn(300).on("click", function () {
+            hideDialogue();
+        });
+        $(".icons-container-pop").fadeIn(300);
+    }
+    function hideDialogue(){
+        $(".white_overlay").fadeOut(200);
+        $(".icons-container-pop").fadeOut(200);
+    }
 
     function bindSideBarEvents() {
 
@@ -80,7 +101,9 @@ $(function () {
         })
 
 
-    }
+    }//bindSideEvents
+
+
 
 
 });

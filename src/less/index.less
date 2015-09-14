@@ -51,6 +51,12 @@
       li {
         .dib();
         width: 160px;
+        span {
+          padding: 30px 20px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
     .first-line {
@@ -65,7 +71,7 @@
   }
 
   .icons-container-pop {
-    .dib();
+    //.dib();
     position: absolute;
     top: 50%;
     left: 50%;
@@ -74,8 +80,10 @@
     margin-left: -250px;
     margin-top: -250px;
     border-radius: 15%;
+    background: #ccc;
     border: 4px solid @theme-color;
-
+    z-index: 1010;
+    display: none;
     .box {
       overflow: hidden;
       position: relative;
@@ -195,6 +203,7 @@
 
   }
 
+
   .appli-icon {
     .dib();
     width: 100px;
@@ -236,4 +245,19 @@
     color: #fff;
     background: url('img/right-side-btn-hover.svg') no-repeat;
   }
+}
+
+.white_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  //background-color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1001;
+  //-moz-opacity: 0.6;
+  //opacity: .60;
+  //filter: alpha(opacity=60);
 }
