@@ -1,0 +1,133 @@
+//{
+//  "code":"200",
+//  "data":{
+//    "cpu":"100",
+//    "disk":"100T",
+//    "ram":"128G",
+//    "ramUsage":"50%",
+//    "userOnline":"100"
+//  }
+//}
+
+
+//{
+//  "code": "200",//状态码
+//  "data": [
+//    {
+//      "id": "123",
+//      "title": "应用分支1",
+//      "icon": "icon-url" //这个待商议,可能图标存本地
+//    },
+//    {
+//      "id": "234",
+//      "title": "应用分支2",
+//      "icon": "icon-url"//这个待商议,可能图标存本地
+//    }
+//  ]
+//}
+
+//{
+//  "code":"200",
+//  "responseText":"错误信息",
+//  "data":{
+//    "running":[
+//      {
+//        "id":"123",
+//        "name":"HOG检测90%展示"
+//      },
+//      {
+//        "id":"124",
+//        "name":"svn检测90%展示"
+//      }
+//    ],
+//    "finish":[
+//      {"id":"123",
+//        "name":"SVN检测完成"
+//      },
+//      {"id":"124",
+//        "name":"HOG检测完成"
+//      }
+//    ]
+//  }
+//}
+
+
+//{"code":"200",
+//  "data":[
+//    {"id":"01",
+//      "time":"2015-08-15 09:00",
+//      "status":"finish",
+//      "resultUrl":"http://www.baidu.com"
+//    },
+//    {"id":"01",
+//      "time":"2015-08-15 09:00",
+//      "status":"finish",
+//      "resultUrl":"http://www.baidu.com"
+//    }
+//  ]
+//}
+
+//{
+//  "username":"test",
+//  "password":"12345",
+//  "company":"Freative",
+//  "phone":"12345678901"
+//
+//}
+//
+//{
+//  "code":"200",
+//  "data":{
+//    "status":"0"
+//  }
+//}
+
+//{"code":"200",
+//  "data":[
+//    {"id":"01",
+//      "name":"模块1",
+//      "algorithms":[
+//        {
+//          "id":"123",
+//          "name":"SVN"
+//        },
+//        {
+//          "id":"124",
+//          "name":"HOG"
+//        }
+//      ],
+//      "resultUrl":"http://www.baidu.com"
+//    },
+//    {"id":"01",
+//      "name":"模块2",
+//      "algorithms":[
+//        {
+//          "id":"123",
+//          "name":"SVN"
+//        },
+//        {
+//          "id":"124",
+//          "name":"HOG"
+//        }
+//      ],
+//      "resultUrl":"http://www.baidu.com"
+//    }
+//  ]
+//}
+
+
+        //Add algorithm
+{
+  "data":{
+    "name":"test",
+    "content":"",//需要用文件上传 待定
+    "algorithmName":"SVN",
+    "module":[
+      {"id":"123",
+        "name":"模块1"
+      }
+    ],
+    "desc":"这个是描述"
+
+  }
+}

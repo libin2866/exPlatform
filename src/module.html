@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            background: #00e7c4;
+        }
+        article{
+            background: #00a5e0;
+        }
+        .file-input{
+            background: #00ffff;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    this is a div
+</div>
+<article>
+    This is the content of article
+</article>
+<button id="add-button">Click to add article</button>
+<input class="file-input" type="file"/>
+<script>
+    var button =document.getElementById('add-button');
+    if(window.addEventListener){
+        button.addEventListener('click', function () {
+            var art=  document.createElement('article');
+            art.innerHTML="This is a created article"
+            document.getElementsByTagName('div')[0].appendChild(art);
+        },false);
+    }else{
+        button.attachEvent("onclick",function(){
+            var art=  document.createElement('article');
+            art.innerHTML="This is a created article"
+            document.getElementsByTagName('div')[0].appendChild(art);
+        });
+    }
+
+//    function addArticle(){
+//        var art=  document.createElement('article');
+//        art.innerHTML="This is a created article"
+//        document.getElementsByTagName('div')[0].appendChild(art);
+//    }
+
+</script>
+</body>
+</html>
