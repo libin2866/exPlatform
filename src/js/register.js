@@ -20,6 +20,14 @@ $(function () {
         if(values.password!=values.repass){
             container.find('.error-info').text('两次输入密码不一致');
         }
+
+        $.ajax({
+            url:"http://10.41.5.136:8080/javaweb/UserServlet",
+            type:"post",
+            data:values
+        }).success(function (resp) {
+            console.log(resp);
+        })
     });
     container.find('.back-btn').on('click', function () {
         location.href="../index.html";
