@@ -75,12 +75,14 @@
 //
 //}
 //
-//{
-//  "code":"200",
-//  "data":{
-//    "status":"0"
-//  }
-//}
+
+{
+  "code":"200",
+  "error":"错误信息",
+  "data":{
+    "status":"0"
+  }
+}
 
 //{"code":"200",
 //  "data":[
@@ -117,17 +119,17 @@
 
 
         //Add algorithm
-{
-  "data":{
-    "name":"test",
-    "content":"",//需要用文件上传 待定
-    "algorithmName":"SVN",
-    "module":[
-      {"id":"123",
-        "name":"模块1"
-      }
-    ],
-    "desc":"这个是描述"
-
-  }
-}
+//{
+//  "data":{
+//    "name":"test",
+//    "content":"",//需要用文件上传 待定
+//    "algorithmName":"SVN",
+//    "module":[
+//      {"id":"123",
+//        "name":"模块1"
+//      }
+//    ],
+//    "desc":"这个是描述"
+//
+//  }
+//}

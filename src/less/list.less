@@ -1,0 +1,34 @@
+@import "base/reset";
+@import "base/mixin";
+
+.main-container{
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 550px;
+  background-size: cover;
+  background: url('img/list/list-bg.svg') no-repeat;
+  color:@theme-color;
+  font-size: 16px;
+  box-sizing: border-box;
+  .header{
+    padding-top:60px;
+    ul{
+      margin-left:5px;
+      margin-right: 18px;
+      background: #000;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      line-height: 40px;
+      vertical-align: middle;
+      border-top: 3px solid @theme-color;
+      border-bottom: 3px solid @theme-color;
+      li{
+        .dib();
+        width: 350px;
+      }
+    }
+  }
+
+}

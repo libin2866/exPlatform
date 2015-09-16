@@ -22,6 +22,10 @@ $(function () {
             rightContainer.find('.error-info').text("请输入密码！");
             return;
         }
+        //todo ajax通讯
+        //$.ajax({
+        //
+        //});
         rightContainer.find('#password').val("");
         rightContainer.find('.login-area').hide();
         rightContainer.find('.info-area').fadeIn("normal", bindSideBarEvents).css("display", "inline-block");
@@ -39,7 +43,16 @@ $(function () {
         }
     });
 
+
     function showDialogue(){
+        //TODO 增加图标
+        var icons = {
+            data:[{
+            "title": "测试名字",
+            "icon": "icon",//url?
+            "url": "javascript:"
+        }]
+        };
         $(".white_overlay").fadeIn(300).on("click", function () {
             hideDialogue();
         });
@@ -50,6 +63,20 @@ $(function () {
         $(".icons-container-pop").fadeOut(200);
     }
 
+    /**
+     * 生成弹窗的Icons
+     * param:data
+     */
+    function createIcons(data){
+        var iconBoxr=container.find(".icons-container-pop").find(".box");
+        iconBoxr.html("");
+        var items = "";
+        for(var i=0;i<data.length;++i){
+            items+='<div class="inner-cell"><div class="wrap"><i class="inner-icon"></i><p class="title">'
+                +data[i].title+'</p></div></div>';
+        }
+
+    }
     function bindSideBarEvents() {
 
         var sidebar = rightContainer.find('.right-side-bar');

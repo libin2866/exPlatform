@@ -75,22 +75,34 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 500px;
-    height: 500px;
-    margin-left: -250px;
-    margin-top: -250px;
+    width: 600px;
+    height: 600px;
+    margin-left: -300px;
+    margin-top: -300px;
     border-radius: 15%;
-    background: #ccc;
+    background: rgba(204,204,204,0.8);
     border: 4px solid @theme-color;
     z-index: 1010;
     display: none;
     .box {
-      overflow: hidden;
+      overflow: auto;
       position: relative;
       height: 100%;
       width: 100%;
+      box-sizing: border-box;
       padding: 40px;
-      .inner-icon{
+      .wrap{
+        .dib();
+        width:100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &:hover{
+          cursor:pointer;
+          //background: rgba(0,0,0,0.2);
+        }
+      }
+      .inner-icon {
         .dib();
         width: 50px;
         height: 50px;
@@ -100,16 +112,22 @@
         -moz-border-radius: 10%;
         border-radius: 10%;
       }
-    }
-    .inner-cell,.t_l, .t_m, .t_r, .b_l, .b_m, .b_r, .m_l, .m_r {
-      //position: absolute;
-      z-index: 2;
-      .dib();
-      width: 80px;
-      height: 80px;
-      text-align: center;
-    }
+      p.title{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
 
+
+    }    .inner-cell, .t_l, .t_m, .t_r, .b_l, .b_m, .b_r, .m_l, .m_r {
+           //position: absolute;
+           z-index: 2;
+           .dib();
+           width: 100px;
+           height: 100px;
+           text-align: center;
+           padding: 10px;
+         }
   }
 
   .right-area {
@@ -220,7 +238,6 @@
 
   }
 
-
   .appli-icon {
     .dib();
     width: 100px;
@@ -272,7 +289,7 @@
   width: 100%;
   height: 100%;
   //background-color: rgba(255,255,255,0.6);
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1001;
   //-moz-opacity: 0.6;
   //opacity: .60;
