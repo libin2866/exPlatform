@@ -24,9 +24,10 @@ $(function () {
         $.ajax({
             url:"http://10.41.5.136:8080/javaweb/UserServlet",
             type:"post",
-            data:values
-        }).success(function (resp) {
-            console.log(resp);
+            data:JSON.stringify(values),
+            success:function (resp) {
+                console.log(resp);
+            }
         })
     });
     container.find('.back-btn').on('click', function () {
