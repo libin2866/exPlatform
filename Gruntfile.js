@@ -36,12 +36,27 @@ module.exports = function (grunt) {
                 }
             }
         },
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')(),
+                    require('cssnext')()
+                ]
+            },
+            dist: {
+                src: 'src/css/index.css',
+                dest: 'src/style.css'
+            }
+        }
+
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-postcss');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('lessc', ['less:main']);
+    grunt.registerTask('post', ['postcss']);
 
 };
