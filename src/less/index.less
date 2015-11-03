@@ -1,6 +1,7 @@
 @import "base/reset";
 @import "base/mixin";
-
+@icons-container-height:500px;
+@icons-container-width:600px;
 .title-bar {
   .tc();
   font-size: 48px;
@@ -37,6 +38,7 @@
 
   .icons-container {
     .dib();
+    position: relative;
     width: 600px;
     height: 500px;
     background: url('img/main-container.svg') no-repeat;
@@ -67,6 +69,28 @@
 
     }
     .third-line {
+    }
+
+
+    .left-pointer,.right-pointer{
+      color:@theme-color;
+      //width: 20px;
+      font-size: 52px;
+      height: 300px;
+      position: absolute;
+      line-height: 300px;
+      vertical-align: middle;
+      top:100px;
+      &:hover{
+        cursor: pointer;
+        background: rgba(255,255,255,0.2);
+      }
+    }
+    .left-pointer{
+      left:25px;
+    }
+    .right-pointer{
+      right: 25px;
     }
   }
 

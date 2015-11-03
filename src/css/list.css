@@ -168,3 +168,10 @@ body {
 .main-container .container ul li .inner-li {
   padding: 5px;
 }
+.main-container .container ul li a,
+.main-container .container ul li a:visited {
+  color: #00d8b9;
+}
+.main-container .container ul li a:hover {
+  text-decoration: underline;
+}
