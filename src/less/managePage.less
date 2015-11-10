@@ -1,0 +1,70 @@
+@import "base/reset";
+@import "base/mixin";
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 550px;
+  background-size: cover;
+  background: url('img/list/list-bg.svg') no-repeat;
+  color: @theme-color;
+  font-size: 16px;
+  box-sizing: border-box;
+  .header {
+    padding-top: 60px;
+    .back-btn {
+      position: absolute;
+      right: 15px;
+      top: -20px;
+    }
+    ul {
+      margin-left: 5px;
+      margin-right: 18px;
+      background: #000;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      line-height: 40px;
+      vertical-align: middle;
+      border-top: 3px solid @theme-color;
+      border-bottom: 3px solid @theme-color;
+      li {
+        .dib();
+        width: 350px;
+
+      }
+    }
+  }
+
+  .container {
+    ul {
+      margin-left: 5px;
+      margin-right: 18px;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+      line-height: 40px;
+      vertical-align: middle;
+      li {
+        .dib();
+        width: 350px;
+        .inner-li {
+          padding: 5px;
+        }
+        a, a:visited {
+          color:@link-color;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .tab-banner {
+    position: absolute;
+    left: 15px;
+    top: -20px;
+  }
+
+}

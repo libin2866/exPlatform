@@ -81,9 +81,16 @@
       line-height: 300px;
       vertical-align: middle;
       top:100px;
+      opacity: 0.4;
       &:hover{
         cursor: pointer;
         background: rgba(255,255,255,0.2);
+        opacity: 0.8;
+        -webkit-transition: opacity 200ms ease-in-out;
+        -moz-transition: opacity 200ms ease-in-out;
+        -ms-transition: opacity 200ms ease-in-out;
+        -o-transition: opacity 200ms ease-in-out;
+        transition: opacity 200ms ease-in-out;
       }
     }
     .left-pointer{
