@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>科技服务软件支撑平台</title>
+    <title></title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
@@ -27,6 +27,8 @@
         </ul>
     </div>
     <div class="icons-container">
+        <div class="left-pointer"><</div>
+        <div class="right-pointer"> > </div>
         <ul class="first-line">
             <li><span data-id="1">智能交通</span></li>
             <li><span  data-id="2">智慧校园</span></li>
@@ -104,10 +106,10 @@
             </div>
             <div class="person-content info-container">
                 <ul class="info-ul">
-                    <li><span class="title">用户名：</span><span>libin</span></li>
-                    <li><span class="title">邮&nbsp;箱：</span><span>123@fudan.edu.cn</span></li>
-                    <li><span class="title">工作单位：</span><span>复旦大学</span></li>
-                    <li><span class="title">联系方式：</span><span>0211234568</span></li>
+                    <li><span class="title">用户名：</span><span id="sys-user">User</span></li>
+                    <li><span class="title">邮&nbsp;箱：</span><span id="sys-email">123@fudan.com</span></li>
+                    <li><span class="title">工作单位：</span><span id="sys-company">复旦大学</span></li>
+                    <li><span class="title">联系方式：</span><span id="sys-mobile">02112345689</span></li>
                 </ul>
                 <div class="btn-area">
                     <button class="purple-btn edit-info">编&nbsp;辑</button>
@@ -116,27 +118,34 @@
             </div>
             <div class="system-content info-container" style="display: none">
                 <ul>
-                    <li><span class="title">CPU：</span><span>10</span></li>
-                    <li><span class="title">硬盘：</span><span>200T</span></li>
-                    <li><span class="title">内存：</span><span>4G</span></li>
-                    <li><span class="title">内存使用：</span><span>45%</span></li>
-                    <li><span class="title">在线用户：</span><span>2000</span></li>
+                    <li><span class="title">CPU：</span><span id="cpu-num">10</span></li>
+                    <li><span class="title">硬盘：</span><span id="hd-num">200T</span></li>
+                    <li><span class="title">内存：</span><span id="ram-num">4G</span></li>
+                    <li><span class="title">内存使用：</span><span id="ram-usage">45%</span></li>
+                    <li><span class="title">在线用户：</span><span id="online-num">2000</span></li>
                 </ul>
             </div>
             <div class="task-content info-container" style="display: none">
                <div class="running">
                    <p class="status">运行中：</p>
-                   <ul>
-                       <li>任务1：HOG检测90% </li>
-                       <li>任务2：BOF 算法运行90% </li>
-
+                   <ul id="running-task">
+                       <li>任务1：HOG检测90% 展示</li>
+                       <li>任务2：HOG检测90% 展示</li>
+                       <li>任务1：HOG检测90% 展示</li>
+                       <li>任务2：HOG检测90% 展示</li>
+                       <li>任务1：HOG检测90% 展示</li>
+                       <li>任务2：HOG检测90% 展示</li>
                    </ul>
                </div>
                 <div class="finished" >
                     <p class="status">已完成：</p>
-                    <ul>
-                        <li>任务1：HOG检测</li>
-                        <li>任务2：SIFT 特征提取</li>
+                    <ul id="finished-task">
+                        <li>任务1：HOG检测90% 展示</li>
+                        <li>任务2：HOG检测90% 展示</li>
+                        <li>任务2：HOG检测90% 展示</li>
+                        <li>任务2：HOG检测90% 展示</li>
+                        <li>任务2：HOG检测90% 展示</li>
+                        <li>任务2：HOG检测90% 展示</li>
                     </ul>
                 </div>
             </div>
@@ -147,7 +156,11 @@
 </div>
 <div  class="white_overlay"></div>
 <!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src ="js/lib/jquery.min.js"></script>
+
+<script src="./js/mock/mock.min.js"></script>
+<script src="./js/mock/mockAjax.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

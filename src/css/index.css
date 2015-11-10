@@ -150,6 +150,7 @@ body {
   display: inline-block;
   *display: inline;
   *zoom: 1;
+  position: relative;
   width: 600px;
   height: 500px;
   background: url('img/main-container.svg') no-repeat;
@@ -179,6 +180,27 @@ body {
 }
 .main-container .icons-container .second-line {
   margin-top: 10px;
+}
+.main-container .icons-container .left-pointer,
+.main-container .icons-container .right-pointer {
+  color: #00d8b9;
+  font-size: 52px;
+  height: 300px;
+  position: absolute;
+  line-height: 300px;
+  vertical-align: middle;
+  top: 100px;
+}
+.main-container .icons-container .left-pointer:hover,
+.main-container .icons-container .right-pointer:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+}
+.main-container .icons-container .left-pointer {
+  left: 25px;
+}
+.main-container .icons-container .right-pointer {
+  right: 25px;
 }
 .main-container .icons-container-pop {
   position: absolute;
