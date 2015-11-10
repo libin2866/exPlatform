@@ -2,11 +2,11 @@
  * Created by Libin on 2015/10/29.
  */
 
-var hotsUrl = "";
+var hostUrl = "";
 /**
  * Mock for index ajax
  */
-Mock.mock(hotsUrl + "/user/UserLoginServlet", function (options) {
+Mock.mock(hostUrl + "/user/UserLoginServlet", function (options) {
     var data = {
         "status": "0",
         "data": {
@@ -20,7 +20,7 @@ Mock.mock(hotsUrl + "/user/UserLoginServlet", function (options) {
     return data;
 });
 
-Mock.mock(hotsUrl + "/getSystemInfo", function (options) {
+Mock.mock(hostUrl + "/getSystemInfo", function (options) {
     var data = {
         "status": "0",
         "data": {
@@ -34,7 +34,7 @@ Mock.mock(hotsUrl + "/getSystemInfo", function (options) {
     return data;
 })
 
-Mock.mock(hotsUrl + "/getTaskInfo", function (options) {
+Mock.mock(hostUrl + "/getTaskInfo", function (options) {
     var data = {
         "status": "0",
         "responseText": "错误信息",
@@ -62,11 +62,15 @@ Mock.mock(hotsUrl + "/getTaskInfo", function (options) {
         }
     }
     return data;
-})
+});
+
+Mock.mock(hostUrl+"/", function (options) {
+
+});
 /**
  * mock Module
  */
-Mock.mock(hotsUrl + "/module/getList", function (options) {
+Mock.mock(hostUrl + "/module/getList", function (options) {
     var data = {
         "code": "200",
         "data": [

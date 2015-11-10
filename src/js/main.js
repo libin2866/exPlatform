@@ -126,6 +126,28 @@ $(function () {
             showDialogue();
         }
     });
+
+    $('.left-pointer').on('click', function (el) {
+        var leftPageData = {col11:"test",col12:"test2",col3:"test3",
+        col21:"test12",col22:"test22",col23:"test23",
+            col31:"test31",col32:"test32",col33:"test33"
+        }
+
+    });
+   function refreshPointPageData(data){
+       var ul1 = $('.first-line');
+       var tempPage1 ="";
+       for(var i =0;i<3;++i){
+           tempPage1+='<li><span data-id="'+data[i].id+'">'+data[i].name+'</span></li>';
+       }
+       ul1.html(tempPage1);
+       var ul2 = $('.second-line');
+       tempPage1="";
+       for(i =0;i<3;++i){
+           tempPage1+='<li><span data-id="'+data[i+3].id+'">'+data[i+3].name+'</span></li>';
+       }
+       ul2.html(tempPage1)
+   }
     /**
      * 显示弹窗
      */
