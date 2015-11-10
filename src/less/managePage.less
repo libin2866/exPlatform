@@ -2,25 +2,25 @@
 @import "base/mixin";
 
 .main-container {
-  width: 1200px;
-  margin: 0 auto;
+  width: 1220px;
+  margin: 30px auto;
   position: relative;
   height: 550px;
   background-size: cover;
-  background: url('img/list/list-bg.svg') no-repeat;
+  background: url('img/list/list-bg2.svg') no-repeat;
   color: @theme-color;
   font-size: 16px;
   box-sizing: border-box;
   .header {
-    padding-top: 60px;
+    padding-top: 30px;
     .back-btn {
       position: absolute;
-      right: 15px;
-      top: -20px;
+      right: 25px;
+      top: -49px;
     }
     ul {
-      margin-left: 5px;
-      margin-right: 18px;
+      margin-left: 18px;
+      margin-right: 32px;
       background: #000;
       height: 40px;
       font-size: 18px;
@@ -33,6 +33,12 @@
         .dib();
         width: 350px;
 
+      }
+      .three-col{
+        width: 350px;
+      }
+      .four-col{
+        width: 250px;
       }
     }
   }
@@ -64,7 +70,26 @@
   .tab-banner {
     position: absolute;
     left: 15px;
-    top: -20px;
+    top: -47px;
+    .tab-activated{
+      color:#fff;
+      cursor: default;
+      background: url('img/horizon-btn-hover.svg') no-repeat;
+    }
+
+    .input-line {
+      color: @theme-color;
+      .ml(200px);
+      width: 280px;
+      height: 40px;
+      border: none;
+      padding: 15px;
+      box-sizing: border-box;
+      vertical-align: middle;
+      background: url('img/input-bg.svg') no-repeat;
+
+    }
   }
 
 }
+

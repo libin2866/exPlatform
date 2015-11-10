@@ -177,8 +177,11 @@ body {
 }
 .purple-btn {
   .dib();
-  width: 120px;
-  height: 48px;
+  width: 110px;
+  height: 46px;
+  line-height: 45px;
+  vertical-align: middle;
+  text-align: center;
   background: url('img/login-btn-icon.svg') no-repeat;
   border: none;
   color: #fff;
@@ -186,5 +189,28 @@ body {
   &:hover {
     cursor: pointer;
     background: url('img/login-btn-highlight.svg') no-repeat;
+  }
+}
+
+.horizon-tab-btn{
+  .dib();
+  width: 110px;
+  height: 46px;
+  background: url('img/horizon-btn.svg') no-repeat;
+  border: none;
+  line-height: 45px;
+  vertical-align: middle;
+  text-align: center;
+  color: @theme-color;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+    color:#fff;
+    background: url('img/horizon-btn-hover.svg') no-repeat;
+  }
+  .active{
+    color:#fff;
+    cursor: default;
+    background: url('img/horizon-btn-hover.svg') no-repeat;
   }
 }
