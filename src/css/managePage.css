@@ -208,6 +208,12 @@ body {
 .main-container .container ul li a:hover {
   text-decoration: underline;
 }
+.main-container .container ul .three-col {
+  width: 350px;
+}
+.main-container .container ul .four-col {
+  width: 250px;
+}
 .main-container .tab-banner {
   position: absolute;
   left: 15px;
