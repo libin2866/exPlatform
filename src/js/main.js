@@ -246,6 +246,4 @@ $(function () {
         var userinfo =localStorage.getItem("userinfo");
     }
 
-
-
 });

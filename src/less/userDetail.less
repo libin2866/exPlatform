@@ -1,0 +1,57 @@
+@import "base/reset";
+@import "base/mixin";
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  .right-area {
+    .dib();
+    width: 420px;
+    height: 465px;
+    background: url('img/info-frame.svg') no-repeat;
+    vertical-align: top;
+    .ml(5px);
+    .mt(30px);
+    li {
+      color: @theme-color;
+      font-size: 22px;
+    }
+    .info-area {
+      .info-container {
+        width: 400px;
+        font-size: inherit;
+        margin: 0 auto;
+        ul {
+          width: 330px;
+          font-size: inherit;
+          margin: 0 auto;
+          .ml(50px);
+          .mt(70px);
+          li {
+            margin: 20px 0;
+            .title {
+              width: 120px;
+            }
+          }
+        }
+
+      }
+      .btn-area {
+        .mt(80px);
+        text-align: center;
+        button {
+          margin: 10px;
+        }
+      }
+    }
+
+    .logout {
+      position: absolute;
+      right: 40px;
+      top: -25px;
+    }
+
+  }
+}

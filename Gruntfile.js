@@ -32,6 +32,7 @@ module.exports = function (grunt) {
                     "./src/css/register.css": "./src/less/register.less",
                     "./src/css/list.css": "./src/less/list.less",
                     "./src/css/managePage.css": "./src/less/managePage.less",
+                    "./src/css/userDetail.css": "./src/less/userDetail.less",
                     //"public/css/style2.css": "public/css/style2.less"
                     //...
                 }
