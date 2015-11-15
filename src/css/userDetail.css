@@ -145,12 +145,82 @@ body {
   margin: 0 auto;
   position: relative;
 }
+.main-container .left-area {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 800px;
+  height: 465px;
+  background: url('img/left-contain.svg') no-repeat;
+  color: #00d8b9;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 29px;
+}
+.main-container .left-area .header {
+  padding-top: 60px;
+}
+.main-container .left-area .header .back-btn {
+  position: absolute;
+  right: 40px;
+  top: -30px;
+}
+.main-container .left-area .header ul {
+  margin-left: 5px;
+  margin-right: 18px;
+  background: #000;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+  border-top: 3px solid #00d8b9;
+  border-bottom: 3px solid #00d8b9;
+}
+.main-container .left-area .header ul li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 160px;
+}
+.main-container .left-area .container ul {
+  margin-left: 5px;
+  margin-right: 18px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.main-container .left-area .container ul li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 160px;
+}
+.main-container .left-area .container ul li .inner-li {
+  padding: 5px;
+}
+.main-container .left-area .container ul li a {
+  margin: 0 5px;
+}
+.main-container .left-area .container ul li a,
+.main-container .left-area .container ul li a:visited {
+  color: #d6ed00;
+}
+.main-container .left-area .container ul li a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.main-container .left-area .container ul .font14 {
+  font-size: 14px;
+}
 .main-container .right-area {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  width: 420px;
-  height: 465px;
+  width: 380px;
+  height: 420px;
   background: url('img/info-frame.svg') no-repeat;
   vertical-align: top;
   margin-left: 5px;
@@ -189,4 +259,25 @@ body {
   position: absolute;
   right: 40px;
   top: -25px;
+}
+.main-container .tab-banner {
+  position: absolute;
+  left: 15px;
+  top: -30px;
+}
+.main-container .tab-banner .tab-activated {
+  color: #fff;
+  cursor: default;
+  background: url('img/horizon-btn-hover.svg') no-repeat;
+}
+.main-container .tab-banner .input-line {
+  color: #00d8b9;
+  margin-left: 200px;
+  width: 280px;
+  height: 40px;
+  border: none;
+  padding: 15px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background: url('img/input-bg.svg') no-repeat;
 }

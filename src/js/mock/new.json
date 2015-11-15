@@ -3,14 +3,14 @@
     {"id":"01",
       "username":"用户1",
       "algorithm":"算法2",
-      "algorithmUrl":"http://www.baidu.com"
+      "algorithmUrl":"http://www.baidu.com",
       "postTime":"2015-08-20 19：20：11"
 
     },
     {"id":"02",
       "username":"用户2",
       "algorithm":"算法3",
-      "algorithmUrl":"http://www.baidu.com"
+      "algorithmUrl":"http://www.baidu.com",
       "postTime":"2015-08-20 19：20：11"
     }
   ]

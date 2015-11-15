@@ -238,3 +238,66 @@ Mock.mock(hostUrl+"/manage/getAlgorithm", function (options) {
     };
     return data;
 });
+
+Mock.mock(hostUrl+"/user/getModule", function (options) {
+    var data = {
+        "status":"0",
+        "data":[
+            {
+                "id": "01",
+                "name": "模块1",
+                "algorithms": [
+                    {
+                        "id": "001",
+                        "name": "算法1"
+                    },
+                    {
+                        "id": "002",
+                        "name": "算法2"
+                    }
+                ],
+                "moduleUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+            },
+            {
+                "id": "02",
+                "name": "模块22",
+                "algorithms": [
+                    {
+                        "id": "002",
+                        "name": "算法2"
+                    },
+                    {
+                        "id": "003",
+                        "name": "算法3"
+                    }
+
+                ],
+                "appUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+            }]
+    };
+    return data;
+});
+
+Mock.mock(hostUrl+"/user/getAlgorithm", function (options) {
+    var data = {
+        "status":"0",
+        "data":[
+            {"id":"01",
+                "username":"用户1",
+                "algorithm":"算法2",
+                "algorithmUrl":"http://www.baidu.com",
+                "postTime":"2015-08-20 19：20：11"
+
+            },
+            {"id":"02",
+                "username":"用户2",
+                "algorithm":"算法3",
+                "algorithmUrl":"http://www.baidu.com",
+                "postTime":"2015-08-20 19：20：11"
+            }
+        ]
+    };
+    return data;
+});

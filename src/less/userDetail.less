@@ -5,11 +5,78 @@
   width: 1200px;
   margin: 0 auto;
   position: relative;
+  .left-area{
+    .dib();
+    width: 800px;
+    height: 465px;
+    background: url('img/left-contain.svg') no-repeat;
+    color:@theme-color;
+    font-size: 16px;
+    box-sizing: border-box;
+    .mt (29px);
+    .header{
+      padding-top:60px;
+      .back-btn{
+        position: absolute;
+        right: 40px;
+        top:-30px;
+      }
+      ul{
+        margin-left:5px;
+        margin-right: 18px;
+        background: #000;
+        height: 40px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 40px;
+        vertical-align: middle;
+        border-top: 3px solid @theme-color;
+        border-bottom: 3px solid @theme-color;
+        li{
+          .dib();
+          width: 160px;
+
+        }
+      }
+    }
+
+    .container{
+      ul{
+        margin-left:5px;
+        margin-right: 18px;
+        height: 40px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 40px;
+        vertical-align: middle;
+        li{
+          .dib();
+          width: 160px;
+          .inner-li{
+            padding: 5px;
+          }
+          a{
+            margin:0 5px;
+          }
+          a,a:visited{
+            color:@link-color;
+          }
+          a:hover{
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+        .font14{
+          font-size: 14px;
+        }
+      }
+    }
+  }
 
   .right-area {
     .dib();
-    width: 420px;
-    height: 465px;
+    width: 380px;
+    height: 420px;
     background: url('img/info-frame.svg') no-repeat;
     vertical-align: top;
     .ml(5px);
@@ -53,5 +120,29 @@
       top: -25px;
     }
 
+  }
+
+  .tab-banner {
+    position: absolute;
+    left: 15px;
+    top: -30px;
+    .tab-activated{
+      color:#fff;
+      cursor: default;
+      background: url('img/horizon-btn-hover.svg') no-repeat;
+    }
+
+    .input-line {
+      color: @theme-color;
+      .ml(200px);
+      width: 280px;
+      height: 40px;
+      border: none;
+      padding: 15px;
+      box-sizing: border-box;
+      vertical-align: middle;
+      background: url('img/input-bg.svg') no-repeat;
+
+    }
   }
 }
