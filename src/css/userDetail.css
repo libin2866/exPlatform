@@ -1,0 +1,192 @@
+body {
+  font: 14px/1.42858 'microsoft yahei', arial, sans-serif;
+  background-color: #edf0f5;
+  color: #545a6c;
+}
+:focus {
+  outline: none;
+}
+h4,
+h3,
+h2,
+h1,
+h5,
+h6 {
+  font-size: 100%;
+  margin: 0;
+  font-weight: 400;
+}
+body,
+form,
+ul,
+ol,
+dl,
+dd,
+p {
+  margin: 0;
+}
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+img {
+  border: none;
+  vertical-align: bottom;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  font-family: arial, 'microsoft yahei', sans-serif;
+}
+select {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+table {
+  border-spacing: 0;
+  table-layout: fixed;
+}
+/*禁用ie下文本框后面的X*/
+input::-ms-clear {
+  display: none;
+}
+input[type=search] {
+  -webkit-appearance: none;
+}
+/**
+ *
+ * @variable.less
+ * @author libin
+ * @create 15-09-06
+ */
+/*
+ *
+ * @mixin.less
+ * @author libin
+ * @create 15-09-06
+ */
+.hidden {
+  display: none!important;
+}
+body {
+  background: url('img/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: auto;
+  font-size: 16px;
+}
+.header-deco {
+  background: url("img/header.png") no-repeat;
+  margin: 1px auto;
+  width: 1200px;
+  height: 137px;
+  padding-bottom: 40px;
+}
+.purple-btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 110px;
+  height: 46px;
+  line-height: 45px;
+  vertical-align: middle;
+  text-align: center;
+  background: url('img/login-btn-icon.svg') no-repeat;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+}
+.purple-btn:hover {
+  cursor: pointer;
+  background: url('img/login-btn-highlight.svg') no-repeat;
+}
+.horizon-tab-btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 110px;
+  height: 46px;
+  background: url('img/horizon-btn.svg') no-repeat;
+  border: none;
+  line-height: 45px;
+  vertical-align: middle;
+  text-align: center;
+  color: #00d8b9;
+  font-size: 20px;
+}
+.horizon-tab-btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background: url('img/horizon-btn-hover.svg') no-repeat;
+}
+.horizon-tab-btn .active {
+  color: #fff;
+  cursor: default;
+  background: url('img/horizon-btn-hover.svg') no-repeat;
+}
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.main-container .right-area {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 420px;
+  height: 465px;
+  background: url('img/info-frame.svg') no-repeat;
+  vertical-align: top;
+  margin-left: 5px;
+  margin-top: 30px;
+}
+.main-container .right-area li {
+  color: #00d8b9;
+  font-size: 22px;
+}
+.main-container .right-area .info-area .info-container {
+  width: 400px;
+  font-size: inherit;
+  margin: 0 auto;
+}
+.main-container .right-area .info-area .info-container ul {
+  width: 330px;
+  font-size: inherit;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-top: 70px;
+}
+.main-container .right-area .info-area .info-container ul li {
+  margin: 20px 0;
+}
+.main-container .right-area .info-area .info-container ul li .title {
+  width: 120px;
+}
+.main-container .right-area .info-area .btn-area {
+  margin-top: 80px;
+  text-align: center;
+}
+.main-container .right-area .info-area .btn-area button {
+  margin: 10px;
+}
+.main-container .right-area .logout {
+  position: absolute;
+  right: 40px;
+  top: -25px;
+}
