@@ -1,0 +1,55 @@
+@import "base/reset";
+@import "base/mixin";
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 550px;
+  background-size: cover;
+  background: url('img/list/list-bg.svg') no-repeat;
+  color: @theme-color;
+  font-size: 16px;
+  box-sizing: border-box;
+  .back-btn {
+    position: absolute;
+    right: 15px;
+    top: -20px;
+  }
+  .upload-area {
+      margin: 0 auto;
+      padding-top: 60px;
+      width: 500px;
+      li {
+        margin: 20px 0;
+      }
+      .title {
+        .dib;
+        text-align: left;
+        font-size: 20px;
+        width: 100px;
+        vertical-align: top;
+      }
+      .input-area {
+        border: 2px solid @theme-color;
+        width: 350px;
+        height: 35px;
+        background: #000;
+      }
+      .text-area {
+        height: 100px;
+      }
+
+  }
+  .action-area {
+    position: absolute;
+    right: 100px;
+    bottom:140px;
+    .desc{
+      padding-bottom: 70px;
+      font-size: 20px;
+    }
+
+  }
+
+}

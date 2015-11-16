@@ -47,6 +47,9 @@ $(function () {
             }
 
         });
+        $('.back-btn').on('click', function () {
+            window.history.go(-1);
+        })
     })();
     function searchContent(keyword) {
         switch (currentId) {

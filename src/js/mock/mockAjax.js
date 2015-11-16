@@ -14,7 +14,8 @@ Mock.mock(hostUrl + "/user/UserLoginServlet", function (options) {
             "username": "testAjax",
             "email": "test@fudan.edu.cn",
             "companyInfo": "Fudan University",
-            "mobilePhone": "13700001234"
+            "mobilePhone": "13700001234",
+            "userType":"0"//1:admin 0:user
         }
     };
     return data;
