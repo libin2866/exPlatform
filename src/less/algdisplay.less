@@ -1,0 +1,48 @@
+@import "base/reset";
+@import "base/mixin";
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 550px;
+  background-size: cover;
+  background: url('img/list/list-bg.svg') no-repeat;
+  color: @theme-color;
+  font-size: 20px;
+  box-sizing: border-box;
+  .back-btn {
+    position: absolute;
+    right: 15px;
+    top: -20px;
+  }
+
+  .alg-title{
+    position: absolute;
+    left:40px;
+    top:15px;
+    font-size: 22px;
+  }
+  .demo-area{
+    .dib();
+    height: 400px;
+    width: 400px;
+  }
+  .result-area{
+    .dib();
+    position: absolute;
+    right: 60px;
+    top:40px;
+    text-align: center;
+    .post-time{
+      padding: 5px;
+    }
+    .result-contain{
+      border: 2px solid @theme-color;
+      height: 380px;
+      width: 380px;
+      background: #000;
+    }
+
+  }
+}
