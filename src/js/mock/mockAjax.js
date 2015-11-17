@@ -65,8 +65,20 @@ Mock.mock(hostUrl + "/getTaskInfo", function (options) {
     return data;
 });
 
-Mock.mock(hostUrl+"/", function (options) {
-
+Mock.mock(hostUrl+"/getIndexPage", function (options) {
+var data=
+    {
+        "status ":"0",
+        "data":{
+        "pageData":[
+            {"id":"001","name":"智能交通"},{"id":"002","name":"智慧校园"},{"id":"002","name":"反恐维稳"},
+            {"id":"003","name":"行人检测"},{"id":"004","name":"车辆检测"},{"id":"005","name":"图像分析"},
+            {"id":"006","name":"视频图像"},{"id":"007","name":"深度学习"},{"id":"008","name":"机器学习"}
+        ],
+	    "maxPage":"3"//返回最大页数
+        }
+    };
+return data;
 });
 /**
  * mock Module

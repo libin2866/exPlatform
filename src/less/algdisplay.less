@@ -26,8 +26,56 @@
   .demo-area{
     .dib();
     height: 400px;
-    width: 400px;
+    width: 650px;
+    margin: 50px 0 0 50px;
+    color:#fff;
+    font-size:16px;
+    //text-align: center;
+    vertical-align: middle;
+    line-height: 400px;
+    .node{
+      width: 80px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .node-input,.node-output{
+      .dib();
+      //margin: 0 20px;
+      background: @purple-color;
+    }
+    .node-alg{
+      margin: 20px 0;
+      background: @purple-color;
+    }
+    .node-mod{
+      margin: 20px 0;
+
+      background: @theme-color;
+    }
+    .list-alg{
+      .dib();
+      vertical-align: middle;
+      border:1px  solid @theme-color;
+    }
+    .list-mod{
+      .dib();
+      vertical-align: middle;
+      border:1px  solid @theme-color;
+    }
+
+    .deco{
+      .dib();
+      //width: 40px;
+      //height: 20px;
+      color:@theme-color;
+      font-size:30px ;
+      vertical-align: top;
+    }
+
   }
+
   .result-area{
     .dib();
     position: absolute;

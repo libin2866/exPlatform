@@ -146,18 +146,57 @@ $(function () {
         if ($(tar)[0].tagName == "SPAN") {
             var id = $(el.target).attr("data-id");
             console.log(id);
-            showDialogue();
+            showDialogue(id);
         }
     });
+
+    var currentPage=1;
+    var maxpage=2;
 
     $('.left-pointer').on('click', function (el) {
-        var leftPageData = {
-            col11: "test", col12: "test2", col3: "test3",
-            col21: "test12", col22: "test22", col23: "test23",
-            col31: "test31", col32: "test32", col33: "test33"
+        var leftPageData = [
+            {id:'001',name:'test1'}, {id:'002',name:'test2'}, {id:'003',name:'test3'},
+            {id:'004',name:'test4'}, {id:'005',name:'test5'}, {id:'006',name:'test6'},
+            {id:'007',name:'test7'}, {id:'008',name:'test8'}, {id:'009',name:'test9'}
+        ];
+        if(currentPage>0){
+            currentPage--;
         }
-
+         getPageData(currentPage);
+        //refreshPointPageData(leftPageData);
     });
+    $('.right-pointer').on('click', function (el) {
+        var leftPageData = [
+            {id:'001',name:'1test1'}, {id:'002',name:'1test2'}, {id:'003',name:'1test3'},
+            {id:'004',name:'1test4'}, {id:'005',name:'1test5'}, {id:'006',name:'1test6'},
+            {id:'007',name:'1test7'}, {id:'008',name:'1test8'}, {id:'009',name:'1test9'}
+        ];
+        if(currentPage>=maxpage){
+            currentPage=maxpage;
+        }
+        getPageData(currentPage);
+        //refreshPointPageData(leftPageData);
+    });
+
+    function  getPageData(page){
+        $.ajax({
+            url:hostUrl+"/getIndexPage",
+            method:"post",
+            data:{
+            current:page
+            },
+            success: function (data) {
+                console.log(data);
+                if(data.status=="0"){
+                    maxpage = data.maxPage;
+                    refreshPointPageData(data.pageData);
+                }
+            }
+            }
+        );
+    }
+
+
     function refreshPointPageData(data) {
         var ul1 = $('.first-line');
         var tempPage1 = "";
@@ -171,13 +210,21 @@ $(function () {
             tempPage1 += '<li><span data-id="' + data[i + 3].id + '">' + data[i + 3].name + '</span></li>';
         }
         ul2.html(tempPage1)
+        var ul3 = $('.third-line');
+        tempPage1 = "";
+        for (i = 0; i < 3; ++i) {
+            tempPage1 += '<li><span data-id="' + data[i + 6].id + '">' + data[i + 6].name + '</span></li>';
+        }
+        ul3.html(tempPage1)
     }
 
     /**
      * 显示弹窗
      */
-    function showDialogue() {
+    function showDialogue(id) {
         //TODO 增加图标
+
+        console.log(id);
         var icons = {
             data: [{
                 "title": "测试名字",
