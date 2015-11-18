@@ -3,22 +3,39 @@
  */
 
 //var hotsUrl ="http://10.41.5.136:8080";
-var hotsUrl ="";
+var hostUrl ="";
 $(function () {
         console.log('init');
+        var currentUser;
+        checkLogin();
+        function checkLogin() {
+            if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
+                getModuleList();
+            }
+            else{
+                alert('请先登录后继续');
+                window.location="../index.html";
+            }
+        }
+
+        $('.back-btn').on('click', function () {
+            window.history.go(-1);
+        })
+
+
         function getModuleList() {
             $.ajax({
-                url:hotsUrl+"/module/getList",
+                url:hostUrl+"/module/getList",
                 type:"post",
                 dataType:'json',
                 success:function (resp) {
                     console.log(resp);
-            updateModuleList(resp.data);
+                 updateModuleList(resp.data);
                 }
             })
 
         }
-        getModuleList();
+
         function updateModuleList(data){
             var list =data;
             var container=$(".container");
@@ -32,5 +49,6 @@ $(function () {
             }
             container.html(tmpHtml);
         }
+
     }
 );

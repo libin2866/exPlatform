@@ -173,6 +173,9 @@ body {
   font-size: 22px;
   margin-right: 10px;
 }
+.main-container .left-navi li:hover {
+  cursor: pointer;
+}
 .main-container .icons-container {
   display: inline-block;
   *display: inline;

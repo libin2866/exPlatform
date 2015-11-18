@@ -15,7 +15,7 @@ Mock.mock(hostUrl + "/user/UserLoginServlet", function (options) {
             "email": "test@fudan.edu.cn",
             "companyInfo": "Fudan University",
             "mobilePhone": "13700001234",
-            "userType":"0"//1:admin 0:user
+            "userType": "0"//1:admin 0:user
         }
     };
     return data;
@@ -65,20 +65,19 @@ Mock.mock(hostUrl + "/getTaskInfo", function (options) {
     return data;
 });
 
-Mock.mock(hostUrl+"/getIndexPage", function (options) {
-var data=
-    {
-        "status ":"0",
-        "data":{
-        "pageData":[
-            {"id":"001","name":"智能交通"},{"id":"002","name":"智慧校园"},{"id":"002","name":"反恐维稳"},
-            {"id":"003","name":"行人检测"},{"id":"004","name":"车辆检测"},{"id":"005","name":"图像分析"},
-            {"id":"006","name":"视频图像"},{"id":"007","name":"深度学习"},{"id":"008","name":"机器学习"}
-        ],
-	    "maxPage":"3"//返回最大页数
+Mock.mock(hostUrl + "/getIndexPage", function (options) {
+    var data = {
+        "status": "0",
+        "data": {
+            "pageData": [
+                {"id": "001", "name": "智能交通1"}, {"id": "002", "name": "智慧校园1"}, {"id": "002", "name": "反恐维稳"},
+                {"id": "003", "name": "行人检测"}, {"id": "004", "name": "车辆检测"}, {"id": "005", "name": "图像分析"},
+                {"id": "006", "name": "视频图像"}, {"id": "007", "name": "深度学习"}, {"id": "008", "name": "机器学习"}
+            ],
+            "maxPage": "3"//返回最大页数
         }
     };
-return data;
+    return data;
 });
 /**
  * mock Module
@@ -123,36 +122,119 @@ Mock.mock(hostUrl + "/module/getList", function (options) {
     return data;
 });
 
+/**
+ * 应用部分
+ */
+Mock.mock(hostUrl + "/application/getList", function () {
+    var data = {
+        " status ": "0",
+        "data": [
+            {
+                "id": "01",
+                "name": "应用1",
+                "module": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "应用2",
+                "module": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }
+        ]
+    };
+    return data;
+
+});
+
+/**
+ * 算法部分
+ */
+Mock.mock(hostUrl + "/algorithm/getList", function () {
+    var data = {
+        " status ": "0",
+        "data": [
+            {
+                "id": "01",
+                "title": "SVN",
+                "time": "2015-08-15 09:00",
+                "username": " 测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            }
+        ]
+    };
+    return data;
+});
+Mock.mock(hostUrl + "/algorithm/addAlgorithm", function () {
+    var data = {
+        " status ": "0",
+    };
+    return data;
+});
+Mock.mock(hostUrl+"/algorithm/editAlgorithm", function () {
+    var data = {
+        " status ": "0",
+    };
+    return data;
+});
+
 
 /**
  *管理页面
  */
-Mock.mock(hostUrl+"/manage/getUser", function (options) {
+Mock.mock(hostUrl + "/manage/getUser", function (options) {
     var data = {
-        "status":"0",
-        "data":[
-            {"id":"01",
-                "username":"用户1",
-                "algorithm":"算法2",
-                "algorithmUrl":"http://www.baidu.com",
-                "postTime":"2015-08-20 19：20：11"
+        "status": "0",
+        "data": [
+            {
+                "id": "01",
+                "username": "用户1",
+                "algorithm": "算法2",
+                "algorithmUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
 
             },
-            {"id":"02",
-                "username":"用户2",
-                "algorithm":"算法3",
-                "algorithmUrl":"http://www.baidu.com",
-                "postTime":"2015-08-20 19：20：11"
+            {
+                "id": "02",
+                "username": "用户2",
+                "algorithm": "算法3",
+                "algorithmUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
             }
         ]
     };
     return data;
 });
 
-Mock.mock(hostUrl+"/manage/getApplication", function (options) {
+Mock.mock(hostUrl + "/manage/getApplication", function (options) {
     var data = {
-        "status":"0",
-        "data":[
+        "status": "0",
+        "data": [
             {
                 "id": "01",
                 "name": "应用1",
@@ -183,16 +265,16 @@ Mock.mock(hostUrl+"/manage/getApplication", function (options) {
                     }
                 ],
                 "appUrl": "http://www.baidu.com",
-        "postTime": "2015-08-20 19：20：11"
-    }]
+                "postTime": "2015-08-20 19：20：11"
+            }]
     };
     return data;
 });
 
-Mock.mock(hostUrl+"/manage/getModule", function (options) {
+Mock.mock(hostUrl + "/manage/getModule", function (options) {
     var data = {
-        "status":"0",
-        "data":[
+        "status": "0",
+        "data": [
             {
                 "id": "01",
                 "name": "模块1",
@@ -230,32 +312,34 @@ Mock.mock(hostUrl+"/manage/getModule", function (options) {
     return data;
 });
 
-Mock.mock(hostUrl+"/manage/getAlgorithm", function (options) {
+Mock.mock(hostUrl + "/manage/getAlgorithm", function (options) {
     var data = {
-        "status":"0",
-        "data":[
-            {"id":"01",
-                "username":"用户1",
-                "algorithm":"算法2",
-                "algorithmUrl":"http://www.baidu.com",
-                "postTime":"2015-08-20 19：20：11"
+        "status": "0",
+        "data": [
+            {
+                "id": "01",
+                "username": "用户1",
+                "algorithm": "算法2",
+                "algorithmUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
 
             },
-            {"id":"02",
-                "username":"用户2",
-                "algorithm":"算法3",
-                "algorithmUrl":"http://www.baidu.com",
-                "postTime":"2015-08-20 19：20：11"
+            {
+                "id": "02",
+                "username": "用户2",
+                "algorithm": "算法3",
+                "algorithmUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
             }
         ]
     };
     return data;
 });
 
-Mock.mock(hostUrl+"/user/getModule", function (options) {
+Mock.mock(hostUrl + "/user/getModule", function (options) {
     var data = {
-        "status":"0",
-        "data":[
+        "status": "0",
+        "data": [
             {
                 "id": "01",
                 "name": "模块1",
@@ -293,22 +377,24 @@ Mock.mock(hostUrl+"/user/getModule", function (options) {
     return data;
 });
 
-Mock.mock(hostUrl+"/user/getAlgorithm", function (options) {
+Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
     var data = {
-        "status":"0",
-        "data":[
-            {"id":"01",
-                "username":"用户1",
-                "algorithm":"算法2",
-                "algorithmUrl":"http://www.baidu.com",
-                "postTime":"2015-08-20 19：20：11"
+        "status": "0",
+        "data": [
+            {
+                "id": "01",
+                "username": "用户1",
+                "algorithm": "算法2",
+                "algorithmUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
 
             },
-            {"id":"02",
-                "username":"用户2",
-                "algorithm":"算法3",
-                "algorithmUrl":"http://www.baidu.com",
-                "postTime":"2015-08-20 19：20：11"
+            {
+                "id": "02",
+                "username": "用户2",
+                "algorithm": "算法3",
+                "algorithmUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
             }
         ]
     };

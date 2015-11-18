@@ -1,12 +1,12 @@
 /**
  * Created by Libin on 2015/9/8.
  */
-var hotsUrl = "";
+var hostUrl = "";
 $(function () {
     var container = $('.main-container');
     var centerContainer = container.find('.icons-container');
     var rightContainer = container.find('.right-area');
-    var currentUser = {};
+    var currentUser;
     checkLogin();
 
     function checkLogin() {
@@ -44,7 +44,7 @@ $(function () {
 
     function userLogin(loginData) {
         $.ajax({
-            url: hotsUrl + "/user/UserLoginServlet",
+            url: hostUrl + "/user/UserLoginServlet",
             type: "post",
             data: JSON.stringify(loginData),
             dataType: 'json',
@@ -83,8 +83,8 @@ $(function () {
     function fillSysInfo(userid) {
         var infoContainer = rightContainer.find(".system-content");
         $.ajax({
-            url: hotsUrl + "/getSystemInfo",
-            type: "get",
+            url: hostUrl + "/getSystemInfo",
+            type: "post",
             dataType: 'json',
             success: function (resp) {
                 console.log(resp);
@@ -107,7 +107,7 @@ $(function () {
         var infoContainer = rightContainer.find(".task-content");
 
         $.ajax({
-            url: hotsUrl + "/getTaskInfo",
+            url: hostUrl + "/getTaskInfo",
             type: "get",
             data: JSON.stringify(),
             dataType: 'json',
@@ -180,16 +180,18 @@ $(function () {
 
     function  getPageData(page){
         $.ajax({
-            url:hostUrl+"/getIndexPage",
-            method:"post",
-            data:{
-            current:page
-            },
-            success: function (data) {
-                console.log(data);
-                if(data.status=="0"){
-                    maxpage = data.maxPage;
-                    refreshPointPageData(data.pageData);
+            url: hostUrl +"/getIndexPage",
+            type:"post",
+            data:JSON.stringify({
+                current:page
+            }),
+            dataType: 'json',
+            success: function (resp) {
+                console.log(resp);
+                if(resp.status=="0"){
+                    //console.log(resp.data);
+                    maxpage = resp.data.maxPage;
+                    refreshPointPageData(resp.data.pageData);
                 }
             }
             }
@@ -198,6 +200,7 @@ $(function () {
 
 
     function refreshPointPageData(data) {
+        console.log(data);
         var ul1 = $('.first-line');
         var tempPage1 = "";
         for (var i = 0; i < 3; ++i) {
@@ -314,6 +317,31 @@ $(function () {
 
 
     }//bindSideEvents
+
+    var leftNavi =$('.left-navi');
+    console.log(leftNavi.find('li'));
+    leftNavi.find('li').eq(0).on('click', function () {
+        if(currentUser){
+            window.location="./page/application.html";
+        }else{
+            alert('请先登录或者注册!');
+        }
+    });
+    leftNavi.find('li').eq(1).on('click', function () {
+        if(currentUser){
+            window.location="./page/module.html";
+        }else{
+            alert('请先登录或者注册!');
+        }
+    });
+    leftNavi.find('li').eq(2).on('click', function () {
+        console.log(currentUser);
+        if(currentUser){
+            window.location="./page/algorithm.html";
+        }else{
+            alert('请先登录或者注册!');
+        }
+    });
 
     //if (localStorage.getItem("userinfo")) {
     //    var userinfo = localStorage.getItem("userinfo");
