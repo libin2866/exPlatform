@@ -8,6 +8,24 @@ $(function(){
     var tabBar = leftContainer.find('.tab-banner');
     var preTab = $('#alg-manage'), currentTab, currentId = 4;
     var hostUrl ="";
+    var currentUser;
+    checkLogin();
+
+    function checkLogin() {
+        if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
+            //console.log(currentUser);
+            $(".edit-info").on('click', function () {
+            window.location = "./uploadAlg.html?toedit&userid="+currentUser.userId;
+            });
+        }else{
+            alert("请先登录后继续");
+            window.location="../index.html";
+        }
+    }
+    $(".upload-algorithm").html('上传算法').on('click',function(){
+        window.location = "./uploadAlg.html";
+    });
+
     (function(){
         tabBar.find('#alg-manage').on('click', function () {
             if (!$(this).hasClass('tab-activated')) {
@@ -86,6 +104,10 @@ $(function(){
                 '<li class="three-col"><a id="' + data[i].id + '">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>';
         }
         container.html(content);
+
+        $(".upload-algorithm").html('上传模块').on('click', function () {
+            window.location = "./uploadMod.html";
+        });
     }
     function redrawAlgorithmTab(data) {
         var ulheader = $('#ul-header');
@@ -99,6 +121,9 @@ $(function(){
                 '<li class="four-col"><a id="' + data[i].id + '">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
         }
         container.html(content);
+        $(".upload-algorithm").html('上传算法').on('click',function(){
+            window.location = "./uploadAlg.html";
+        });
     }
 
 });

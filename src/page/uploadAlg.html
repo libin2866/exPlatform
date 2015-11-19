@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传算法</title>
+    <link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+<div class="header-deco"></div>
+<div class="main-container">
+
+    <button class="purple-btn back-btn">返回</button>
+    <form id="upload-mod-form">
+        <div class="upload-area">
+            <ul class="input-ul">
+                <li><span class="title">算法程序</span> <span class="input-area"><input type="file" /></span> </li>
+                <li><span class="title">名称</span><span ><input type="text" class="input-area" id="alg-name"> </span> </li>
+                <li><span class="title" >主程序</span><span ><input type="text"class="input-area" id="alg-main"> </span> </span></li>
+                <li><span class="title" >所属模块</span><span ><input type="text"class="input-area" id="alg-module"> </span> </span></li>
+                <li><span class="title" >说明</span><span ><textarea class="input-area text-area"></textarea> </span> </span></li>
+            </ul>
+
+        </div>
+        <div class="action-area">
+            <p class="desc">请上传 jar 包格式的文件</p>
+            <button class="purple-btn submit-btn">上&nbsp;传</button>
+        </div>
+    </form>
+</div>
+<!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<!--<script src="../js/list.js"></script>-->
+<script src ="../js/lib/jquery.min.js"></script>
+<script src="../js/mock/mock.min.js"></script>
+<script src="../js/mock/mockAjax.js"></script>
+<script src="../js/upload.js"></script>
+</body>
+</html>

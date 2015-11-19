@@ -7,6 +7,24 @@ $(function () {
     var preTab = $('#user-manage'), currentTab, currentId = 1;
     var hostUrl = "";
     var tabBar = $('.tab-banner');
+    var currentUser;
+    checkLogin();
+
+    function checkLogin() {
+        if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
+            //console.log(currentUser);
+            //$(".edit-info").on('click', function () {
+            //    window.location = "./uploadAlg.html?toedit&userid="+currentUser.userId;
+            //});
+            if(currentUser.userType!="1"){
+                //alert("请先登录后继续");
+                window.location="./userDetail.html";
+            }
+        }else{
+            alert("请先登录后继续");
+            window.location="../index.html";
+        }
+    }
     console.log('init');
     (function () {
         //var tabBar = $('.tab-banner');
