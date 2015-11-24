@@ -146,7 +146,23 @@ $(function () {
         if ($(tar)[0].tagName == "SPAN") {
             var id = $(el.target).attr("data-id");
             console.log(id);
-            showDialogue(id);
+            $.ajax({
+                url: hostUrl + "/getGridData",
+                type: "post",
+                data: JSON.stringify({
+                    id:id
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawApplicationTab(resp.data);
+                        showDialogue(resp.data);
+                        //showDialogue(id);
+                    }
+                }
+            })
+
         }
     });
 
@@ -224,17 +240,35 @@ $(function () {
     /**
      * 显示弹窗
      */
-    function showDialogue(id) {
+    function showDialogue(list) {
         //TODO 增加图标
+        console.log(typeof(list.moduleData));
+        var icons,type=0;
+        if(typeof(list.algorithmData)!="undefined"){
+            icons = list.algorithmData;
+            type=1;
+        }
+        if(typeof(list.moduleData)!="undefined"){
+            icons = list.moduleData;
+            type=2;
+        }
+        if(typeof(list.applicationData)!="undefined"){
+            icons = list.applicationData;
+            type=3;
+        }
+        console.log(icons);
 
-        console.log(id);
-        var icons = {
-            data: [{
-                "title": "测试名字",
-                "icon": "icon",//url?
-                "url": "javascript:"
-            }]
-        };
+        createIcons(icons,type);
+        //switch (type){
+        //    case 1:bindModEvent();
+        //        break;
+        //    case 2: bindModEvents();
+        //        break;
+        //    case 3:bindAlgEvents();
+        //        break;
+        //    case 0:alert('系统出错，请刷新后重试');
+        //        return;
+        //}
         $(".white_overlay").fadeIn(300).on("click", function () {
             hideDialogue();
         });
@@ -250,15 +284,93 @@ $(function () {
      * 生成弹窗的Icons
      * param:data
      */
-    function createIcons(data) {
+    function createIcons(data,type) {
         var iconBoxr = container.find(".icons-container-pop").find(".box");
-        iconBoxr.html("");
+        //iconBoxr.html("");
         var items = "";
-        for (var i = 0; i < data.length; ++i) {
-            items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon"></i><p class="title">'
-                + data[i].title + '</p></div></div>';
+        switch (type){
+            case 1://
+                for (var i = 0; i < data.length; ++i) {
+                items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon algorithm-class"  data-id="'+data[i].id+'"></i><p class="title" data-id="'+data[i].id+'">'
+                    + data[i].name + '</p></div></div>';
+            }
+                break;
+            case 2:
+                for (var i = 0; i < data.length; ++i) {
+                    items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon module-class"  data-id="'+data[i].id+'"></i><p class="title" data-id="'+data[i].id+'">'
+                        + data[i].name + '</p></div></div>';
+                }
+                break;
+            case 3:
+                for (var i = 0; i < data.length; ++i) {
+                    items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon application-class"  data-id="'+data[i].id+'"></i><p class="title" data-id="'+data[i].id+'">'
+                        + data[i].name + '</p></div></div>';
+                }
+                break;
         }
 
+        iconBoxr.append(items);
+        iconBoxr.on('click', function (el) {
+            console.log( $(el.target).attr("data-id"));
+            var tar = el.target || el.srcElement;
+
+            if($(tar).attr('data-id')){
+                if($(tar).parent().find('.inner-icon').hasClass('algorithm-class')){
+                    console.log('to load algorithm content');
+                    //location.href="";
+                }else if($(tar).parent().find('.inner-icon').hasClass('module-class')){
+                    console.log('to load module content');
+                }else if($(tar).parent().find('.inner-icon').hasClass('application-class')){
+                    console.log('to load application content');
+                }
+            }
+            //if ($(tar)[0].tagName == "SPAN") {
+            //    var id = $(el.target).attr("data-id");
+            //}
+
+        })
+
+    }
+
+    function  clickedIcons(data,type,title){
+        switch (type){
+            case 1://algorithm
+                location.href="";
+                break;
+            case 2://module
+                addIcons(resp.data,title);
+                break;
+            case 3://application----------impossible?
+                addIcons(resp.data,title);
+                break;
+        }
+    }
+
+    function  addIcons(data,type,title){
+        var iconBoxr = container.find(".icons-container-pop").find(".box");
+        //iconBoxr.html("");
+        var items = '<div class="divider">'+title+'</div>';
+        switch (type){
+            case 1://
+                for (var i = 0; i < data.length; ++i) {
+                    items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon algorithm-class" data-id="'+data[i].id+'"></i><p class="title">'
+                        + data[i].name + '</p></div></div>';
+                }
+                break;
+            case 2:
+                for (var i = 0; i < data.length; ++i) {
+                    items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon module-class" data-id="'+data[i].id+'"></i><p class="title">'
+                        + data[i].name + '</p></div></div>';
+                }
+                break;
+            case 3:
+                for (var i = 0; i < data.length; ++i) {
+                    items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon application-class" data-id="'+data[i].id+'"></i><p class="title">'
+                        + data[i].name + '</p></div></div>';
+                }
+                break;
+        }
+        iconBoxr.append(items);
     }
 
     /**

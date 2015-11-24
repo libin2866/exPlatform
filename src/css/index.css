@@ -308,6 +308,9 @@ body {
   text-align: center;
   padding: 10px;
 }
+.main-container .icons-container-pop .divider {
+  border-bottom: 2px solid #00d8b9;
+}
 .main-container .right-area {
   display: inline-block;
   *display: inline;
@@ -455,6 +458,27 @@ body {
 .main-container .right-side-btn.current {
   color: #fff;
   background: url('img/right-side-btn-hover.svg') no-repeat;
+}
+.index-icon-pop-up {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 46px;
+  height: 46px;
+  background: url('img/icon-bak.svg') no-repeat;
+  border: none;
+  line-height: 46px;
+  vertical-align: middle;
+  text-align: center;
+}
+.algorithm-class {
+  background: #ededed !important;
+}
+.module-class {
+  background: #00a289 !important;
+}
+.application-class {
+  background: #00a5e0 !important;
 }
 .white_overlay {
   display: none;

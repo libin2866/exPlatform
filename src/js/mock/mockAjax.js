@@ -66,6 +66,7 @@ Mock.mock(hostUrl + "/getTaskInfo", function (options) {
 });
 
 Mock.mock(hostUrl + "/getIndexPage", function (options) {
+    console.log(options);
     var data = {
         "status": "0",
         "data": {
@@ -78,6 +79,17 @@ Mock.mock(hostUrl + "/getIndexPage", function (options) {
         }
     };
     return data;
+});
+Mock.mock(hostUrl+"/getGridData", function (options) {
+    console.log(options);
+   var data = {
+       "status":"0",
+       "data":{
+           "moduleData":[{"id":"003","name":"行人检测","icon":"icon-url"},{"id":"004","name":"车辆检测","icon":"icon-url"},{"id":"005","name":"图像分析","icon":"icon-url"}]
+       }
+   };
+    return data;
+
 });
 /**
  * mock Module
