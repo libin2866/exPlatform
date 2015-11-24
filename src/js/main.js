@@ -348,22 +348,34 @@ $(function () {
 
     function  addIcons(data,type,title){
         var iconBoxr = container.find(".icons-container-pop").find(".box");
-        //iconBoxr.html("");
-        var items = '<div class="divider">'+title+'</div>';
+        var items = '';
+        var pos;
         switch (type){
             case 1://
+                items+='<div class="divider">'+title+'</div><div class="algorithm-area>"';
                 for (var i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon algorithm-class" data-id="'+data[i].id+'"></i><p class="title">'
                         + data[i].name + '</p></div></div>';
                 }
+                items+='</div>'
                 break;
             case 2:
+                pos = iconBoxr.find('.divider');
+                if(pos.length>1){
+                    //todo add length judge
+                }
+                items+='<div class="divider">'+title+'</div><div class="module-area>"';
                 for (var i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon module-class" data-id="'+data[i].id+'"></i><p class="title">'
                         + data[i].name + '</p></div></div>';
                 }
                 break;
             case 3:
+                pos = iconBoxr.find('.divider')[0];
+                if(pos.next().hasClass('application-area')){
+                    pos.next().html('');
+                }
+                items+='<div class="divider">'+title+'</div><div class="application-area>"';
                 for (var i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon application-class" data-id="'+data[i].id+'"></i><p class="title">'
                         + data[i].name + '</p></div></div>';
