@@ -12,6 +12,11 @@ $(function () {
     var currentUser;
     checkLogin();
 
+    $('.back-btn').on('click', function () {
+        window.history.go(-1);
+    });
+
+
     function checkLogin() {
         if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
             //console.log(currentUser);

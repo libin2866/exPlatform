@@ -13,7 +13,7 @@ $(function () {
         if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
             console.log(currentUser);
             rightContainer.find('.login-area').hide();
-            rightContainer.find('.info-area').show("fast", bindSideBarEvents).css("display", "inline-block");
+            rightContainer.find('.info-area').fadeIn("fast", bindSideBarEvents).css("display", "inline-block");
             fillUserInfo(currentUser);
         }
     }
@@ -234,8 +234,7 @@ $(function () {
      * 显示弹窗
      */
     function showDialogue(list) {
-        //TODO 增加图标
-        console.log(typeof(list.moduleData));
+        //console.log(typeof(list.moduleData));
         var icons,type='';
         if(typeof(list.algorithmData)!="undefined"){
             icons = list.algorithmData;
@@ -297,12 +296,12 @@ $(function () {
                 if($(tar).parent().find('.inner-icon').hasClass('algorithm-class')){
                     console.log('to load algorithm content');
                     //clickedIcons();
-                    //location.href="";
+                    window.location="./page/alg_display.html?id="+$(tar).attr('data-id');
                 }else if($(tar).parent().find('.inner-icon').hasClass('module-class')){
                     clickedIcons($(tar).attr('data-id'),'module',$(tar).parent().find('.title').html());
-                    console.log('to load module content');
+                    //console.log('to load module content');
                 }else if($(tar).parent().find('.inner-icon').hasClass('application-class')){
-                    console.log('to load application content');
+                    //console.log('to load application content');
                     clickedIcons($(tar).attr('data-id'),'application',$(tar).parent().find('.title').html());
                 }
             }
