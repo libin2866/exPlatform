@@ -1,19 +1,31 @@
+//{
+//  " status ": "0",
+//  "data": [
+//    {
+//      "id": "01",
+//      "title": "SVN",
+//      "time": "2015-08-15 09:00",
+//      "username": " 测试",
+//      "downloadUrl": "http://www.baidu.com"
+//    },
+//    {
+//      "id": "01",
+//      "title": "HOG",
+//      "time": "2015-08-15 09:00",
+//      "username": "测试",
+//      " downloadUrl": "http://www.baidu.com"
+//    }
+//  ]
+//}
+
 {
-  " status ": "0",
-  "data": [
-    {
-      "id": "01",
-      "title": "SVN",
-      "time": "2015-08-15 09:00",
-      "username": " 测试",
-      "downloadUrl": "http://www.baidu.com"
-    },
-    {
-      "id": "01",
-      "title": "HOG",
-      "time": "2015-08-15 09:00",
-      "username": "测试",
-      " downloadUrl": "http://www.baidu.com"
-    }
-  ]
+  "status ":"0",
+  "data":{
+    "pageData":[
+      {"id":"001","name":"智能交通","type":"application"},{"id":"002","name":"智慧校园","type":"application"},{"id":"002","name":"反恐维稳","type":"application"},
+      {"id":"003","name":"行人检测","type":"module"},{"id":"004","name":"车辆检测","type":"module"},{"id":"005","name":"图像分析","type":"module"},
+      {"id":"006","name":"视频图像","type":"algorithm"},{"id":"007","name":"深度学习","type":"algorithm"},{"id":"008","name":"机器学习","type":"algorithm"}
+    ],
+    "maxPage":"3"//返回最大页数
+  }
 }

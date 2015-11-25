@@ -78,6 +78,9 @@ $(function () {
             }
 
         })
+        infoContainer.find(".upload-algorithm").on('click', function () {
+            window.location ='./page/uploadAlg.html';
+        })
     }
 
     function fillSysInfo(userid) {
@@ -138,19 +141,17 @@ $(function () {
      * 中间图标区域的点击处理
      */
     centerContainer.on('click', function (el) {
-        //console.log(el);
-        // console.log(el.target);
-        // console.log($(el.target)[0].tagName);
-        // console.log(el.target.tagName);
         var tar = el.target || el.srcElement;
         if ($(tar)[0].tagName == "SPAN") {
-            var id = $(el.target).attr("data-id");
+            var id = $(el.target).attr("data-id"),
+                type = $(el.target).attr("data-type");
             console.log(id);
             $.ajax({
                 url: hostUrl + "/getGridData",
                 type: "post",
                 data: JSON.stringify({
-                    id:id
+                    id:id,
+                    type:type
                 }),
                 dataType: 'json',
                 success: function (resp) {
@@ -165,33 +166,24 @@ $(function () {
 
         }
     });
-
     var currentPage=1;
     var maxpage=2;
-
     $('.left-pointer').on('click', function (el) {
-        var leftPageData = [
-            {id:'001',name:'test1'}, {id:'002',name:'test2'}, {id:'003',name:'test3'},
-            {id:'004',name:'test4'}, {id:'005',name:'test5'}, {id:'006',name:'test6'},
-            {id:'007',name:'test7'}, {id:'008',name:'test8'}, {id:'009',name:'test9'}
-        ];
-        if(currentPage>0){
-            currentPage--;
-        }
+       if(currentPage>0) {currentPage--;}else{currentPage=0;}
          getPageData(currentPage);
-        //refreshPointPageData(leftPageData);
     });
     $('.right-pointer').on('click', function (el) {
-        var leftPageData = [
-            {id:'001',name:'1test1'}, {id:'002',name:'1test2'}, {id:'003',name:'1test3'},
-            {id:'004',name:'1test4'}, {id:'005',name:'1test5'}, {id:'006',name:'1test6'},
-            {id:'007',name:'1test7'}, {id:'008',name:'1test8'}, {id:'009',name:'1test9'}
-        ];
+        //var leftPageData = [
+        //    {id:'001',name:'1test1'}, {id:'002',name:'1test2'}, {id:'003',name:'1test3'},
+        //    {id:'004',name:'1test4'}, {id:'005',name:'1test5'}, {id:'006',name:'1test6'},
+        //    {id:'007',name:'1test7'}, {id:'008',name:'1test8'}, {id:'009',name:'1test9'}
+        //];
         if(currentPage>=maxpage){
             currentPage=maxpage;
+        }else{
+            currentPage++;
         }
         getPageData(currentPage);
-        //refreshPointPageData(leftPageData);
     });
 
     function  getPageData(page){
@@ -220,19 +212,20 @@ $(function () {
         var ul1 = $('.first-line');
         var tempPage1 = "";
         for (var i = 0; i < 3; ++i) {
-            tempPage1 += '<li><span data-id="' + data[i].id + '">' + data[i].name + '</span></li>';
+            tempPage1 += '<li><span data-id="' + data[i].id + '" data-type="'+data[i].type+'">' + data[i].name + '</span></li>';
         }
+
         ul1.html(tempPage1);
         var ul2 = $('.second-line');
         tempPage1 = "";
         for (i = 0; i < 3; ++i) {
-            tempPage1 += '<li><span data-id="' + data[i + 3].id + '">' + data[i + 3].name + '</span></li>';
-        }
+            tempPage1 += '<li><span data-id="' + data[i + 3].id + '" data-type="'+data[i + 3].type+'">' + data[i + 3].name + '</span></li>';
+            }
         ul2.html(tempPage1)
         var ul3 = $('.third-line');
         tempPage1 = "";
         for (i = 0; i < 3; ++i) {
-            tempPage1 += '<li><span data-id="' + data[i + 6].id + '">' + data[i + 6].name + '</span></li>';
+            tempPage1 += '<li><span data-id="' + data[i + 6].id + '" data-type="'+data[i + 6].type+'">' + data[i + 6].name + '</span></li>';
         }
         ul3.html(tempPage1)
     }
@@ -243,32 +236,20 @@ $(function () {
     function showDialogue(list) {
         //TODO 增加图标
         console.log(typeof(list.moduleData));
-        var icons,type=0;
+        var icons,type='';
         if(typeof(list.algorithmData)!="undefined"){
             icons = list.algorithmData;
-            type=1;
+            type='algorithm';
         }
         if(typeof(list.moduleData)!="undefined"){
             icons = list.moduleData;
-            type=2;
+            type='module';
         }
         if(typeof(list.applicationData)!="undefined"){
             icons = list.applicationData;
-            type=3;
+            type='application';
         }
-        console.log(icons);
-
         createIcons(icons,type);
-        //switch (type){
-        //    case 1:bindModEvent();
-        //        break;
-        //    case 2: bindModEvents();
-        //        break;
-        //    case 3:bindAlgEvents();
-        //        break;
-        //    case 0:alert('系统出错，请刷新后重试');
-        //        return;
-        //}
         $(".white_overlay").fadeIn(300).on("click", function () {
             hideDialogue();
         });
@@ -286,88 +267,132 @@ $(function () {
      */
     function createIcons(data,type) {
         var iconBoxr = container.find(".icons-container-pop").find(".box");
-        //iconBoxr.html("");
+        iconBoxr.html("");
         var items = "";
         switch (type){
-            case 1://
+            case 'algorithm'://
                 for (var i = 0; i < data.length; ++i) {
                 items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon algorithm-class"  data-id="'+data[i].id+'"></i><p class="title" data-id="'+data[i].id+'">'
                     + data[i].name + '</p></div></div>';
             }
                 break;
-            case 2:
-                for (var i = 0; i < data.length; ++i) {
+            case 'module':
+                for (i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon module-class"  data-id="'+data[i].id+'"></i><p class="title" data-id="'+data[i].id+'">'
                         + data[i].name + '</p></div></div>';
                 }
                 break;
-            case 3:
-                for (var i = 0; i < data.length; ++i) {
+            case 'application':
+                for (i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon application-class"  data-id="'+data[i].id+'"></i><p class="title" data-id="'+data[i].id+'">'
                         + data[i].name + '</p></div></div>';
                 }
                 break;
         }
-
         iconBoxr.append(items);
         iconBoxr.on('click', function (el) {
             console.log( $(el.target).attr("data-id"));
             var tar = el.target || el.srcElement;
-
             if($(tar).attr('data-id')){
                 if($(tar).parent().find('.inner-icon').hasClass('algorithm-class')){
                     console.log('to load algorithm content');
+                    //clickedIcons();
                     //location.href="";
                 }else if($(tar).parent().find('.inner-icon').hasClass('module-class')){
+                    clickedIcons($(tar).attr('data-id'),'module',$(tar).parent().find('.title').html());
                     console.log('to load module content');
                 }else if($(tar).parent().find('.inner-icon').hasClass('application-class')){
                     console.log('to load application content');
+                    clickedIcons($(tar).attr('data-id'),'application',$(tar).parent().find('.title').html());
                 }
             }
-            //if ($(tar)[0].tagName == "SPAN") {
-            //    var id = $(el.target).attr("data-id");
-            //}
 
         })
-
     }
+    function  clickedIcons(id,type,title){
+        if(type=='algorithm'){
+            return;
+        }else{
+            $.ajax({
+                url: hostUrl + "/getGridData2",
+                type: "post",
+                data: JSON.stringify({
+                    id:id,
+                    type:type
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        var icons;
+                        if(typeof(resp.data.algorithmData)!="undefined"){
+                            icons = resp.data.algorithmData;
+                            type='algorithm';
+                        }
+                        if(typeof(resp.data.moduleData)!="undefined"){
+                            icons = resp.data.moduleData;
+                            type='module';
+                        }
+                        if(typeof(resp.data.applicationData)!="undefined"){
+                            icons = resp.data.applicationData;
+                            type='application';
+                        }
+                        addIcons(icons,type,title);
+                    }
+                }
+            })
 
-    function  clickedIcons(data,type,title){
-        switch (type){
-            case 1://algorithm
-                location.href="";
-                break;
-            case 2://module
-                addIcons(resp.data,title);
-                break;
-            case 3://application----------impossible?
-                addIcons(resp.data,title);
-                break;
+                   ;
         }
     }
 
     function  addIcons(data,type,title){
         var iconBoxr = container.find(".icons-container-pop").find(".box");
         //iconBoxr.html("");
-        var items = '<div class="divider">'+title+'</div>';
+        var items = '';
+        var pos;
         switch (type){
-            case 1://
+            case 'algorithm'://----to change algorithm area
+                if(title){
+                    items+='<div class="algorithm-divider"><div class="divider">'+title+'</div>';
+                }
+                pos=iconBoxr.find('.algorithm-divider');
+                if(pos){
+                    pos.empty();
+                }
                 for (var i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon algorithm-class" data-id="'+data[i].id+'"></i><p class="title">'
                         + data[i].name + '</p></div></div>';
                 }
+                items+="</div>";
                 break;
-            case 2:
-                for (var i = 0; i < data.length; ++i) {
+            case 'module'://to change both.
+                if(title){
+                    items+='<div class="module-divider"><div class="divider">'+title+'</div>';
+                }
+                pos=iconBoxr.find('.module-divider');
+                if(pos){
+                    pos.empty();
+                }
+                for (i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon module-class" data-id="'+data[i].id+'"></i><p class="title">'
                         + data[i].name + '</p></div></div>';
                 }
+                items+="</div>";
                 break;
-            case 3:
-                for (var i = 0; i < data.length; ++i) {
+            case 'application':
+                pos=iconBoxr.find('.application-divider');
+                if(pos){
+                    pos.empty();
+                }
+                if(title){
+                    items+='<div class="application-divider"><div class="divider">'+title+'</div>';
+                }
+                for (i = 0; i < data.length; ++i) {
                     items += '<div class="inner-cell"><div class="wrap"><i class="inner-icon application-class" data-id="'+data[i].id+'"></i><p class="title">'
                         + data[i].name + '</p></div></div>';
                 }
+                items+="</div>";
                 break;
         }
         iconBoxr.append(items);

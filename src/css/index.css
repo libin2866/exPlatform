@@ -472,13 +472,13 @@ body {
   text-align: center;
 }
 .algorithm-class {
-  background: #ededed !important;
+  background: #483c94 !important;
 }
 .module-class {
-  background: #00a289 !important;
+  background: #00a5e0 !important;
 }
 .application-class {
-  background: #00a5e0 !important;
+  background: #00d8b9 !important;
 }
 .white_overlay {
   display: none;

@@ -69,25 +69,36 @@ Mock.mock(hostUrl + "/getIndexPage", function (options) {
     console.log(options);
     var data = {
         "status": "0",
-        "data": {
-            "pageData": [
-                {"id": "001", "name": "智能交通1"}, {"id": "002", "name": "智慧校园1"}, {"id": "002", "name": "反恐维稳"},
-                {"id": "003", "name": "行人检测"}, {"id": "004", "name": "车辆检测"}, {"id": "005", "name": "图像分析"},
-                {"id": "006", "name": "视频图像"}, {"id": "007", "name": "深度学习"}, {"id": "008", "name": "机器学习"}
+        "data":{
+            "pageData":[
+                {"id":"001","name":"智能交通1","type":"application"},{"id":"002","name":"智慧校园","type":"application"},{"id":"002","name":"反恐维稳","type":"application"},
+                {"id":"003","name":"行人检测2","type":"module"},{"id":"004","name":"车辆检测","type":"module"},{"id":"005","name":"图像分析","type":"module"},
+                {"id":"006","name":"视频图像3","type":"algorithm"},{"id":"007","name":"深度学习","type":"algorithm"},{"id":"008","name":"机器学习","type":"algorithm"}
             ],
-            "maxPage": "3"//返回最大页数
+            "maxPage":"3"//返回最大页数
         }
     };
     return data;
 });
 Mock.mock(hostUrl+"/getGridData", function (options) {
-    console.log(options);
+   console.log(options);
    var data = {
        "status":"0",
        "data":{
            "moduleData":[{"id":"003","name":"行人检测","icon":"icon-url"},{"id":"004","name":"车辆检测","icon":"icon-url"},{"id":"005","name":"图像分析","icon":"icon-url"}]
        }
    };
+    return data;
+
+});
+Mock.mock(hostUrl+"/getGridData2", function (options) {
+    console.log(options);
+    var data = {
+        "status":"0",
+        "data":{
+            "algorithmData":[{"id":"003","name":"行人检测2","icon":"icon-url"},{"id":"004","name":"车辆检测1","icon":"icon-url"},{"id":"005","name":"图像分析11","icon":"icon-url"}]
+        }
+    };
     return data;
 
 });
