@@ -35,8 +35,8 @@ $(function () {
             return;
         }
         var loginData = {
-            username: username,
-            password: password
+            username: username.val(),
+            password: password.val()
         };
         userLogin(loginData);
     });

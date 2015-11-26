@@ -22,11 +22,18 @@ $(function () {
         }
 
         $.ajax({
-            url:"http://10.41.5.136:8080/javaweb/UserServlet",
+            url:"/javaweb/UserServlet",
             type:"post",
             data:JSON.stringify(values),
             success:function (resp) {
                 console.log(resp);
+                if(resp.status=='0'){
+                    alert('注册成功!');
+                    location.href="../index.html";
+                }else{
+                    alert("注册失败,请检查输入内容后重试!");
+                    return;
+                }
             }
         })
     });
