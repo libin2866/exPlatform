@@ -7,9 +7,10 @@
     "cssnext": "^1.8.4",
     "grunt": "~0.4.0",
     "grunt-contrib-concat": "~0.1.1",
+    "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-less": "^0.11.0",
-    "grunt-contrib-uglify": "~0.1.2",
+    "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-postcss": "^0.7.0"
   }

@@ -2,7 +2,7 @@
  * Created by Libin on 2015/10/29.
  */
 
-var hostUrl = "";
+var hostUrl = "/DistributedPlatForm";
 /**
  * Mock for index ajax
  */

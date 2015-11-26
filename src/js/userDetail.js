@@ -7,7 +7,7 @@ $(function(){
     var leftContainer = $('.left-area');
     var tabBar = leftContainer.find('.tab-banner');
     var preTab = $('#alg-manage'), currentTab, currentId = 4;
-    var hostUrl ="";
+    var hostUrl ="/DistributedPlatForm";
     var currentUser;
     checkLogin();
 

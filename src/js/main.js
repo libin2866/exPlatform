@@ -1,7 +1,7 @@
 /**
  * Created by Libin on 2015/9/8.
  */
-var hostUrl = "";
+var hostUrl = "/DistributedPlatForm";
 $(function () {
     var container = $('.main-container');
     var centerContainer = container.find('.icons-container');

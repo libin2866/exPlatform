@@ -3,7 +3,7 @@
  * @date: 15/11/19.
  */
 
-var hostUrl = "";
+var hostUrl = "/DistributedPlatForm";
 $(function () {
     //console.log($("#mod-name").length);
 
@@ -85,14 +85,12 @@ $(function () {
     }
 
     function uploadAlg() {
-
-    }
-
-    function uploadMod() {
-        var name = $("#mod-name").val(),
-            mainApp = $("#mod-main").val(),
-            belong = $("mod-application").val(),
-            desc = $(".text-area").val();
+        var name = $("#alg-name").val(),
+            mainApp = $("#alg-main").val(),
+            belong = $("#alg-application").val(),
+            desc = $(".text-area").val(),
+            formData = new FormData($("#upload-alg-form")[0]);
+        //console.log(form);
         if (!name || !mainApp || !belong) {
             alert('请先完善输入信息');
             return;
@@ -100,13 +98,53 @@ $(function () {
         $.ajax({
             url: hostUrl + "/algorithm/addAlgorithm",
             type: "post",
-            data: JSON.stringify({
-                name: name,
-                mainApp: mainApp,
-                belong: belong,
-                desc: desc
-            }),
-            dataType: "json",
+            data:formData,
+            /**
+             * 必须false才会避开jQuery对 formdata 的默认处理
+             * XMLHttpRequest会对 formdata 进行正确的处理
+             */
+            processData : false,
+            /**
+             *必须false才会自动加上正确的Content-Type
+             */
+            contentType : false,
+            //dataType: "formdata",
+            success: function (resp) {
+                console.log(resp);
+                if(resp.status=="0"){
+                    alert("提交成功!");
+                    location.reload();
+                }
+            },
+            error : function(responseStr) {
+                alert("失败:" + JSON.stringify(responseStr));//将    json对象    转成    json字符串。
+            }
+        })
+    }
+
+    function uploadMod() {
+        var name = $("#mod-name").val(),
+            mainApp = $("#mod-main").val(),
+            belong = $("#mod-application").val(),
+            desc = $(".text-area").val(),
+            formData = new FormData($("#upload-mod-form")[0]);
+        if (!name || !mainApp || !belong) {
+            alert('请先完善输入信息');
+            return;
+        }
+        $.ajax({
+            url: hostUrl + "/module/addModule",
+            type: "post",
+            //data: JSON.stringify({
+            //    name: name,
+            //    mainApp: mainApp,
+            //    belong: belong,
+            //    desc: desc
+            //}),
+            data:formData,
+            processData : false,
+            contentType : false,
+            //dataType: "json",
             success: function (resp) {
                 console.log(resp);
                 if(resp.status=="0"){

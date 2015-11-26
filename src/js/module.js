@@ -3,7 +3,7 @@
  */
 
 //var hotsUrl ="http://10.41.5.136:8080";
-var hostUrl ="";
+var hostUrl ="/DistributedPlatForm";
 $(function () {
         console.log('init');
         var currentUser;

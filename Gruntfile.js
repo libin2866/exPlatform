@@ -48,8 +48,27 @@ module.exports = function (grunt) {
                 ]
             },
             dist: {
-                src: 'src/css/index.css',
-                dest: 'src/style.css'
+                //src: 'src/css/*.css',
+                //dest: 'build/css/**.css'
+                expand: true, cwd: 'src/css/', src: ['**/*.css'], dest: 'build/css/', ext: '.css'
+            }
+        },
+        uglify: {
+            "my_target": {
+                "files": {
+                    'dest/libs.min.js': ['src/zepto.js', 'src/underscore.js', 'src/backbone.js']
+                }
+            }
+        },
+        cssmin: {
+            compress: {
+                files: [{
+                    //'dest/car.min.css': [
+                    //    "src/car.css",
+                    //    "src/car01.css"
+                    //]
+                    expand: true, cwd: 'build/css/', src: ['**/*.css'], dest: 'build/cssmin/', ext: '.css'
+                }]
             }
         }
 
@@ -58,9 +77,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('default', ['watch']);
     grunt.registerTask('lessc', ['less:main']);
     grunt.registerTask('post', ['postcss']);
+    grunt.registerTask('distcss', ['postcss', 'cssmin']);
 
 };

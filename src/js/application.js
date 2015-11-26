@@ -1,7 +1,7 @@
 /**
  * Created by Libin on 2015/11/6.
  */
-var hostUrl="";
+var hostUrl="/DistributedPlatForm";
 $(function () {
     var currentUser;
     checkLogin();

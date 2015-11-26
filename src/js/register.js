@@ -22,7 +22,7 @@ $(function () {
         }
 
         $.ajax({
-            url:"/javaweb/UserServlet",
+            url:"/DistributedPlatForm/UserServlet",
             type:"post",
             data:JSON.stringify(values),
             success:function (resp) {

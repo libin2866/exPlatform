@@ -5,7 +5,7 @@
 
 $(function () {
     var preTab = $('#user-manage'), currentTab, currentId = 1;
-    var hostUrl = "";
+    var hostUrl = "/DistributedPlatForm";
     var tabBar = $('.tab-banner');
     var currentUser;
     checkLogin();

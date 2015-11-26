@@ -31,5 +31,22 @@ $(function () {
     function displayImg(data){
         var temp = '<img src='+data.src+' max-width="400px" max-height="400px"/>';
         imgContainer.html(temp);
+        $.ajax({
+            url: hostUrl + "/manage/toEditAlgorithm",
+            type: "post",
+            data: JSON.stringify({
+                algorithmId: arg
+            }),
+            dataType: 'json',
+            success: function (resp) {
+                console.log(resp);
+                if (resp.status == "0") {
+                    //redrawModuleTab(resp.data);
+                    fillAlgData(resp.data);
+                }
+            }
+        });
+
+
     }
 });
