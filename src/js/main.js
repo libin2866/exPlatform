@@ -88,17 +88,25 @@ $(function () {
         $.ajax({
             url: hostUrl + "/getSystemInfo",
             type: "post",
+            data: JSON.stringify({userId:userid}),
             dataType: 'json',
             success: function (resp) {
                 console.log(resp);
                 //updateModuleList(resp.data);
                 var data = resp.data;
                 if (resp.status == 0) {
+                    infoContainer.find("#cluster-num").html(data.cluster);
                     infoContainer.find("#cpu-num").html(data.cpu);
-                    infoContainer.find("#hd-num").html(data.dsik);
+                    infoContainer.find("#hd-num").html(data.disk);
+                    infoContainer.find("#hd-usage").html(data.diskUsage);
                     infoContainer.find("#ram-num").html(data.ram);
                     infoContainer.find("#ram-usage").html(data.ramUsage);
                     infoContainer.find("#online-num").html(data.userOnline);
+                    if(infoContainer.css('display')!='none'){
+                        setTimeout(function () {
+                            fillSysInfo(currentUser.userId);
+                        },5000);
+                    }
                 }
 
             }
@@ -111,8 +119,8 @@ $(function () {
 
         $.ajax({
             url: hostUrl + "/getTaskInfo",
-            type: "get",
-            data: JSON.stringify(),
+            type: "post",
+            data: JSON.stringify({userId:userid}),
             dataType: 'json',
             success: function (resp) {
                 console.log(resp);
@@ -129,6 +137,11 @@ $(function () {
                     }
                     infoContainer.find("#running-task").html(running);
                     infoContainer.find("#finished-task").html(finished);
+                    if(infoContainer.css('display')!='none'){
+                        setTimeout(function () {
+                            fillTaskInfo(currentUser.userId);
+                        },5000);
+                    }
                 } else {
                     console.log('get info error');
                 }
@@ -434,7 +447,7 @@ $(function () {
                 rightContainer.find('.person-content').hide();
                 rightContainer.find('.task-content').hide();
                 rightContainer.find('.system-content').fadeIn().css("display", "inline-block");
-                fillSysInfo();
+                fillSysInfo(currentUser.userId);
             }
         })
         sidebar.find('.task-info').on('click', function () {
@@ -447,7 +460,7 @@ $(function () {
                 rightContainer.find('.person-content').hide();
                 rightContainer.find('.system-content').hide();
                 rightContainer.find('.task-content').fadeIn().css("display", "inline-block");
-                fillTaskInfo();
+                fillTaskInfo(currentUser.userId);
             }
         })
 

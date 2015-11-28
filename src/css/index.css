@@ -390,6 +390,9 @@ body {
   margin-left: 25px;
   margin-top: 20px;
 }
+.main-container .right-area .info-area .task-content .status a {
+  color: #d6ed00;
+}
 .main-container .right-area .info-area .task-content .running ul,
 .main-container .right-area .info-area .task-content .finished ul {
   height: 180px;

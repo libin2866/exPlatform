@@ -10,10 +10,10 @@
 <div class="main-container">
 
     <button class="purple-btn back-btn">返回</button>
-    <form id="upload-alg-form">
+    <form id="upload-alg-form" enctype="multipart/form-data" action="/DistributedPlatForm/algorithm/addAlgorithm" method="post">
         <div class="upload-area">
             <ul class="input-ul">
-                <li><span class="title">算法程序</span> <span class="input-area"><input type="file" /></span> </li>
+                <li><span class="title">算法程序</span> <span class="input-area"><input type="file" onchange="selectFile(this)"/></span> </li>
                 <li><span class="title">名称</span><span ><input type="text" class="input-area" id="alg-name"> </span> </li>
                 <li><span class="title" >主程序</span><span ><input type="text"class="input-area" id="alg-main"> </span> </span></li>
                 <li><span class="title" >所属模块</span><span ><input type="text"class="input-area" id="alg-module"> </span> </span></li>

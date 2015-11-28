@@ -28,21 +28,60 @@ $(function () {
             window.location="../index.html";
         }
     }
+
+    function checkEdit() {
+        console.log('check');
+        console.log(window.location.href);
+        var url = window.location.href,
+            arg = url.split('?')[1];
+        if (!arg) {
+            return;
+        }
+        if (/(\?)algId=\d*/.test(url)) {
+            arg = arg.split('=')[1];
+            console.log(arg);
+            if (!arg) {
+                return;
+            }
+            $.ajax({
+                url: hostUrl + "/manage/toEditAlgorithm",
+                type: "post",
+                data: JSON.stringify({
+                    algorithmId: arg
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawModuleTab(resp.data);
+                        fillAlgData(resp.data);
+                    }
+                }
+            });
+
+        }
+        if (/(\?)modId=\d*/.test(url)) {
+            arg = url.split('?')[1];
+        }
+    }
+
     function displayImg(data){
         var temp = '<img src='+data.src+' max-width="400px" max-height="400px"/>';
         imgContainer.html(temp);
         $.ajax({
-            url: hostUrl + "/manage/toEditAlgorithm",
+            url: hostUrl + "/algorithm/getImg",
             type: "post",
             data: JSON.stringify({
-                algorithmId: arg
+                algorithmId: id
             }),
             dataType: 'json',
             success: function (resp) {
                 console.log(resp);
                 if (resp.status == "0") {
                     //redrawModuleTab(resp.data);
-                    fillAlgData(resp.data);
+                    //fillAlgData(resp.data);
+                    $('.result-img').attr('src',resp.src);
+
                 }
             }
         });

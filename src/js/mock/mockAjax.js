@@ -25,8 +25,10 @@ Mock.mock(hostUrl + "/getSystemInfo", function (options) {
     var data = {
         "status": "0",
         "data": {
+            "cluster":"4",
             "cpu": "4",
             "disk": "999G",
+            "diskUsage":"10%",
             "ram": "64G",
             "ramUsage": "50%",
             "userOnline": "10"

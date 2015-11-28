@@ -37,6 +37,43 @@ $(function () {
             }
         })
     });
+
+
+    function checkEdit() {
+        console.log('check');
+        console.log(window.location.href);
+        var url = window.location.href,
+            arg = url.split('?')[1];
+        if (!arg) {
+            return;
+        }
+        if (/(\?)algId=\d*/.test(url)) {
+            arg = arg.split('=')[1];
+            console.log(arg);
+            if (!arg) {
+                return;
+            }
+            $.ajax({
+                url: hostUrl + "/manage/toEditAlgorithm",
+                type: "post",
+                data: JSON.stringify({
+                    algorithmId: arg
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawModuleTab(resp.data);
+                        //fillAlgData(resp.data);
+                    }
+                }
+            });
+
+        }
+        if (/(\?)modId=\d*/.test(url)) {
+            arg = url.split('?')[1];
+        }
+    }
     container.find('.back-btn').on('click', function () {
         location.href="../index.html";
     })

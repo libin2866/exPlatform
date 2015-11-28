@@ -53,7 +53,7 @@ $(function(){
                 $.ajax({
                     url: hostUrl + "/user/getModule",
                     type: "post",
-                    data: JSON.stringify(),
+                    data: JSON.stringify({userId:currentUser.userId}),
                     dataType: 'json',
                     success: function (resp) {
                         console.log(resp);
@@ -68,8 +68,8 @@ $(function(){
                 preTab = currentTab;
                 $.ajax({
                     url: hostUrl + "/user/getAlgorithm",
-                    type: "get",
-                    data: JSON.stringify(),
+                    type: "post",
+                    data: JSON.stringify({userId:currentUser.userId}),
                     dataType: 'json',
                     success: function (resp) {
                         console.log(resp);
@@ -118,7 +118,7 @@ $(function(){
         var content = "";
         for (var i = 0; i < data.length; ++i) {
             content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].username + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                '<li class="four-col"><a id="' + data[i].id + '">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+                '<li class="four-col"><a id="' + data[i].id + '" href ="../page/alg_display.html?+id='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
         }
         container.html(content);
         $(".upload-algorithm").html('上传算法').on('click',function(){

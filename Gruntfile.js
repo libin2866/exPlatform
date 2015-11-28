@@ -50,7 +50,7 @@ module.exports = function (grunt) {
             dist: {
                 //src: 'src/css/*.css',
                 //dest: 'build/css/**.css'
-                expand: true, cwd: 'src/css/', src: ['**/*.css'], dest: 'build/css/', ext: '.css'
+                expand: true, cwd: 'src/css/', src: ['**/*.css'], dest: 'src/css/', ext: '.css'
             }
         },
         uglify: {
@@ -67,7 +67,7 @@ module.exports = function (grunt) {
                     //    "src/car.css",
                     //    "src/car01.css"
                     //]
-                    expand: true, cwd: 'build/css/', src: ['**/*.css'], dest: 'build/cssmin/', ext: '.css'
+                    expand: true, cwd: 'src/css/', src: ['**/*.css'], dest: 'src/css/css-min/', ext: '.css'
                 }]
             }
         }

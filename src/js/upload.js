@@ -74,7 +74,36 @@ $(function () {
 
     function initAlg() {
         console.log('alg');
-        $(".submit-btn").on('click', uploadAlg);
+        //$(".submit-btn").on('click', uploadAlg);
+
+        //$("#upload-alg-form").submit(function () {
+        //    var formdata=new FormData(this);
+        //    $.ajax({
+        //        type:'POST',
+        //        url: hostUrl + "/algorithm/addAlgorithm",
+        //        data:formdata,
+        //        /**
+        //         *必须false才会自动加上正确的Content-Type
+        //         */
+        //        contentType:false,
+        //        /**
+        //         * 必须false才会避开jQuery对 formdata 的默认处理
+        //         * XMLHttpRequest会对 formdata 进行正确的处理
+        //         */
+        //        processData:false
+        //    }).then(function(resp){
+        //        //doneCal
+        //        console.log(resp);
+        //        if(resp.status=="0"){
+        //            alert("提交成功!");
+        //            //location.reload();
+        //        }
+        //    },function(resp){
+        //        //failCal
+        //
+        //    });
+        //    return false;
+        //});
         checkEdit();
     }
 
@@ -87,14 +116,16 @@ $(function () {
     function uploadAlg() {
         var name = $("#alg-name").val(),
             mainApp = $("#alg-main").val(),
-            belong = $("#alg-application").val(),
+            belong = $("#alg-module").val(),
             desc = $(".text-area").val(),
             formData = new FormData($("#upload-alg-form")[0]);
         //console.log(form);
+        console.log(name,mainApp,belong);
         if (!name || !mainApp || !belong) {
             alert('请先完善输入信息');
-            return;
+            //return;
         }
+
         $.ajax({
             url: hostUrl + "/algorithm/addAlgorithm",
             type: "post",
@@ -141,6 +172,7 @@ $(function () {
             //    belong: belong,
             //    desc: desc
             //}),
+
             data:formData,
             processData : false,
             contentType : false,
