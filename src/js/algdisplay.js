@@ -43,8 +43,9 @@ $(function () {
             if (!arg) {
                 return;
             }
+
             $.ajax({
-                url: hostUrl + "/manage/toEditAlgorithm",
+                url: hostUrl + "/algorithm/getImg",
                 type: "post",
                 data: JSON.stringify({
                     algorithmId: arg
@@ -54,7 +55,7 @@ $(function () {
                     console.log(resp);
                     if (resp.status == "0") {
                         //redrawModuleTab(resp.data);
-                        fillAlgData(resp.data);
+                        displayImg(resp.data);
                     }
                 }
             });
@@ -62,6 +63,7 @@ $(function () {
         }
         if (/(\?)modId=\d*/.test(url)) {
             arg = url.split('?')[1];
+
         }
     }
 

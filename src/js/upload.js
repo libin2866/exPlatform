@@ -20,6 +20,7 @@ $(function () {
             //$(".edit-info").on('click', function () {
             //    window.location = "./uploadAlg.html?toedit&userid="+currentUser.userId;
             //});
+
         } else {
             alert("请先登录后继续");
             window.location = "../index.html";
@@ -74,6 +75,8 @@ $(function () {
 
     function initAlg() {
         console.log('alg');
+        $('#user-id').val(currentUser.userId);
+        $("#upload-alg-form").attr('action','/DistributedPlatForm/algorithm/addAlgorithm?userId='+currentUser.userId);
         //$(".submit-btn").on('click', uploadAlg);
 
         //$("#upload-alg-form").submit(function () {
@@ -109,7 +112,8 @@ $(function () {
 
     function initMod() {
         console.log('mode');
-        $(".submit-btn").on('click', uploadMod);
+        //$(".submit-btn").on('click', uploadMod);
+        //$("#upload-mod-form").attr('action','/DistributedPlatForm/algorithm/addAlgorithm?userId='+currentUser.userId);
         checkEdit();
     }
 

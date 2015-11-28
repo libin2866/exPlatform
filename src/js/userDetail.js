@@ -15,8 +15,12 @@ $(function(){
         if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
             //console.log(currentUser);
             $(".edit-info").on('click', function () {
-            window.location = "./uploadAlg.html?toedit&userid="+currentUser.userId;
+            window.location = "register.html?userId="+currentUser.userId;
             });
+            console.log('test');
+            fillUserInfo(currentUser);
+            refreshTab(4);
+
         }else{
             alert("请先登录后继续");
             window.location="../index.html";
@@ -43,7 +47,25 @@ $(function(){
             window.history.go(-1);
         })
     })();
-
+    function fillUserInfo(data) {
+        var infoContainer = $(".person-content");
+        infoContainer.find("#sys-user").html(data.username || "请重新登陆");
+        infoContainer.find("#sys-email").html(data.email || "无");
+        infoContainer.find("#sys-company").html(data.companyInfo || "无");
+        infoContainer.find("#sys-mobile").html(data.mobilePhone || "无");
+        localStorage.setItem("userinfo", JSON.stringify(data));//存储用户信息到localstorage
+        //infoContainer.find('.edit-info').on('click', function () {
+        //    if(data.userType=="1"){
+        //        window.location = './page/managePage.html';
+        //    }else{
+        //        window.location = './page/userDetail.html';
+        //    }
+        //
+        //})
+        infoContainer.find(".upload-algorithm").on('click', function () {
+            window.location ='./page/uploadAlg.html';
+        })
+    }
     function refreshTab(tabid){
         if (preTab) preTab.removeClass('tab-activated');
         switch (tabid){
@@ -101,7 +123,7 @@ $(function(){
                 //console.log(data[i].modules[j].name);
             }
             content += '</li>' +
-                '<li class="three-col"><a id="' + data[i].id + '">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>';
+                '<li class="three-col"><a id="' + data[i].id + '" href="alg_display.html?modId='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>';
         }
         container.html(content);
 
@@ -111,14 +133,14 @@ $(function(){
     }
     function redrawAlgorithmTab(data) {
         var ulheader = $('#ul-header');
-        var header = '<li class="four-col">用户名</li><li class="four-col">算法名称</li>' +
+        var header = '<li class="four-col">算法名称</li><li class="four-col">主程序</li>' +
             '<li class="four-col">提交时间</li><li class="four-col">操作</li>';
         ulheader.html(header);
         var container = $('.container');
         var content = "";
         for (var i = 0; i < data.length; ++i) {
-            content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].username + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                '<li class="four-col"><a id="' + data[i].id + '" href ="../page/alg_display.html?+id='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+            content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
+                '<li class="four-col"><a id="' + data[i].id + '" href ="alg_display.html?algId='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
         }
         container.html(content);
         $(".upload-algorithm").html('上传算法').on('click',function(){

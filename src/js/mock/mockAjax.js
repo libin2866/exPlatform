@@ -45,7 +45,7 @@ Mock.mock(hostUrl + "/getTaskInfo", function (options) {
             "running": [
                 {
                     "id": "123",
-                    "name": "HOG检测90%展示"
+                    "name": "HOG检测90%不展示"
                 },
                 {
                     "id": "124",
@@ -408,7 +408,7 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
         "data": [
             {
                 "id": "01",
-                "username": "用户1",
+                "main": "Main",
                 "algorithm": "算法2",
                 "algorithmUrl": "http://www.baidu.com",
                 "postTime": "2015-08-20 19：20：11"
@@ -416,11 +416,36 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
             },
             {
                 "id": "02",
-                "username": "用户2",
+                "main": "Main",
                 "algorithm": "算法3",
                 "algorithmUrl": "http://www.baidu.com",
                 "postTime": "2015-08-20 19：20：11"
             }
+        ]
+    };
+    return data;
+});
+
+Mock.mock(hostUrl + "/task/getTask", function (options) {
+    var data = {
+        "status": "0",
+        "data": [
+            {
+                "id": "01",
+                "title": "Main",
+                "status": "finish",
+                "resultUrl": "http://www.baidu.com",
+                "time": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "01",
+                "title": "Main",
+                "status": "finish",
+                "resultUrl": "http://www.baidu.com",
+                "time": "2015-08-20 19：20：11"
+
+            },
         ]
     };
     return data;

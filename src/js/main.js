@@ -468,7 +468,7 @@ $(function () {
     }//bindSideEvents
 
     var leftNavi =$('.left-navi');
-    console.log(leftNavi.find('li'));
+    //console.log(leftNavi.find('li'));
     leftNavi.find('li').eq(0).on('click', function () {
         if(currentUser){
             window.location="./page/application.html";
@@ -484,7 +484,7 @@ $(function () {
         }
     });
     leftNavi.find('li').eq(2).on('click', function () {
-        console.log(currentUser);
+        //console.log(currentUser);
         if(currentUser){
             window.location="./page/algorithm.html";
         }else{
