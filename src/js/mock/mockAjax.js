@@ -426,6 +426,19 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
     return data;
 });
 
+Mock.mock(hostUrl + "/algorithm/getImg", function (options) {
+    var data = {
+        "status": "0",
+        "data": [
+            {
+                //"src": "http://image.dili360.com/nh/jcjx/2010/6_26253935_20101012134156.jpg",
+                "src": "http://pic.58pic.com/58pic/11/23/24/45q58PICHpA.jpg",
+            }
+        ]
+    };
+    return data;
+});
+
 Mock.mock(hostUrl + "/task/getTask", function (options) {
     var data = {
         "status": "0",
@@ -450,3 +463,4 @@ Mock.mock(hostUrl + "/task/getTask", function (options) {
     };
     return data;
 });
+

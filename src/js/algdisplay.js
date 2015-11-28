@@ -11,7 +11,7 @@ $(function () {
      */
     var currentUser;
     checkLogin();
-
+    checkEdit()
     $('.back-btn').on('click', function () {
         window.history.go(-1);
     });
@@ -31,7 +31,7 @@ $(function () {
 
     function checkEdit() {
         console.log('check');
-        console.log(window.location.href);
+        //console.log(window.location.href);
         var url = window.location.href,
             arg = url.split('?')[1];
         if (!arg) {
@@ -55,7 +55,7 @@ $(function () {
                     console.log(resp);
                     if (resp.status == "0") {
                         //redrawModuleTab(resp.data);
-                        displayImg(resp.data);
+                        displayImg(resp.data[0]);
                     }
                 }
             });
@@ -67,27 +67,41 @@ $(function () {
         }
     }
 
+
+
     function displayImg(data){
-        var temp = '<img src='+data.src+' max-width="400px" max-height="400px"/>';
-        imgContainer.html(temp);
-        $.ajax({
-            url: hostUrl + "/algorithm/getImg",
-            type: "post",
-            data: JSON.stringify({
-                algorithmId: id
-            }),
-            dataType: 'json',
-            success: function (resp) {
-                console.log(resp);
-                if (resp.status == "0") {
-                    //redrawModuleTab(resp.data);
-                    //fillAlgData(resp.data);
-                    $('.result-img').attr('src',resp.src);
-
-                }
-            }
+        $("#dest-img-disp").attr('src',data.src).on('click', function () {
+            showLargeImg(data.src);
         });
+        
+    }
 
+    function  showLargeImg(data){
+        console.log('showImg');
+        $(".white_overlay").fadeIn(300).on("click", function () {
+            hideLargeImage();
+        });
+        $(".icons-container-pop").fadeIn(300);
+        //console.log()
+        $("#large-img-disp").attr('src',data);
 
     }
+    function hideLargeImage(){
+        $(".white_overlay").fadeOut(200);
+        $(".icons-container-pop").fadeOut(200);
+    }
+
+
+
 });
+
+function resizeImg(element, maxWidth, maxHeight){
+    if(element.width > maxWidth || element.height > maxHeight){
+        if(element.width / element.height > maxWidth / maxHeight){
+            element.width = maxWidth;
+        }else{
+            element.height = maxHeight;
+        }
+    }
+    //return element;
+}
