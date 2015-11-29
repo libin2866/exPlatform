@@ -2,35 +2,36 @@
  * @author: libin
  * @date: 15/11/13.
  */
-
-$(function(){
+var currentUser;
+$(function () {
     var leftContainer = $('.left-area');
     var tabBar = leftContainer.find('.tab-banner');
     var preTab = $('#alg-manage'), currentTab, currentId = 4;
-    var hostUrl ="/DistributedPlatForm";
-    var currentUser;
+    var hostUrl = "/DistributedPlatForm";
+
     checkLogin();
 
     function checkLogin() {
         if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
             //console.log(currentUser);
             $(".edit-info").on('click', function () {
-            window.location = "register.html?userId="+currentUser.userId;
+                window.location = "register.html?userId=" + currentUser.userId;
             });
             console.log('test');
             fillUserInfo(currentUser);
             refreshTab(4);
 
-        }else{
+        } else {
             alert("请先登录后继续");
-            window.location="../index.html";
+            window.location = "../index.html";
         }
     }
-    $(".upload-algorithm").html('上传算法').on('click',function(){
+
+    $(".upload-algorithm").html('上传算法').on('click', function () {
         window.location = "./uploadAlg.html";
     });
 
-    (function(){
+    (function () {
         tabBar.find('#alg-manage').on('click', function () {
             if (!$(this).hasClass('tab-activated')) {
                 refreshTab(4);
@@ -45,7 +46,7 @@ $(function(){
         });
         $('.back-btn').on('click', function () {
             //window.history.go(-1);
-            window.location="../index.html";
+            window.location = "../index.html";
         })
     })();
     function fillUserInfo(data) {
@@ -64,19 +65,20 @@ $(function(){
         //
         //})
         infoContainer.find(".upload-algorithm").on('click', function () {
-            window.location ='./page/uploadAlg.html';
+            window.location = './page/uploadAlg.html';
         })
     }
-    function refreshTab(tabid){
+
+    function refreshTab(tabid) {
         if (preTab) preTab.removeClass('tab-activated');
-        switch (tabid){
+        switch (tabid) {
             case 3:
                 currentTab = tabBar.find('#mod-manage');
                 preTab = currentTab;
                 $.ajax({
                     url: hostUrl + "/user/getModule",
                     type: "post",
-                    data: JSON.stringify({userId:currentUser.userId}),
+                    data: JSON.stringify({userId: currentUser.userId}),
                     dataType: 'json',
                     success: function (resp) {
                         console.log(resp);
@@ -92,7 +94,7 @@ $(function(){
                 $.ajax({
                     url: hostUrl + "/user/getAlgorithm",
                     type: "post",
-                    data: JSON.stringify({userId:currentUser.userId}),
+                    data: JSON.stringify({userId: currentUser.userId}),
                     dataType: 'json',
                     success: function (resp) {
                         console.log(resp);
@@ -103,7 +105,7 @@ $(function(){
                 });
                 break;
             default:
-            return;
+                return;
         }
         currentTab.addClass('tab-activated');
     }
@@ -123,8 +125,14 @@ $(function(){
                 content += data[i].algorithms[j].name + " ";
                 //console.log(data[i].modules[j].name);
             }
-            content += '</li>' +
-                '<li class="three-col"><a id="' + data[i].id + '" href="alg_display.html?modId='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>';
+            if (data[i].resultUrl) {
+                content += '</li>' +
+                    '<li class="three-col"><a  href="' + data[i].resultUrl + '">演示</a>&nbsp;<a   href ="uploadMod.html?modId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delMod(' + data[i].id + ')">删除</a></li>' + '</ul>';
+
+            } else {
+                content += '</li>' +
+                    '<li class="three-col"><a   href="alg_display.html?modId=' + data[i].id + '">演示</a>&nbsp;<a   href ="uploadMod.html?modId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delMod(' + data[i].id + ')">删除</a></li>' + '</ul>';
+            }
         }
         container.html(content);
 
@@ -132,6 +140,7 @@ $(function(){
             window.location = "./uploadMod.html";
         });
     }
+
     function redrawAlgorithmTab(data) {
         var ulheader = $('#ul-header');
         var header = '<li class="four-col">算法名称</li><li class="four-col">主程序</li>' +
@@ -140,20 +149,71 @@ $(function(){
         var container = $('.container');
         var content = "";
         for (var i = 0; i < data.length; ++i) {
-            if(data[i].resultUrl){
+            if (data[i].resultUrl) {
                 content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                    '<li class="four-col"><a id="' + data[i].id + '" href ="'+data[i].resultUrl+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
-            }else{
+                    '<li class="four-col"><a href ="' + data[i].resultUrl + '">演示</a>&nbsp;<a  href ="uploadAlg.html?algId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delAlg(' + data[i].id + ')" >删除</a></li>' + '</ul>'
+            } else {
                 content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                    '<li class="four-col"><a id="' + data[i].id + '" href ="alg_display.html?algId='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+                    '<li class="four-col"><a href ="alg_display.html?algId=' + data[i].id + '">演示</a>&nbsp;<a  href ="uploadAlg.html?algId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delAlg(' + data[i].id + ')">删除</a></li>' + '</ul>'
             }
 
         }
         container.html(content);
-        $(".upload-algorithm").html('上传算法').on('click',function(){
+        $(".upload-algorithm").html('上传算法').on('click', function () {
             window.location = "./uploadAlg.html";
         });
     }
 
+
+
+
 });
 
+function  delMod(modId){
+    console.log('delMod');
+    console.log(modId);
+    $.ajax({
+        url: hostUrl + "/manage/delModule",
+        type: "post",
+        data: JSON.stringify({
+            moduleId:modId,
+            userId: currentUser.userId
+        }),
+        dataType: 'json',
+        success: function (resp) {
+            console.log(resp);
+            if (resp.status == "0") {
+                //redrawModuleTab(resp.data);
+                alert('删除成功!');
+                refreshTab(3);
+            }else {
+                alert('删除失败!');
+            }
+        }
+    });
+
+}
+function  delAlg(algId){
+    console.log('delAlg');
+    console.log(algId);
+    $.ajax({
+        url: hostUrl + "/manage/delAlgorithm",
+        type: "post",
+        data: JSON.stringify({
+            moduleId:algId,
+            userId: currentUser.userId
+        }),
+        dataType: 'json',
+        success: function (resp) {
+            console.log(resp);
+            if (resp.status == "0") {
+                //redrawModuleTab(resp.data);
+                alert('删除成功!');
+                refreshTab(4);
+            }else {
+                alert('删除失败!');
+            }
+        }
+    });
+
+}

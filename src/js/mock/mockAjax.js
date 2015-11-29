@@ -15,7 +15,7 @@ Mock.mock(hostUrl + "/user/UserLoginServlet", function (options) {
             "email": "test@fudan.edu.cn",
             "companyInfo": "Fudan University",
             "mobilePhone": "13700001234",
-            "userType": "1"//1:admin 0:user
+            "userType": "0"//1:admin 0:user
         }
     };
     return data;
@@ -430,7 +430,7 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
                 "id": "01",
                 "main": "Main",
                 "algorithm": "算法2",
-                "algorithmUrl": "http://www.baidu.com",
+                "resultUrl": "http://www.baidu.com",
                 "postTime": "2015-08-20 19：20：11"
 
             },
@@ -438,7 +438,7 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
                 "id": "02",
                 "main": "Main",
                 "algorithm": "算法3",
-                "algorithmUrl": "http://www.baidu.com",
+                "resultUrl": "",
                 "postTime": "2015-08-20 19：20：11"
             }
         ]
@@ -491,3 +491,62 @@ Mock.mock(hostUrl + "/task/getTask", function (options) {
     return data;
 });
 
+Mock.mock(hostUrl + "/manage/toEditAlgorithm", function (options) {
+    var data = {
+        "status":"0",
+        "data": {
+            "name": "test",
+            "content": "",//需要用文件上传 待定
+            "className": "SVN",
+            "module": [
+                {
+                    "id": "123",
+                    "name": "模块1"
+                }
+            ],
+            "desc": "这个是描述"
+
+        }
+    };
+
+        return data;
+});
+
+Mock.mock(hostUrl + "/manage/toEditModule", function (options) {
+    var data = {
+        "status": "0",//  成功：0  失败：1
+        "data": {
+            "id": "02",
+            "name": "模块22",
+            "algorithms": [
+                {
+                    "id": "002",
+                    "name": "算法2"
+                },
+                {
+                    "id": "003",
+                    "name": "算法3"
+                }
+            ],
+            "mainClass":"TestClass",
+            "moduleUrl": "http://www.baidu.com",
+            "postTime": "2015-08-20 19：20：11",
+            "desc":"test"
+        }
+    };
+    return data;
+});
+
+Mock.mock(hostUrl + "/manage/delModule", function (options) {
+    var data = {
+        "status": "0",//  成功：0  失败：1
+    };
+    return data;
+});
+
+Mock.mock(hostUrl + "/manage/delAlgorithm", function (options) {
+    var data = {
+        "status": "0",//  成功：0  失败：1
+    };
+    return data;
+});

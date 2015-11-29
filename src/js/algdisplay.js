@@ -49,7 +49,8 @@ $(function () {
                 url: hostUrl + "/algorithm/getImg",
                 type: "post",
                 data: JSON.stringify({
-                    algorithmId: arg
+                    algorithmId: arg,
+                    userId:currentUser.userId
                 }),
                 dataType: 'json',
                 success: function (resp) {
@@ -73,6 +74,36 @@ $(function () {
         }
         if (/(\?)modId=\d*/.test(url)) {
             arg = url.split('?')[1];
+            console.log(arg);
+            if (!arg) {
+                return;
+            }
+
+            $.ajax({
+                url: hostUrl + "/module/getImg",
+                type: "post",
+                data: JSON.stringify({
+                    moduleId: arg,
+                    userId:currentUser.userId
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawModuleTab(resp.data);
+                        displayTitle(resp.data.title);
+                        currentImg=0;
+                        imgList=resp.data.imgList;
+                        displayImg(imgList,currentImg);
+                        $(".prev-pic-btn").on('click', function () {
+                            prevImg();
+                        });
+                        $(".next-pic-btn").on('click', function () {
+                            nextImg();
+                        })
+                    }
+                }
+            });
 
         }
     }

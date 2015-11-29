@@ -53,6 +53,7 @@ $(function () {
                     console.log(resp);
                     if (resp.status == "0") {
                         //redrawModuleTab(resp.data);
+                        $(document).attr("title","编辑算法");//修改title值
                         fillAlgData(resp.data);
                     }
                 }
@@ -76,6 +77,7 @@ $(function () {
                     console.log(resp);
                     if (resp.status == "0") {
                         //redrawModuleTab(resp.data);
+                        $(document).attr("title","编辑模块");//修改title值
                         fillModData(resp.data);
                     }
                 }
@@ -186,16 +188,26 @@ $(function () {
     }
 
     function fillAlgData(data) {
+        console.log(data);
         $("#alg-name").val(data.name);
         $("#alg-main").val(data.className);
-        $("#alg-module").val(data.belong);
+        var temp= "";
+        for(var i =0;i<data.module.length;++i){
+            temp+=data.module[i].name+" ";
+        }
+        $("#alg-module").val(temp);
         $(".text-area").val(data.desc);
     }
 
     function fillModData(data) {
+        console.log(data);
         $("#mod-name").val(data.name);
         $("#mod-main").val(data.className);
-        $("#mod-application").val(data.belong);
+        var temp= "";
+        for(var i =0;i<data.algorithms.length;++i){
+            temp+=data.algorithms[i].name+" ";
+        }
+        $("#mod-application").val(data.temp);
         $(".text-area").val(data.desc);
     }
 
