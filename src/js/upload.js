@@ -76,37 +76,18 @@ $(function () {
     function initAlg() {
         console.log('alg');
         $('#user-id').val(currentUser.userId);
-        $("#upload-alg-form").attr('action','/DistributedPlatForm/algorithm/addAlgorithm?userId='+currentUser.userId);
-        //$(".submit-btn").on('click', uploadAlg);
+        //var upForm = $("#upload-alg-form");
+        //upForm.attr('action','/DistributedPlatForm/algorithm/addAlgorithm?userId='+currentUser.userId);
+
+
+
 
         //$("#upload-alg-form").submit(function () {
-        //    var formdata=new FormData(this);
-        //    $.ajax({
-        //        type:'POST',
-        //        url: hostUrl + "/algorithm/addAlgorithm",
-        //        data:formdata,
-        //        /**
-        //         *必须false才会自动加上正确的Content-Type
-        //         */
-        //        contentType:false,
-        //        /**
-        //         * 必须false才会避开jQuery对 formdata 的默认处理
-        //         * XMLHttpRequest会对 formdata 进行正确的处理
-        //         */
-        //        processData:false
-        //    }).then(function(resp){
-        //        //doneCal
-        //        console.log(resp);
-        //        if(resp.status=="0"){
-        //            alert("提交成功!");
-        //            //location.reload();
-        //        }
-        //    },function(resp){
-        //        //failCal
-        //
-        //    });
-        //    return false;
+        //    console.log('submitting');
         //});
+        $(".submit-btn").on('click', uploadAlg);
+
+
         checkEdit();
     }
 
@@ -122,39 +103,60 @@ $(function () {
             mainApp = $("#alg-main").val(),
             belong = $("#alg-module").val(),
             desc = $(".text-area").val(),
-            formData = new FormData($("#upload-alg-form")[0]);
+        upForm = $("#upload-alg-form");
+        //formData = new FormData($("#upload-alg-form")[0]);
         //console.log(form);
-        console.log(name,mainApp,belong);
+        //console.log(name,mainApp,belong);
         if (!name || !mainApp || !belong) {
             alert('请先完善输入信息');
-            //return;
+            return;
         }
 
-        $.ajax({
-            url: hostUrl + "/algorithm/addAlgorithm",
-            type: "post",
-            data:formData,
-            /**
-             * 必须false才会避开jQuery对 formdata 的默认处理
-             * XMLHttpRequest会对 formdata 进行正确的处理
-             */
-            processData : false,
-            /**
-             *必须false才会自动加上正确的Content-Type
-             */
-            contentType : false,
-            //dataType: "formdata",
+        var options = {
+            url:"/DistributedPlatForm/algorithm/addAlgorithm?userId="+currentUser.userId,
             success: function (resp) {
-                console.log(resp);
-                if(resp.status=="0"){
-                    alert("提交成功!");
-                    location.reload();
+                if(resp.status=='0'){
+                    alert('上传成功');
                 }
-            },
-            error : function(responseStr) {
-                alert("失败:" + JSON.stringify(responseStr));//将    json对象    转成    json字符串。
+                else{
+                    alert('上传失败');
+                }
             }
-        })
+        };
+
+        // ajaxForm
+        upForm.ajaxForm(options);
+
+        // ajaxSubmit
+        $(".submit-btn").click(function () {
+            upForm.ajaxSubmit(options);
+        });
+
+        //$.ajax({
+        //    url: hostUrl + "/algorithm/addAlgorithm",
+        //    type: "post",
+        //    data:formData,
+        //    /**
+        //     * 必须false才会避开jQuery对 formdata 的默认处理
+        //     * XMLHttpRequest会对 formdata 进行正确的处理
+        //     */
+        //    processData : false,
+        //    /**
+        //     *必须false才会自动加上正确的Content-Type
+        //     */
+        //    contentType : false,
+        //    //dataType: "formdata",
+        //    success: function (resp) {
+        //        console.log(resp);
+        //        if(resp.status=="0"){
+        //            alert("提交成功!");
+        //            location.reload();
+        //        }
+        //    },
+        //    error : function(responseStr) {
+        //        alert("失败:" + JSON.stringify(responseStr));//将    json对象    转成    json字符串。
+        //    }
+        //})
     }
 
     function uploadMod() {
@@ -167,28 +169,48 @@ $(function () {
             alert('请先完善输入信息');
             return;
         }
-        $.ajax({
-            url: hostUrl + "/module/addModule",
-            type: "post",
-            //data: JSON.stringify({
-            //    name: name,
-            //    mainApp: mainApp,
-            //    belong: belong,
-            //    desc: desc
-            //}),
 
-            data:formData,
-            processData : false,
-            contentType : false,
-            //dataType: "json",
+        var options = {
             success: function (resp) {
-                console.log(resp);
-                if(resp.status=="0"){
-                    alert("提交成功!");
-                    location.reload();
+                if(resp.status=='0'){
+                    alert('上传成功');
+                }
+                else{
+                    alert('上传失败');
                 }
             }
-        })
+        };
+
+        // ajaxForm
+        upForm.ajaxForm(options);
+
+        // ajaxSubmit
+        $(".submit-btn").click(function () {
+            upForm.ajaxSubmit(options);
+        });
+
+        //$.ajax({
+        //    url: hostUrl + "/module/addModule",
+        //    type: "post",
+        //    //data: JSON.stringify({
+        //    //    name: name,
+        //    //    mainApp: mainApp,
+        //    //    belong: belong,
+        //    //    desc: desc
+        //    //}),
+        //
+        //    data:formData,
+        //    processData : false,
+        //    contentType : false,
+        //    //dataType: "json",
+        //    success: function (resp) {
+        //        console.log(resp);
+        //        if(resp.status=="0"){
+        //            alert("提交成功!");
+        //            location.reload();
+        //        }
+        //    }
+        //})
     }
 
     function fillAlgData(data) {

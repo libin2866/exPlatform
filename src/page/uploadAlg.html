@@ -10,7 +10,7 @@
 <div class="main-container">
 
     <button class="purple-btn back-btn">返回</button>
-    <form id="upload-alg-form" enctype="multipart/form-data" action="/DistributedPlatForm/algorithm/addAlgorithm" method="post">
+    <form id="upload-alg-form" enctype="multipart/form-data"  method="post">
         <div class="upload-area">
             <ul class="input-ul">
                 <li><span class="title">算法程序</span> <span class="input-area"><input type="file" name="upload-file" onchange="selectFile(this)"/></span> </li>
@@ -24,7 +24,7 @@
         </div>
         <div class="action-area">
             <p class="desc">请上传 jar 包格式的文件</p>
-            <input type="submit" class="purple-btn submit-btn"/>
+            <input type="submit" class="purple-btn submit-btn" />
         </div>
     </form>
 </div>
@@ -33,6 +33,7 @@
 <script src ="../js/lib/jquery.min.js"></script>
 <script src="../js/mock/mock.min.js"></script>
 <script src="../js/mock/mockAjax.js"></script>
+<script src ="../js/lib/jquery.form.js"></script>
 <script src="../js/upload.js"></script>
 </body>
 </html>
