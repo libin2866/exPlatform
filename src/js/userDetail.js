@@ -44,7 +44,8 @@ $(function(){
             }
         });
         $('.back-btn').on('click', function () {
-            window.history.go(-1);
+            //window.history.go(-1);
+            window.location="../index.html";
         })
     })();
     function fillUserInfo(data) {
@@ -139,8 +140,14 @@ $(function(){
         var container = $('.container');
         var content = "";
         for (var i = 0; i < data.length; ++i) {
-            content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                '<li class="four-col"><a id="' + data[i].id + '" href ="alg_display.html?algId='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+            if(data[i].resultUrl){
+                content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
+                    '<li class="four-col"><a id="' + data[i].id + '" href ="'+data[i].resultUrl+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+            }else{
+                content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
+                    '<li class="four-col"><a id="' + data[i].id + '" href ="alg_display.html?algId='+data[i].id+'">演示</a>&nbsp;<a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+            }
+
         }
         container.html(content);
         $(".upload-algorithm").html('上传算法').on('click',function(){

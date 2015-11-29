@@ -25,10 +25,10 @@ Mock.mock(hostUrl + "/getSystemInfo", function (options) {
     var data = {
         "status": "0",
         "data": {
-            "cluster":"4",
+            "cluster": "4",
             "cpu": "4",
             "disk": "999G",
-            "diskUsage":"10%",
+            "diskUsage": "10%",
             "ram": "64G",
             "ramUsage": "50%",
             "userOnline": "10"
@@ -71,34 +71,54 @@ Mock.mock(hostUrl + "/getIndexPage", function (options) {
     console.log(options);
     var data = {
         "status": "0",
-        "data":{
-            "pageData":[
-                {"id":"001","name":"智能交通1","type":"application"},{"id":"002","name":"智慧校园","type":"application"},{"id":"002","name":"反恐维稳","type":"application"},
-                {"id":"003","name":"行人检测2","type":"module"},{"id":"004","name":"车辆检测","type":"module"},{"id":"005","name":"图像分析","type":"module"},
-                {"id":"006","name":"视频图像3","type":"algorithm"},{"id":"007","name":"深度学习","type":"algorithm"},{"id":"008","name":"机器学习","type":"algorithm"}
+        "data": {
+            "pageData": [
+                {"id": "001", "name": "智能交通1", "type": "application"}, {
+                    "id": "002",
+                    "name": "智慧校园",
+                    "type": "application"
+                }, {"id": "002", "name": "反恐维稳", "type": "application"},
+                {"id": "003", "name": "行人检测2", "type": "module"}, {
+                    "id": "004",
+                    "name": "车辆检测",
+                    "type": "module"
+                }, {"id": "005", "name": "图像分析", "type": "module"},
+                {"id": "006", "name": "视频图像3", "type": "algorithm"}, {
+                    "id": "007",
+                    "name": "深度学习",
+                    "type": "algorithm"
+                }, {"id": "008", "name": "机器学习", "type": "algorithm"}
             ],
-            "maxPage":"3"//返回最大页数
+            "maxPage": "3"//返回最大页数
         }
     };
     return data;
 });
-Mock.mock(hostUrl+"/getGridData", function (options) {
-   console.log(options);
-   var data = {
-       "status":"0",
-       "data":{
-           "moduleData":[{"id":"003","name":"行人检测","icon":"icon-url"},{"id":"004","name":"车辆检测","icon":"icon-url"},{"id":"005","name":"图像分析","icon":"icon-url"}]
-       }
-   };
+Mock.mock(hostUrl + "/getGridData", function (options) {
+    console.log(options);
+    var data = {
+        "status": "0",
+        "data": {
+            "moduleData": [{"id": "003", "name": "行人检测", "icon": "icon-url"}, {
+                "id": "004",
+                "name": "车辆检测",
+                "icon": "icon-url"
+            }, {"id": "005", "name": "图像分析", "icon": "icon-url"}]
+        }
+    };
     return data;
 
 });
-Mock.mock(hostUrl+"/getGridData2", function (options) {
+Mock.mock(hostUrl + "/getGridData2", function (options) {
     console.log(options);
     var data = {
-        "status":"0",
-        "data":{
-            "algorithmData":[{"id":"003","name":"行人检测2","icon":"icon-url"},{"id":"004","name":"车辆检测1","icon":"icon-url"},{"id":"005","name":"图像分析11","icon":"icon-url"}]
+        "status": "0",
+        "data": {
+            "algorithmData": [{"id": "003", "name": "行人检测2", "icon": "icon-url"}, {
+                "id": "004",
+                "name": "车辆检测1",
+                "icon": "icon-url"
+            }, {"id": "005", "name": "图像分析11", "icon": "icon-url"}]
         }
     };
     return data;
@@ -221,7 +241,7 @@ Mock.mock(hostUrl + "/algorithm/addAlgorithm", function () {
     };
     return data;
 });
-Mock.mock(hostUrl+"/algorithm/editAlgorithm", function () {
+Mock.mock(hostUrl + "/algorithm/editAlgorithm", function () {
     var data = {
         " status ": "0",
     };
@@ -429,12 +449,19 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
 Mock.mock(hostUrl + "/algorithm/getImg", function (options) {
     var data = {
         "status": "0",
-        "data": [
-            {
-                //"src": "http://image.dili360.com/nh/jcjx/2010/6_26253935_20101012134156.jpg",
-                "src": "http://pic.58pic.com/58pic/11/23/24/45q58PICHpA.jpg",
-            }
-        ]
+        "data": {
+            "imgList": [
+                {
+                    //"src": "http://image.dili360.com/nh/jcjx/2010/6_26253935_20101012134156.jpg",
+                    "src": "http://pic.58pic.com/58pic/11/23/24/45q58PICHpA.jpg",
+                },
+                {
+                    "src": "http://image.dili360.com/nh/jcjx/2010/6_26253935_20101012134156.jpg",
+                    //"src": "http://pic.58pic.com/58pic/11/23/24/45q58PICHpA.jpg",
+                },
+            ],
+            "title": "SVN算法"
+        }
     };
     return data;
 });

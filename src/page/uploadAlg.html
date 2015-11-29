@@ -13,12 +13,13 @@
     <form id="upload-alg-form" enctype="multipart/form-data"  method="post">
         <div class="upload-area">
             <ul class="input-ul">
+                <input type="hidden" id="user-id" name="user-id"/>
                 <li><span class="title">算法程序</span> <span class="input-area"><input type="file" name="upload-file" onchange="selectFile(this)"/></span> </li>
                 <li><span class="title">名称</span><span ><input type="text" class="input-area" id="alg-name" name="alg-name"> </span> </li>
                 <li><span class="title" >主程序</span><span ><input type="text"class="input-area" id="alg-main" name="alg-main"> </span> </span></li>
                 <li><span class="title" >所属模块</span><span ><input type="text"class="input-area" id="alg-module" name="alg-module"> </span> </span></li>
                 <li><span class="title" >运行参数</span><span ><textarea class="input-area text-area" name="text-area"></textarea> </span> </span></li>
-                <input type="hidden" id="user-id" name="user-id"/>
+
             </ul>
 
         </div>

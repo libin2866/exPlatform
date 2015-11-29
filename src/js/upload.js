@@ -45,6 +45,7 @@ $(function () {
                 url: hostUrl + "/manage/toEditAlgorithm",
                 type: "post",
                 data: JSON.stringify({
+                    userId:currentUser.userId,
                     algorithmId: arg
                 }),
                 dataType: 'json',
@@ -60,6 +61,25 @@ $(function () {
         }
         if (/(\?)modId=\d*/.test(url)) {
             arg = url.split('?')[1];
+            if (!arg) {
+                return;
+            }
+            $.ajax({
+                url: hostUrl + "/manage/toEditModule",
+                type: "post",
+                data: JSON.stringify({
+                    userId:currentUser.userId,
+                    moduleId: arg
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawModuleTab(resp.data);
+                        fillModData(resp.data);
+                    }
+                }
+            });
         }
     }
 
@@ -76,15 +96,6 @@ $(function () {
     function initAlg() {
         console.log('alg');
         $('#user-id').val(currentUser.userId);
-        //var upForm = $("#upload-alg-form");
-        //upForm.attr('action','/DistributedPlatForm/algorithm/addAlgorithm?userId='+currentUser.userId);
-
-
-
-
-        //$("#upload-alg-form").submit(function () {
-        //    console.log('submitting');
-        //});
         $(".submit-btn").on('click', uploadAlg);
 
 
@@ -93,6 +104,8 @@ $(function () {
 
     function initMod() {
         console.log('mode');
+        $('#user-id').val(currentUser.userId);
+        $(".submit-btn").on('click', uploadMod);
         //$(".submit-btn").on('click', uploadMod);
         //$("#upload-mod-form").attr('action','/DistributedPlatForm/algorithm/addAlgorithm?userId='+currentUser.userId);
         checkEdit();
@@ -115,11 +128,14 @@ $(function () {
         var options = {
             url:"/DistributedPlatForm/algorithm/addAlgorithm?userId="+currentUser.userId,
             success: function (resp) {
+                //console.log(resp);
+               var  resp = JSON.parse(resp);
                 if(resp.status=='0'){
                     alert('上传成功');
+                    window.location='userDetail.html';
                 }
                 else{
-                    alert('上传失败');
+                    alert('上传失败，请重试！');
                 }
             }
         };
@@ -132,31 +148,6 @@ $(function () {
             upForm.ajaxSubmit(options);
         });
 
-        //$.ajax({
-        //    url: hostUrl + "/algorithm/addAlgorithm",
-        //    type: "post",
-        //    data:formData,
-        //    /**
-        //     * 必须false才会避开jQuery对 formdata 的默认处理
-        //     * XMLHttpRequest会对 formdata 进行正确的处理
-        //     */
-        //    processData : false,
-        //    /**
-        //     *必须false才会自动加上正确的Content-Type
-        //     */
-        //    contentType : false,
-        //    //dataType: "formdata",
-        //    success: function (resp) {
-        //        console.log(resp);
-        //        if(resp.status=="0"){
-        //            alert("提交成功!");
-        //            location.reload();
-        //        }
-        //    },
-        //    error : function(responseStr) {
-        //        alert("失败:" + JSON.stringify(responseStr));//将    json对象    转成    json字符串。
-        //    }
-        //})
     }
 
     function uploadMod() {
@@ -164,24 +155,27 @@ $(function () {
             mainApp = $("#mod-main").val(),
             belong = $("#mod-application").val(),
             desc = $(".text-area").val(),
-            formData = new FormData($("#upload-mod-form")[0]);
+            upForm = $("#upload-mod-form");
+
         if (!name || !mainApp || !belong) {
             alert('请先完善输入信息');
             return;
         }
 
         var options = {
+            url:"/DistributedPlatForm/module/addModule?userId="+currentUser.userId,
             success: function (resp) {
+                var  resp = JSON.parse(resp);
                 if(resp.status=='0'){
                     alert('上传成功');
+                    window.location='userDetail.html';
                 }
                 else{
-                    alert('上传失败');
+                    alert('上传失败，请重试！');
                 }
             }
         };
 
-        // ajaxForm
         upForm.ajaxForm(options);
 
         // ajaxSubmit
@@ -189,28 +183,6 @@ $(function () {
             upForm.ajaxSubmit(options);
         });
 
-        //$.ajax({
-        //    url: hostUrl + "/module/addModule",
-        //    type: "post",
-        //    //data: JSON.stringify({
-        //    //    name: name,
-        //    //    mainApp: mainApp,
-        //    //    belong: belong,
-        //    //    desc: desc
-        //    //}),
-        //
-        //    data:formData,
-        //    processData : false,
-        //    contentType : false,
-        //    //dataType: "json",
-        //    success: function (resp) {
-        //        console.log(resp);
-        //        if(resp.status=="0"){
-        //            alert("提交成功!");
-        //            location.reload();
-        //        }
-        //    }
-        //})
     }
 
     function fillAlgData(data) {

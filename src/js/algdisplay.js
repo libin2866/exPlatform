@@ -10,6 +10,7 @@ $(function () {
      * @param data
      */
     var currentUser;
+    var currentImg= 0,imgList;
     checkLogin();
     checkEdit()
     $('.back-btn').on('click', function () {
@@ -55,7 +56,16 @@ $(function () {
                     console.log(resp);
                     if (resp.status == "0") {
                         //redrawModuleTab(resp.data);
-                        displayImg(resp.data[0]);
+                        displayTitle(resp.data.title);
+                        currentImg=0;
+                        imgList=resp.data.imgList;
+                        displayImg(imgList,currentImg);
+                        $(".prev-pic-btn").on('click', function () {
+                            prevImg();
+                        });
+                        $(".next-pic-btn").on('click', function () {
+                            nextImg();
+                        })
                     }
                 }
             });
@@ -67,13 +77,46 @@ $(function () {
         }
     }
 
+ function displayTitle(data){
+     $(".alg-title").html(data);
+ }
+    function prevImg(){
+        if(currentImg>0){
+            currentImg--;
+            if(currentImg==0){
+                $(".prev-pic-btn").addClass('disabled-btn');
+            }
+            $(".next-pic-btn").removeClass('disabled-btn');
 
+        }else{
+            currentImg=0;
+            $(".prev-pic-btn").addClass('disabled-btn');
+            //alert("已经是第一张图像");
+            //return;
+        }
+        displayImg(imgList,currentImg);
+    }
+    function nextImg(){
+        if(currentImg<imgList.length-1){
+            currentImg++;
+            if(currentImg==imgList.length-1){
+                $(".next-pic-btn").addClass('disabled-btn');
+            }
+            $(".prev-pic-btn").removeClass('disabled-btn');
 
-    function displayImg(data){
-        $("#dest-img-disp").attr('src',data.src).on('click', function () {
-            showLargeImg(data.src);
+        }else{
+            currentImg=imgList.length-1;
+            $(".next-pic-btn").addClass('disabled-btn');
+            //alert("已经是最后一张图像");
+            //return;
+        }
+        displayImg(imgList,currentImg);
+    }
+
+    function displayImg(data,pos){
+        $("#dest-img-disp").attr('src',data[pos].src).on('click', function () {
+            showLargeImg(data[pos].src);
         });
-        
     }
 
     function  showLargeImg(data){
