@@ -20,6 +20,7 @@ $(function () {
                 //alert("请先登录后继续");
                 window.location="./userDetail.html";
             }
+            refreshTab(1);
         }else{
             alert("请先登录后继续");
             window.location="../index.html";
@@ -177,7 +178,7 @@ $(function () {
     function redrawUserTab(data) {
         var ulheader = $('#ul-header');
         var header = '<li class="four-col">用户名</li><li class="four-col">算法名称</li>' +
-            '<li class="four-col">提交时间</li><li class="four-col">操作</li>'
+            '<li class="four-col">提交时间</li><li class="four-col">操作</li>';
         ulheader.html(header);
         var container = $('.container');
         var content = "";
@@ -191,7 +192,7 @@ $(function () {
     function redrawApplicationTab(data) {
         var ulheader = $('#ul-header');
         var header = '<li class="three-col">应用名称</li><li class="three-col">关联模块</li>' +
-            '<li class="three-col">操作</li>'
+            '<li class="three-col">操作</li>';
         ulheader.html(header);
         var container = $('.container');
         var content = "";
@@ -230,7 +231,7 @@ $(function () {
 
     function redrawAlgorithmTab(data) {
         var ulheader = $('#ul-header');
-        var header = '<li class="four-col">用户名</li><li class="four-col">算法名称</li>' +
+        var header = '<li class="four-col">算法名称</li><li class="four-col">主程序</li>' +
             '<li class="four-col">提交时间</li><li class="four-col">操作</li>'
         ulheader.html(header);
         var container = $('.container');

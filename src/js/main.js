@@ -309,7 +309,7 @@ $(function () {
                 if($(tar).parent().find('.inner-icon').hasClass('algorithm-class')){
                     console.log('to load algorithm content');
                     //clickedIcons();
-                    window.location="./page/alg_display.html?id="+$(tar).attr('data-id');
+                    window.location="./page/alg_display.html?algId="+$(tar).attr('data-id');
                 }else if($(tar).parent().find('.inner-icon').hasClass('module-class')){
                     clickedIcons($(tar).attr('data-id'),'module',$(tar).parent().find('.title').html());
                     //console.log('to load module content');
