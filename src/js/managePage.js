@@ -184,7 +184,7 @@ $(function () {
         var content = "";
         for (var i = 0; i < data.length; ++i) {
             content += '<ul class="input-ul"><li class="four-col">' + data[i].username + '</li><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].postTime + '</li>' +
-                '<li class="four-col"><a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+                '<li class="four-col"><a href="register.html?userId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delUser(' + data[i].id + ')">删除</a></li>' + '</ul>'
         }
         container.html(content);
     }
@@ -204,7 +204,7 @@ $(function () {
                 //console.log(data[i].modules[j].name);
             }
             content += '</li>' +
-                '<li class="three-col"><a id="' + data[i].id + '">删除</a></li>' + '</ul>';
+                '<li class="three-col"><a href="javascript:void(0);" onclick="delApplication(' + data[i].id + ')">删除</a></li>' + '</ul>';
         }
         container.html(content);
     }
@@ -224,7 +224,7 @@ $(function () {
                 //console.log(data[i].modules[j].name);
             }
             content += '</li>' +
-                '<li class="three-col"><a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>';
+                '<li class="three-col"><a href ="uploadMod.html?modId="' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delAlg(' + data[i].id + ')">删除</a></li>' + '</ul>';
         }
         container.html(content);
     }
@@ -238,9 +238,111 @@ $(function () {
         var content = "";
         for (var i = 0; i < data.length; ++i) {
             content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].username + '</li><li class="four-col">' + data[i].postTime + '</li>' +
-                '<li class="four-col"><a id="' + data[i].id + '">编辑</a>&nbsp;<a id="' + data[i].id + '">删除</a></li>' + '</ul>'
+                '<li class="four-col"><a href="uploadAlg.html?algId="' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delAlg(' + data[i].id + ')">删除</a></li>' + '</ul>'
         }
         container.html(content);
     }
 
 });
+
+function  delMod(modId){
+    console.log('delMod');
+    console.log(modId);
+    if(confirm("确定要删除吗？")){
+        $.ajax({
+            url: hostUrl + "/manage/delModule",
+            type: "post",
+            data: JSON.stringify({
+                moduleId:modId,
+                userId: currentUser.userId
+            }),
+            dataType: 'json',
+            success: function (resp) {
+                console.log(resp);
+                if (resp.status == "0") {
+                    //redrawModuleTab(resp.data);
+                    alert('删除成功!');
+                    refreshTab(3);
+                }else {
+                    alert('删除失败!');
+                }
+            }
+        });
+    }
+}
+function  delAlg(algId){
+    console.log('delAlg');
+    console.log(algId);
+    if(confirm("确定要删除吗？"))
+    {
+        $.ajax({
+            url: hostUrl + "/manage/delAlgorithm",
+            type: "post",
+            data: JSON.stringify({
+                algorithmId:algId,
+                userId: currentUser.userId
+            }),
+            dataType: 'json',
+            success: function (resp) {
+                console.log(resp);
+                if (resp.status == "0") {
+                    //redrawModuleTab(resp.data);
+                    alert('删除成功!');
+                    refreshTab(4);
+                }else {
+                    alert('删除失败!');
+                }
+            }
+        });
+    }
+}
+function  delApplication(appId){
+    console.log('delAlg:'+appId);
+    if(confirm("确定要删除该应用吗？"))
+    {
+        $.ajax({
+            url: hostUrl + "/manage/delApplication",
+            type: "post",
+            data: JSON.stringify({
+                applicationId:appId,
+                userId: currentUser.userId
+            }),
+            dataType: 'json',
+            success: function (resp) {
+                console.log(resp);
+                if (resp.status == "0") {
+                    //redrawModuleTab(resp.data);
+                    alert('删除成功!');
+                    refreshTab(2);
+                }else {
+                    alert('删除失败!');
+                }
+            }
+        });
+    }
+}
+function  delUser(userId){
+    console.log('delUser:'+userId);
+    if(confirm("确定要删除该用户吗？"))
+    {
+        $.ajax({
+            url: hostUrl + "/manage/delUser",
+            type: "post",
+            data: JSON.stringify({
+                delUserId:userId,
+                userId: currentUser.userId
+            }),
+            dataType: 'json',
+            success: function (resp) {
+                console.log(resp);
+                if (resp.status == "0") {
+                    //redrawModuleTab(resp.data);
+                    alert('删除成功!');
+                    refreshTab(1);
+                }else {
+                    alert('删除失败!');
+                }
+            }
+        });
+    }
+}
