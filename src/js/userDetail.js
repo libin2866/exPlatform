@@ -3,12 +3,11 @@
  * @date: 15/11/13.
  */
 var currentUser;
+var hostUrl = "/DistributedPlatForm";
 $(function () {
     var leftContainer = $('.left-area');
     var tabBar = leftContainer.find('.tab-banner');
     var preTab = $('#alg-manage'), currentTab, currentId = 4;
-    var hostUrl = "/DistributedPlatForm";
-
     checkLogin();
 
     function checkLogin() {
@@ -203,7 +202,7 @@ function  delAlg(algId){
             url: hostUrl + "/manage/delAlgorithm",
             type: "post",
             data: JSON.stringify({
-                moduleId:algId,
+                algorithmId:algId,
                 userId: currentUser.userId
             }),
             dataType: 'json',

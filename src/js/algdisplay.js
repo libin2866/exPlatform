@@ -2,6 +2,7 @@
  * @author: libin
  * @date: 15/11/17.
  */
+var hostUrl ="/DistributedPlatForm";
 $(function () {
    var imgContainer = $('.result-contain');
 
@@ -73,7 +74,7 @@ $(function () {
 
         }
         if (/(\?)modId=\d*/.test(url)) {
-            arg = url.split('?')[1];
+            arg = url.split('=')[1];
             console.log(arg);
             if (!arg) {
                 return;

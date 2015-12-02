@@ -3,37 +3,37 @@
  */
 
 $(function () {
-   var container =$('.main-container');
+    var container = $('.main-container');
     checkEdit();
-
-    function newUserAction(){
+    var currentUser;
+    function newUserAction() {
         container.find('.new-user').on('click', function () {
             var values = {
-                username:container.find('.username').val(),
-                password:container.find('.password').val(),
-                repass:container.find('.re-password').val(),
-                companyInfo:container.find('.compinfo').val(),
-                mobilePhone:container.find('.phone').val(),
-                email:container.find('.email').val(),
+                username: container.find('.username').val(),
+                password: container.find('.password').val(),
+                repass: container.find('.re-password').val(),
+                companyInfo: container.find('.compinfo').val(),
+                mobilePhone: container.find('.phone').val(),
+                email: container.find('.email').val(),
             };
             //console.log(values);
-            if(!values.username||!values.password||!values.repass||!values.companyInfo||!values.mobilePhone||!values.email){
+            if (!values.username || !values.password || !values.repass || !values.companyInfo || !values.mobilePhone || !values.email) {
                 container.find('.error-info').text('您还有信息未输入完全，请补充');
             }
-            if(values.password!=values.repass){
+            if (values.password != values.repass) {
                 container.find('.error-info').text('两次输入密码不一致');
             }
 
             $.ajax({
-                url:"/DistributedPlatForm/UserServlet",
-                type:"post",
-                data:JSON.stringify(values),
-                success:function (resp) {
+                url: "/DistributedPlatForm/UserServlet",
+                type: "post",
+                data: JSON.stringify(values),
+                success: function (resp) {
                     console.log(resp);
-                    if(resp.status=='0'){
+                    if (resp.status == '0') {
                         alert('注册成功!');
-                        location.href="../index.html";
-                    }else{
+                        location.href = "../index.html";
+                    } else {
                         alert("注册失败,请检查输入内容后重试!");
                         return;
                     }
@@ -41,35 +41,37 @@ $(function () {
             })
         });
     }
-    function editUserAction(){
+
+    function editUserAction() {
         container.find('.edit-user').on('click', function () {
             var values = {
-                username:container.find('.username').val(),
-                password:container.find('.password').val(),
-                repass:container.find('.re-password').val(),
-                companyInfo:container.find('.compinfo').val(),
-                mobilePhone:container.find('.phone').val(),
-                email:container.find('.email').val(),
+                userId: currentUser.userId,
+                username: container.find('.username').val(),
+                password: container.find('.password').val(),
+                repass: container.find('.re-password').val(),
+                companyInfo: container.find('.compinfo').val(),
+                mobilePhone: container.find('.phone').val(),
+                email: container.find('.email').val(),
             };
             //console.log(values);
-            if(!values.username||!values.password||!values.repass||!values.companyInfo||!values.mobilePhone||!values.email){
+            if (!values.username || !values.password || !values.repass || !values.companyInfo || !values.mobilePhone || !values.email) {
                 container.find('.error-info').text('您还有信息未输入完全，请补充');
             }
-            if(values.password!=values.repass){
+            if (values.password != values.repass) {
                 container.find('.error-info').text('两次输入密码不一致');
             }
 
             $.ajax({
-                url:"/DistributedPlatForm/user/edit",
-                type:"post",
-                data:JSON.stringify(values),
-                success:function (resp) {
+                url: "/DistributedPlatForm/user/edit",
+                type: "post",
+                data: JSON.stringify(values),
+                success: function (resp) {
                     console.log(resp);
-                    if(resp.status=='0'){
+                    if (resp.status == '0') {
                         alert('编辑成功!');
-                        location.href="../index.html";
-                    }else{
-                        alert("编辑失败,请检查输入内容后重试!"+resp.data);
+                        location.href = "../index.html";
+                    } else {
+                        alert("编辑失败,请检查输入内容后重试!" + resp.data);
                         return;
                     }
                 }
@@ -92,26 +94,27 @@ $(function () {
             if (!arg) {
                 return;
             }
-            var currentUser;
+
             if (currentUser = JSON.parse(window.localStorage.getItem('userinfo'))) {
-                   container.find('.username').val(currentUser.username);
-                    container.find('.compinfo').val(currentUser.companyInfo);
-                   container.find('.phone').val(currentUser.mobilePhone);
-                    container.find('.email').val(currentUser.email);
-                var str ='<button class="purple-btn edit-user">确认编辑</button>';
+                container.find('.username').val(currentUser.username);
+                container.find('.compinfo').val(currentUser.companyInfo);
+                container.find('.phone').val(currentUser.mobilePhone);
+                container.find('.email').val(currentUser.email);
+                var str = '<button class="purple-btn edit-user">确认编辑</button>';
                 $("#control-area").html(str);
                 editUserAction();
             }
-            else{
+            else {
                 alert('请先注册或者登录后继续操作');
-                window.location="../index.html";
+                window.location = "../index.html";
             }
 
-        }else{
+        } else {
             newUserAction();
         }
     }
+
     container.find('.back-btn').on('click', function () {
-        location.href="../index.html";
+        location.href = "../index.html";
     })
 });
