@@ -2,6 +2,7 @@
  * Created by Libin on 2015/9/9.
  */
 
+var hostUrl ="/DistributedPlatForm";
 $(function () {
     var container = $('.main-container');
     checkEdit();
@@ -62,12 +63,21 @@ $(function () {
             }
 
             $.ajax({
-                url: "/DistributedPlatForm/user/edit",
+                url: hostUrl + "/user/edit",
                 type: "post",
                 data: JSON.stringify(values),
+                dataType:"json",
                 success: function (resp) {
                     console.log(resp);
+                    //var resp = JSON.parse(resp);
+                    //console.log(resp);
                     if (resp.status == '0') {
+                        currentUser.username=values.username;
+                        currentUser.companyInfo=values.companyInfo;
+                        currentUser.mobilePhone=values.mobilePhone;
+                        currentUser.email=values.email;
+                        localStorage.removeItem("userinfo");
+                        localStorage.setItem("userinfo", JSON.stringify(currentUser));//存储用户信息到localstorage
                         alert('编辑成功!');
                         location.href = "../index.html";
                     } else {

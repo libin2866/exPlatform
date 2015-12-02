@@ -550,3 +550,10 @@ Mock.mock(hostUrl + "/manage/delAlgorithm", function (options) {
     };
     return data;
 });
+
+Mock.mock(hostUrl + "/user/edit", function (options) {
+    var data = {
+        "status": "0",//  成功：0  失败：1
+    };
+    return data;
+});
