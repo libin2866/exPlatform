@@ -182,9 +182,9 @@ $(function () {
         }
         var tempUrl;
         if(globalId){
-            tempUrl="/DistributedPlatForm/algorithm/editModule?userId="+currentUser.userId+"&modId="+globalId;
+            tempUrl="/DistributedPlatForm/module/editModule?userId="+currentUser.userId+"&modId="+globalId;
         }else{
-            tempUrl="/DistributedPlatForm/algorithm/addModule?userId="+currentUser.userId;
+            tempUrl="/DistributedPlatForm/module/addModule?userId="+currentUser.userId;
         }
 
         var options = {
