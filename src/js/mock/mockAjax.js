@@ -15,7 +15,7 @@ Mock.mock(hostUrl + "/user/UserLoginServlet", function (options) {
             "email": "test@fudan.edu.cn",
             "companyInfo": "Fudan University",
             "mobilePhone": "13700001234",
-            "userType": "0"//1:admin 0:user
+            "userType": "1"//1:admin 0:user
         }
     };
     return data;
@@ -537,12 +537,12 @@ Mock.mock(hostUrl + "/manage/toEditModule", function (options) {
     return data;
 });
 
-//Mock.mock(hostUrl + "/manage/delModule", function (options) {
-//    var data = {
-//        "status": "0",//  成功：0  失败：1
-//    };
-//    return data;
-//});
+Mock.mock(hostUrl + "/manage/delModule", function (options) {
+    var data = {
+        "status": "0",//  成功：0  失败：1
+    };
+    return data;
+});
 
 Mock.mock(hostUrl + "/manage/delAlgorithm", function (options) {
     var data = {

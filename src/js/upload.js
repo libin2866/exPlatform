@@ -61,7 +61,7 @@ $(function () {
 
         }
         if (/(\?)modId=\d*/.test(url)) {
-            arg = url.split('?')[1];
+            arg = url.split('=')[1];
             if (!arg) {
                 return;
             }

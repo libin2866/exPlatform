@@ -126,15 +126,24 @@ $(function () {
             }
             if (data[i].resultUrl) {
                 content += '</li>' +
-                    '<li class="three-col"><a  href="' + data[i].resultUrl + '">运行</a>&nbsp;<a   href ="uploadMod.html?modId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delMod(' + data[i].id + ')">删除</a></li>' + '</ul>';
+                    '<li class="three-col"><a  href="' + data[i].resultUrl + '">运行</a>&nbsp;<a   href ="uploadMod.html?modId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '">删除</a></li>' + '</ul>';
 
             } else {
                 content += '</li>' +
-                    '<li class="three-col"><a   href="alg_display.html?modId=' + data[i].id + '">运行</a>&nbsp;<a   href ="uploadMod.html?modId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delMod(' + data[i].id + ')">删除</a></li>' + '</ul>';
+                    '<li class="three-col"><a   href="alg_display.html?modId=' + data[i].id + '">运行</a>&nbsp;<a   href ="uploadMod.html?modId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '">删除</a></li>' + '</ul>';
             }
         }
         container.html(content);
+        container.find(".del-link").on('click', function (tar) {
+            //console.log(tar);
+            var target = tar.target || tar.srcElement,
+            //console.log($(target).attr('data-id'));
+                targetId = $(target).attr('data-id');
+            if (targetId) {
+                delMod(targetId);
+            }
 
+        });
         $(".upload-algorithm").html('上传模块').on('click', function () {
             window.location = "./uploadMod.html";
         });
@@ -150,72 +159,82 @@ $(function () {
         for (var i = 0; i < data.length; ++i) {
             if (data[i].resultUrl) {
                 content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                    '<li class="four-col"><a href ="' + data[i].resultUrl + '">运行</a>&nbsp;<a  href ="uploadAlg.html?algId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delAlg(' + data[i].id + ')" >删除</a></li>' + '</ul>'
+                    '<li class="four-col"><a href ="' + data[i].resultUrl + '">运行</a>&nbsp;<a  href ="uploadAlg.html?algId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '" >删除</a></li>' + '</ul>'
             } else {
                 content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].main + '</li><li class="four-col  font14">' + data[i].postTime + '</li>' +
-                    '<li class="four-col"><a href ="alg_display.html?algId=' + data[i].id + '">运行</a>&nbsp;<a  href ="uploadAlg.html?algId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" onclick="delAlg(' + data[i].id + ')">删除</a></li>' + '</ul>'
+                    '<li class="four-col"><a href ="alg_display.html?algId=' + data[i].id + '">运行</a>&nbsp;<a  href ="uploadAlg.html?algId=' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '"">删除</a></li>' + '</ul>'
             }
 
         }
         container.html(content);
+        container.find(".del-link").on('click', function (tar) {
+            //console.log(tar);
+            var target = tar.target || tar.srcElement,
+            //console.log($(target).attr('data-id'));
+                targetId = $(target).attr('data-id');
+            if (targetId) {
+                delAlg(targetId);
+            }
+
+        });
         $(".upload-algorithm").html('上传算法').on('click', function () {
             window.location = "./uploadAlg.html";
         });
     }
 
+    function delAlg(algId) {
+        console.log('delAlg');
+        console.log(algId);
+        if (confirm("确定要删除该算法吗？")) {
+            $.ajax({
+                url: hostUrl + "/manage/delAlgorithm",
+                type: "post",
+                data: JSON.stringify({
+                    algorithmId: algId,
+                    userId: currentUser.userId
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawModuleTab(resp.data);
+                        alert('删除成功!');
+                        refreshTab(4);
+                    } else {
+                        alert('删除失败!');
+                    }
+                }
+            });
+        }
+    }
 
+    function delMod(modId) {
+        console.log('delMod');
+        console.log(modId);
+        if (confirm("确定要删除该模块吗？")) {
+            $.ajax({
+                url: hostUrl + "/manage/delModule",
+                type: "post",
+                data: JSON.stringify({
+                    moduleId: modId,
+                    userId: currentUser.userId
+                }),
+                dataType: 'json',
+                success: function (resp) {
+                    console.log(resp);
+                    if (resp.status == "0") {
+                        //redrawModuleTab(resp.data);
+                        alert('删除成功!');
+                        refreshTab(3);
+                    } else {
+                        alert('删除失败!');
+                    }
+                }
+            });
+        }
+    }
 
 
 });
 
-function  delMod(modId){
-    console.log('delMod');
-    console.log(modId);
-    if(confirm("确定要删除吗？")){
-        $.ajax({
-            url: hostUrl + "/manage/delModule",
-            type: "post",
-            data: JSON.stringify({
-                moduleId:modId,
-                userId: currentUser.userId
-            }),
-            dataType: 'json',
-            success: function (resp) {
-                console.log(resp);
-                if (resp.status == "0") {
-                    //redrawModuleTab(resp.data);
-                    alert('删除成功!');
-                    refreshTab(3);
-                }else {
-                    alert('删除失败!');
-                }
-            }
-        });
-    }
-}
-function  delAlg(algId){
-    console.log('delAlg');
-    console.log(algId);
-    if(confirm("确定要删除吗？"))
-    {
-        $.ajax({
-            url: hostUrl + "/manage/delAlgorithm",
-            type: "post",
-            data: JSON.stringify({
-                algorithmId:algId,
-                userId: currentUser.userId
-            }),
-            dataType: 'json',
-            success: function (resp) {
-                console.log(resp);
-                if (resp.status == "0") {
-                    //redrawModuleTab(resp.data);
-                    alert('删除成功!');
-                    refreshTab(4);
-                }else {
-                    alert('删除失败!');
-                }
-            }
-        });
-    }
-}
+
