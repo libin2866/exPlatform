@@ -498,7 +498,7 @@ Mock.mock(hostUrl + "/manage/toEditAlgorithm", function (options) {
             "name": "test",
             "content": "",//需要用文件上传 待定
             "className": "SVN",
-            "module": [
+            "modules": [
                 {
                     "id": "123",
                     "name": "模块1"

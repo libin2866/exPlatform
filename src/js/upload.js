@@ -12,6 +12,7 @@ $(function () {
     });
     var currentUser;
     checkLogin();
+    var globalId="";
 
 
     function checkLogin() {
@@ -41,6 +42,7 @@ $(function () {
             if (!arg) {
                 return;
             }
+            globalId=arg;
             $.ajax({
                 url: hostUrl + "/manage/toEditAlgorithm",
                 type: "post",
@@ -65,6 +67,7 @@ $(function () {
             if (!arg) {
                 return;
             }
+            globalId=arg;
             $.ajax({
                 url: hostUrl + "/manage/toEditModule",
                 type: "post",
@@ -126,15 +129,29 @@ $(function () {
             alert('请先完善输入信息');
             return;
         }
+        var tempUrl;
+        if(globalId){
+            tempUrl="/DistributedPlatForm/algorithm/editAlgorithm?userId="+currentUser.userId+"&algId="+globalId;
+        }else{
+            tempUrl="/DistributedPlatForm/algorithm/addAlgorithm?userId="+currentUser.userId;
+        }
 
         var options = {
-            url:"/DistributedPlatForm/algorithm/addAlgorithm?userId="+currentUser.userId,
+            url:tempUrl,
             success: function (resp) {
-                //console.log(resp);
+                console.log(resp);
                var  resp = JSON.parse(resp);
                 if(resp.status=='0'){
-                    alert('上传成功');
-                    window.location='userDetail.html';
+                   if(globalId){
+                      if( confirm('编辑成功,是否跳转到管理页?')){
+                          window.location='userDetail.html';
+                       }
+                   } else{
+                       if(confirm('上传成功,是否跳转到管理页?')){
+                           window.location='userDetail.html';
+                       }
+                   }
+
                 }
                 else{
                     alert('上传失败，请重试！');
@@ -163,14 +180,30 @@ $(function () {
             alert('请先完善输入信息');
             return;
         }
+        var tempUrl;
+        if(globalId){
+            tempUrl="/DistributedPlatForm/algorithm/editModule?userId="+currentUser.userId+"&modId="+globalId;
+        }else{
+            tempUrl="/DistributedPlatForm/algorithm/addModule?userId="+currentUser.userId;
+        }
 
         var options = {
-            url:"/DistributedPlatForm/module/addModule?userId="+currentUser.userId,
+            url:tempUrl,
             success: function (resp) {
+                console.log(resp);
                 var  resp = JSON.parse(resp);
                 if(resp.status=='0'){
-                    alert('上传成功');
-                    window.location='userDetail.html';
+                    //alert('上传成功');
+                    //window.location='userDetail.html';
+                    if(globalId){
+                        if( confirm('编辑成功,是否跳转到管理页?')){
+                            window.location='userDetail.html';
+                        }
+                    } else{
+                        if(confirm('上传成功,是否跳转到管理页?')){
+                            window.location='userDetail.html';
+                        }
+                    }
                 }
                 else{
                     alert('上传失败，请重试！');
@@ -192,8 +225,8 @@ $(function () {
         $("#alg-name").val(data.name);
         $("#alg-main").val(data.className);
         var temp= "";
-        for(var i =0;i<data.module.length;++i){
-            temp+=data.module[i].name+" ";
+        for(var i =0;i<data.modules.length;++i){
+            temp+=data.modules[i].name+" ";
         }
         $("#alg-module").val(temp);
         $(".text-area").val(data.desc);

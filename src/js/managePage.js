@@ -242,7 +242,7 @@ $(function () {
                 //console.log(data[i].modules[j].name);
             }
             content += '</li>' +
-                '<li class="three-col"><a href ="uploadMod.html?modId="' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '">删除</a></li>' + '</ul>';
+                '<li class="three-col"><a href ="uploadMod.html?modId='+ data[i].id +'">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '">删除</a></li>' + '</ul>';
         }
         container.html(content);
         container.find(".del-link").on('click', function (tar) {
@@ -265,7 +265,7 @@ $(function () {
         var content = "";
         for (var i = 0; i < data.length; ++i) {
             content += '<ul class="input-ul"><li class="four-col">' + data[i].algorithm + '</li><li class="four-col">' + data[i].username + '</li><li class="four-col">' + data[i].postTime + '</li>' +
-                '<li class="four-col"><a href="uploadAlg.html?algId="' + data[i].id + '">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '">删除</a></li>' + '</ul>'
+                '<li class="four-col"><a href="uploadAlg.html?algId='+ data[i].id +'">编辑</a>&nbsp;<a href="javascript:void(0);" class="del-link" data-id="' + data[i].id + '">删除</a></li>' + '</ul>'
         }
         container.html(content);
         container.find(".del-link").on('click', function (tar) {
