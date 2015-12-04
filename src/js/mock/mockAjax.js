@@ -15,7 +15,7 @@ Mock.mock(hostUrl + "/user/UserLoginServlet", function (options) {
             "email": "test@fudan.edu.cn",
             "companyInfo": "Fudan University",
             "mobilePhone": "13700001234",
-            "userType": "1"//1:admin 0:user
+            "userType": "0"//1:admin 0:user
         }
     };
     return data;
@@ -160,6 +160,231 @@ Mock.mock(hostUrl + "/module/getList", function (options) {
                     }
                 ],
                 "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "name": "ajax模块2",
+                "algorithms": [
+                    {
+                        "id": "123",
+                        "name": "SVN"
+                    },
+                    {
+                        "id": "124",
+                        "name": "HOG"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
             }
         ]
     };
@@ -177,7 +402,7 @@ Mock.mock(hostUrl + "/application/getList", function () {
             {
                 "id": "01",
                 "name": "应用1",
-                "module": [
+                "modules": [
                     {
                         "id": "123",
                         "name": "模块1"
@@ -192,7 +417,7 @@ Mock.mock(hostUrl + "/application/getList", function () {
             {
                 "id": "01",
                 "name": "应用2",
-                "module": [
+                "modules": [
                     {
                         "id": "123",
                         "name": "模块1"
@@ -203,7 +428,161 @@ Mock.mock(hostUrl + "/application/getList", function () {
                     }
                 ],
                 "resultUrl": "http://www.baidu.com"
-            }
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            }, {
+                "id": "01",
+                "name": "应用1",
+                "modules": [
+                    {
+                        "id": "123",
+                        "name": "模块1"
+                    },
+                    {
+                        "id": "124",
+                        "name": "模块2"
+                    }
+                ],
+                "resultUrl": "http://www.baidu.com"
+            },
         ]
     };
     return data;
@@ -222,6 +601,111 @@ Mock.mock(hostUrl + "/algorithm/getList", function () {
                 "title": "SVN",
                 "time": "2015-08-15 09:00",
                 "username": " 测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
+                "downloadUrl": "http://www.baidu.com"
+            },
+            {
+                "id": "01",
+                "title": "HOG",
+                "time": "2015-08-15 09:00",
+                "username": "测试",
                 "downloadUrl": "http://www.baidu.com"
             },
             {
@@ -427,6 +911,119 @@ Mock.mock(hostUrl + "/user/getAlgorithm", function (options) {
         "status": "0",
         "data": [
             {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            },
+            {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
+                "id": "01",
+                "main": "Main",
+                "algorithm": "算法2",
+                "resultUrl": "http://www.baidu.com",
+                "postTime": "2015-08-20 19：20：11"
+
+            },
+            {
+                "id": "02",
+                "main": "Main",
+                "algorithm": "算法3",
+                "resultUrl": "",
+                "postTime": "2015-08-20 19：20：11"
+            }, {
                 "id": "01",
                 "main": "Main",
                 "algorithm": "算法2",

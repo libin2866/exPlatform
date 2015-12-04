@@ -8,6 +8,7 @@ $(function () {
     checkEdit();
     var currentUser;
     function newUserAction() {
+        console.log('new');
         container.find('.new-user').on('click', function () {
             var values = {
                 username: container.find('.username').val(),
@@ -26,11 +27,12 @@ $(function () {
             }
 
             $.ajax({
-                url: "/DistributedPlatForm/UserServlet",
+                url:  hostUrl +"/user/UserServlet",
                 type: "post",
                 data: JSON.stringify(values),
                 success: function (resp) {
                     console.log(resp);
+                    var resp = JSON.parse(resp);
                     if (resp.status == '0') {
                         alert('注册成功!');
                         location.href = "../index.html";
@@ -96,6 +98,7 @@ $(function () {
         var url = window.location.href,
             arg = url.split('?')[1];
         if (!arg) {
+            newUserAction();
             return;
         }
         if (/(\?)userId=\d*/.test(url)) {

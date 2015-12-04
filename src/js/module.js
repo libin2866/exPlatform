@@ -52,7 +52,7 @@ $(function () {
                 //console.log(data[i].modules[j].name);
             }
             content += '</li>' +
-                '<li class="three-col"><a href ="' +data[i].downloadUrl+ '">进入</a></li>' + '</ul>';
+                '<li class="three-col"><a href ="' +data[i].downloadUrl+ '">下载</a></li>' + '</ul>';
         }
         container.html(content);
     }

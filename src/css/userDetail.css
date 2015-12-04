@@ -189,6 +189,10 @@ body {
 .main-container .left-area .header ul .four-col {
   width: 160px;
 }
+.main-container .left-area .container {
+  max-height: 290px;
+  overflow-y: auto ;
+}
 .main-container .left-area .container ul {
   margin-left: 5px;
   margin-right: 18px;
